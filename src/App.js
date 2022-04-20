@@ -45,10 +45,12 @@ const App = () => {
       fontFamily: '"Lato", "Roboto", "Helvetica", "Arial", sans-serif',
       h1: {
         fontFamily: '"Source Serif Pro", "Noto Serif", serif',
+        fontSize: '2.1em'
       },
       h2: {
-        fontFamily: '"Source Serif Pro", "Noto Serif", serif',
-      },
+        fontWeight: '400',
+        fontSize: '1.2em'
+      }
     },
   })
 
