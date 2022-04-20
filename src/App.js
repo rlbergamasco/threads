@@ -1,11 +1,15 @@
 import { Box } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 import { Nav } from 'components';
-import { HomePage, HistoryPage, ClosetPage, SettingsPage } from 'pages';
+import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage } from 'pages';
 
 const ROUTES = [
   {
     path: '/',
+    element: <LoginPage />,
+  },
+  {
+    path: '/home',
     element: <HomePage />,
   },
   {
