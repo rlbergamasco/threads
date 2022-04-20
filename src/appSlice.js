@@ -15,17 +15,17 @@ export const appSlice = createSlice({
             state.isDark = !state.isDark;
         },
         addOutfit: (state, action) => {
-            state.outfits.append(action.payload);
+            state.items.append(action.payload);
         },
-        editOutfit: (state, action) => {
-            state.outfits.find(el => el.id === action.payload.id) = action.payload;
-        },
+        // editOutfit: (state, action) => {
+        //     state.outfits.find(el => el.id === action.payload.id) = action.payload;
+        // },
         addItem: (state, action) => {
             state.items.append(action.payload);
         },
-        editItem: (state, action) => {
-            state.items.find(el => el.id === action.payload.id) = action.payload;
-        },
+        // editItem: (state, action) => {
+        //     state.items.find(el => el.id === action.payload.id) = action.payload;
+        // },
         addTag: (state, action) => {
             state.tags.append(action.payload);
         },
@@ -36,7 +36,7 @@ export const appSlice = createSlice({
     },
 });
 
-export const { toggleIsDark, addOutfit, editOutfit, addItem, editItem, addTag, deleteTag } = appSlice.actions;
+export const { toggleIsDark, addOutfit, addItem, addTag, deleteTag } = appSlice.actions;
 
 export const selectIsDark = (state) => state.app.isDark;
 export const selectOutfits = (state) => state.app.outfits;
