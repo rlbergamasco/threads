@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
+import { Nav } from 'components';
 import { HomePage, HistoryPage, ClosetPage, SettingsPage } from 'pages';
 
 const ROUTES = [
@@ -33,7 +34,7 @@ const App = () => {
           />
         ))}
       </Routes>
-      {/* navbar here */}
+      <Nav />
     </Box>
   );
 }
