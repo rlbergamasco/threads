@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 import { Nav } from 'components';
-import { HomePage, HistoryPage, ClosetPage, SettingsPage } from 'pages';
+import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage } from 'pages';
 
 const ROUTES = [
   {
@@ -19,6 +19,10 @@ const ROUTES = [
   {
     path: '/settings',
     element: <SettingsPage />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
   },
 ];
 
