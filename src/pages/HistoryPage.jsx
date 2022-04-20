@@ -1,8 +1,10 @@
+import { Typography } from '@mui/material';
+
 const HistoryPage = () => {
     return (
-        <div>
+        <Typography>
             History
-        </div>
+        </Typography>
     );
 };
 

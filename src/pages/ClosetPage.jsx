@@ -1,8 +1,10 @@
+import { Typography } from '@mui/material';
+
 const ClosetPage = () => {
     return (
-        <div>
+        <Typography>
             Closet
-        </div>
+        </Typography>
     );
 };
 

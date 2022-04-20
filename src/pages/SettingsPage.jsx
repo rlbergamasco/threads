@@ -1,8 +1,10 @@
+import { Typography } from '@mui/material';
+
 const SettingsPage = () => {
     return (
-        <div>
+        <Typography>
             Settings
-        </div>
+        </Typography>
     );
 };
 
