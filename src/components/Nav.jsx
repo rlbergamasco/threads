@@ -6,7 +6,8 @@ const Nav = () => {
             <a href="/">Home</a><br />
             <a href="/history">History</a><br />
             <a href="/closet">Closet</a><br />
-            <a href="/settings">Settings</a>
+            <a href="/settings">Settings</a><br />
+            <a href="/login">Login</a>
         </Typography>
     );
 };
