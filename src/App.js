@@ -1,8 +1,10 @@
-function App() {
+import { Typography } from '@mui/material';
+
+const App = () => {
   return (
-    <div>
+    <Typography>
       Threads
-    </div>
+    </Typography>
   );
 }
 
