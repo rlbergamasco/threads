@@ -2,13 +2,17 @@ import { useEffect } from 'react';
 import { Box, createTheme, ThemeProvider, Typography } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 import { Nav } from 'components';
-import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage } from 'pages';
+import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage, LogOutfitPage } from 'pages';
 import { useSelector } from 'react-redux';
 import { selectIsDark } from "appSlice";
 
 const ROUTES = [
   {
     path: '/',
+    element: <LoginPage />,
+  },
+  {
+    path: '/home',
     element: <HomePage />,
   },
   {
@@ -20,12 +24,12 @@ const ROUTES = [
     element: <ClosetPage />,
   },
   {
-    path: '/settings',
-    element: <SettingsPage />,
+    path: '/log',
+    element: <LogOutfitPage />,
   },
   {
-    path: '/login',
-    element: <LoginPage />,
+    path: '/settings',
+    element: <SettingsPage />,
   },
 ];
 
@@ -76,7 +80,7 @@ const App = () => {
             />
           ))}
         </Routes>
-        <Nav />
+        <Nav selected='home' />
       </Box>
     </ThemeProvider>
   );

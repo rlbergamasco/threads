@@ -1,15 +1,21 @@
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { selectIsDark } from "appSlice";
 
-const Nav = () => {
+const Nav = ({ selected }) => {
+    const isDark = useSelector(selectIsDark);
+    const icons = ['home', 'history', 'log', 'closet', 'settings'];
+
     return (
-        <Typography>
-            <a href="/">Home</a><br />
-            <a href="/history">History</a><br />
-            <a href="/closet">Closet</a><br />
-            <a href="/settings">Settings</a><br />
-            <a href="/login">Login</a>
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+            {icons.map((icon, i) => <a key={i} href={`/${icon}`}><img width="30" alt={`${icon} icon`} src={selected === icon ? isDark ? `/icons/${icon}-dark.png` : `/icons/${icon}-light.png` : `/icons/${icon}.png`} /></a>)}
+        </Box>
     );
+};
+
+Nav.propTypes = {
+    selected: PropTypes.oneOf(['home', 'history', 'log', 'closet', 'settings']).isRequired,
 };
 
 export { Nav };
