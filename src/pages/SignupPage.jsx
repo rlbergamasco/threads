@@ -1,13 +1,15 @@
 import { TextField, Button } from '@mui/material';
 
-const LoginPage = () => {
+const SignupPage = () => {
     return (
         <div>
+            <TextField label="Name" />
             <TextField label="Username" />
             <TextField label="Password" />
-            <Button href="/home">Log In</Button>
+            <TextField label="Confirm Password" />
+            <Button href="/home">Sign Up</Button>
         </div >
     );
 };
 
-export { LoginPage };
+export { SignupPage };

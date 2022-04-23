@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
-import { Box, createTheme, ThemeProvider, Typography } from '@mui/material';
-import { Routes, Route } from 'react-router-dom';
+import { Box, createTheme, ThemeProvider } from '@mui/material';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Nav } from 'components';
-import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage, LogOutfitPage } from 'pages';
-import { useSelector } from 'react-redux';
-import { selectIsDark } from "appSlice";
+import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage, LogOutfitPage, SignupPage, StartPage } from 'pages';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectIsDark, selectSelected, changeSelected } from "appSlice";
 
 const ROUTES = [
   {
     path: '/',
-    element: <LoginPage />,
+    element: <StartPage />,
   },
   {
     path: '/home',
@@ -31,10 +31,23 @@ const ROUTES = [
     path: '/settings',
     element: <SettingsPage />,
   },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/signup',
+    element: <SignupPage />,
+  },
 ];
 
 const App = () => {
   const isDark = useSelector(selectIsDark);
+  const selected = useSelector(selectSelected);
+  const navPaths = ['/home', '/history', '/log', '/closet', '/settings'];
+  const location = useLocation().pathname;
+  const hideNav = location === '/' || location === '/login' || location === '/signup';
+  const dispatch = useDispatch();
 
   let theme = createTheme({
     palette: {
@@ -43,7 +56,8 @@ const App = () => {
         main: isDark ? '#6D74BD' : '#3A418C',
       },
       background: {
-        default: isDark ? '#303030' : '#fafafa',
+        default: isDark ? '#202020' : '#F6F6F6',
+        paper: isDark ? '#151515' : '#fff',
       },
       text: {
         primary: isDark ? '#fff' : 'rgba(0, 0, 0, 0.87)',
@@ -60,27 +74,34 @@ const App = () => {
         fontSize: '1.2em'
       }
     },
-  })
+  });
+
+  useEffect(() => {
+    if (navPaths.includes(location)) {
+      dispatch(changeSelected(location.substring(1)));
+    }
+  }, [location]);
 
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{
         width: '100vw',
         height: '100vh',
-        p: 3,
-        bgcolor: 'background.default',
+        bgcolor: 'background.paper',
         color: 'text.primary',
       }}>
-        <Routes>
-          {ROUTES.map((route) => (
-            <Route
-              key={route.path}
-              exact={route.path === '/'}
-              {...route}
-            />
-          ))}
-        </Routes>
-        <Nav selected='home' />
+        <Box sx={{ p: 3 }}>
+          <Routes>
+            {ROUTES.map((route) => (
+              <Route
+                key={route.path}
+                exact={route.path === '/'}
+                {...route}
+              />
+            ))}
+          </Routes>
+        </Box>
+        {hideNav ? null : <Nav selected={selected} />}
       </Box>
     </ThemeProvider>
   );

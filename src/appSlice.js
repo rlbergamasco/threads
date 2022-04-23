@@ -5,6 +5,7 @@ const initialState = {
     outfits: [],
     items: [],
     tags: [],
+    selected: 'home',
 }
 
 export const appSlice = createSlice({
@@ -33,14 +34,18 @@ export const appSlice = createSlice({
             state.tags = state.tags.filter(el => el.id === action.payload);
             // payload should just be tag id
         },
+        changeSelected: (state, action) => {
+            state.selected = action.payload;
+        }
     },
 });
 
-export const { toggleIsDark, addOutfit, addItem, addTag, deleteTag } = appSlice.actions;
+export const { toggleIsDark, addOutfit, addItem, addTag, deleteTag, changeSelected } = appSlice.actions;
 
 export const selectIsDark = (state) => state.app.isDark;
 export const selectOutfits = (state) => state.app.outfits;
 export const selectItems = (state) => state.app.items;
 export const selectTags = (state) => state.app.tags;
+export const selectSelected = (state) => state.app.selected;
 
 export default appSlice.reducer;
