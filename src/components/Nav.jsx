@@ -11,7 +11,7 @@ const Nav = ({ selected }) => {
         <Box sx={{ bgcolor: 'background.default', p: 3, position: 'fixed', bottom: 0, width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
             {icons.map((icon, i) =>
                 <Box key={i} sx={{ filter: selected !== icon && isDark ? 'invert(100%) sepia(8%) saturate(1386%) hue-rotate(356deg) brightness(113%) contrast(107%)' : selected === icon && isDark ? 'brightness(0) saturate(100%) invert(65%) sepia(77%) saturate(3041%) hue-rotate(205deg) brightness(78%) contrast(85%)' : '' }}>
-                    <a href={`/${icon}`}><img width="30" alt={`${icon} icon`} src={selected === icon ? `/icons/${icon}-fill.png` : `/icons/${icon}.png`} /></a>
+                    <a href={`/${icon}`}><img width="28" alt={`${icon} icon`} src={selected === icon ? `/icons/${icon}-fill.png` : `/icons/${icon}.png`} /></a>
                 </Box>
             )}
         </Box>
