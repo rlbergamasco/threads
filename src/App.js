@@ -1,45 +1,28 @@
 import { useEffect } from 'react';
-import { Box, createTheme, ThemeProvider, Typography } from '@mui/material';
-import { Routes, Route } from 'react-router-dom';
+import { Box, createTheme, ThemeProvider } from '@mui/material';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Nav } from 'components';
-import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage } from 'pages';
-import { useSelector } from 'react-redux';
-import { selectIsDark } from "appSlice";
-
-const ROUTES = [
-  {
-    path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/history',
-    element: <HistoryPage />,
-  },
-  {
-    path: '/closet',
-    element: <ClosetPage />,
-  },
-  {
-    path: '/settings',
-    element: <SettingsPage />,
-  },
-  {
-    path: '/login',
-    element: <LoginPage />,
-  },
-];
+import { useSelector, useDispatch } from 'react-redux';
+import { selectIsDark, selectSelected, changeSelected } from "appSlice";
+import { ROUTES } from 'routes';
 
 const App = () => {
   const isDark = useSelector(selectIsDark);
+  const selected = useSelector(selectSelected);
+  const navPaths = ['/home', '/history', '/log', '/closet', '/settings'];
+  const location = useLocation().pathname;
+  const hideNav = location === '/' || location === '/login' || location === '/signup';
+  const dispatch = useDispatch();
 
-  let theme = createTheme({
+  const theme = createTheme({
     palette: {
       type: isDark ? 'dark' : 'light',
       primary: {
         main: isDark ? '#6D74BD' : '#3A418C',
       },
       background: {
-        default: isDark ? '#303030' : '#fafafa',
+        default: isDark ? '#202020' : '#F6F6F6',
+        paper: isDark ? '#151515' : '#fff',
       },
       text: {
         primary: isDark ? '#fff' : 'rgba(0, 0, 0, 0.87)',
@@ -56,27 +39,61 @@ const App = () => {
         fontSize: '1.2em'
       }
     },
-  })
+  });
+
+  const lightTheme = createTheme({
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#3A418C',
+      },
+      background: {
+        default: '#F6F6F6',
+        paper: '#fff',
+      },
+      text: {
+        primary: 'rgba(0, 0, 0, 0.87)',
+      },
+    },
+    typography: {
+      fontFamily: '"Lato", "Roboto", "Helvetica", "Arial", sans-serif',
+      h1: {
+        fontFamily: '"Source Serif Pro", "Noto Serif", serif',
+        fontSize: '2.1em'
+      },
+      h2: {
+        fontWeight: '400',
+        fontSize: '1.2em'
+      }
+    },
+  });
+
+  useEffect(() => {
+    if (navPaths.includes(location)) {
+      dispatch(changeSelected(location.substring(1)));
+    }
+  }, [location]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={hideNav ? lightTheme : theme}>
       <Box sx={{
         width: '100vw',
         height: '100vh',
-        p: 3,
-        bgcolor: 'background.default',
+        bgcolor: 'background.paper',
         color: 'text.primary',
       }}>
-        <Routes>
-          {ROUTES.map((route) => (
-            <Route
-              key={route.path}
-              exact={route.path === '/'}
-              {...route}
-            />
-          ))}
-        </Routes>
-        <Nav />
+        <Box sx={{ p: hideNav ? 0 : 3 }}>
+          <Routes>
+            {ROUTES.map((route) => (
+              <Route
+                key={route.path}
+                exact={route.path === '/'}
+                {...route}
+              />
+            ))}
+          </Routes>
+        </Box>
+        {hideNav ? null : <Nav selected={selected} />}
       </Box>
     </ThemeProvider>
   );
