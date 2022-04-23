@@ -1,11 +1,10 @@
 import { Box, TextField, Button, Typography } from '@mui/material';
+import { AuthHeader } from 'components';
 
 const SignupPage = () => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Box sx={{ width: '100vw', p: 3, bgcolor: 'primary.main' }}>
-                <Typography align="center" variant="h1" color="#fff" sx={{ fontSize: '4.6em', fontStyle: 'italic', pt: '80px', pb: '80px' }}>Threads</Typography>
-            </Box >
+            <AuthHeader />
             <Box sx={{ p: 3 }}>
                 <Typography variant="h1" align="center" sx={{ fontSize: '1.6em', pb: 1 }}>Sign up for an account</Typography>
                 <TextField label="Name" sx={{ width: '100%', my: 1 }} />
