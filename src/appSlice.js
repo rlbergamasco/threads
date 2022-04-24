@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Outfits from "./data/outfits.json";
 
 const initialState = {
     isDark: false,
-    outfits: [],
+    outfits: [...Outfits],
     items: [],
     tags: [],
     selected: 'home',

@@ -1,0 +1,92 @@
+[
+    {
+        "id": "00-color",
+        "title": "white",
+        "category": "Color"
+    },
+    {
+        "id": "01-color",
+        "title": "black",
+        "category": "Color"
+    },
+    {
+        "id": "02-color",
+        "title": "red",
+        "category": "Color"
+    },
+    {
+        "id": "03-color",
+        "title": "orange",
+        "category": "Color"
+    },
+    {
+        "id": "04-color",
+        "title": "yellow",
+        "category": "Color"
+    },
+    {
+        "id": "05-color",
+        "title": "green",
+        "category": "Color"
+    },
+    {
+        "id": "06-color",
+        "title": "blue",
+        "category": "Color"
+    },
+    {
+        "id": "07-color",
+        "title": "indigo",
+        "category": "Color"
+    },
+    {
+        "id": "08-color",
+        "title": "violet",
+        "category": "Color"
+    },
+    {
+        "id": "00-occasion",
+        "title": "cute",
+        "category": "Occasion"
+    },
+    {
+        "id": "01-occasion",
+        "title": "casual",
+        "category": "Occassion"
+    },
+    {
+        "id": "02-occasion",
+        "title": "formal",
+        "category": "Occassion"
+    },
+    {
+        "id": "03-occasion",
+        "title": "party",
+        "category": "Occassion"
+    },
+    {
+        "id": "04-occasion",
+        "title": "gym",
+        "category": "Occassion"
+    },
+    {
+        "id": "00-weather",
+        "title": "warm",
+        "category": "Weather"
+    },
+    {
+        "id": "01-weather",
+        "title": "cold",
+        "category": "Weather"
+    },
+    {
+        "id": "02-weather",
+        "title": "sunny",
+        "category": "Weather"
+    },
+    {
+        "id": "03-weather",
+        "title": "rainy",
+        "category": "Weather"
+    }
+]

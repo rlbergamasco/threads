@@ -1,0 +1,146 @@
+[
+    {
+        "id": "00-outfit",
+        "imageURL": "BlackOutfit.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.5,
+                "itemId": "03-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "02-item"
+            }
+        ],
+        "date": 1650683913000
+    },
+    {
+        "id": "01-outfit",
+        "imageURL": "Outfit2.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "00-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "01-item"
+            }
+        ],
+        "date": 1650597513000
+    },
+    {
+        "id": "00-outfit",
+        "imageURL": "BlackOutfit.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.5,
+                "itemId": "03-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "02-item"
+            }
+        ],
+        "date": 1650683913000
+    },
+    {
+        "id": "01-outfit",
+        "imageURL": "Outfit2.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "00-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "01-item"
+            }
+        ],
+        "date": 1650683913000
+    },
+    {
+        "id": "00-outfit",
+        "imageURL": "BlackOutfit.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.5,
+                "itemId": "03-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "02-item"
+            }
+        ],
+        "date": 1650683913000
+    },
+    {
+        "id": "01-outfit",
+        "imageURL": "Outfit2.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "00-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "01-item"
+            }
+        ],
+        "date": 1650683913000
+    },
+    {
+        "id": "00-outfit",
+        "imageURL": "BlackOutfit.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.5,
+                "itemId": "03-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "02-item"
+            }
+        ],
+        "date": 1650683913000
+    },
+    {
+        "id": "01-outfit",
+        "imageURL": "Outfit2.jpeg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "00-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "01-item"
+            }
+        ],
+        "date": 1650683913000
+    }
+]
