@@ -8,7 +8,7 @@ const HistoryPage = () => {
     return (
         <Box>
             <Typography variant="h1" sx={{ marginBottom: '.5em' }}>Outfit History</Typography>
-            <OutfitGrid data={outfits} />
+            <OutfitGrid outfits={outfits} />
         </Box>
     );
 };

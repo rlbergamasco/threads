@@ -1,15 +1,15 @@
 import { Grid } from '@mui/material';
-import { OutfitCard } from 'components';
+import { ItemCard } from 'components';
 
-const OutfitGrid = ({ outfits }) => {
+const ItemGrid = ({ items }) => {
   return (
     <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 2, md: 3 }} sx={{ marginBottom: '3.5em' }}>
-      {outfits.map((outfit, i) =>
+      {items.map((item, i) =>
       (<Grid item key={i} xs={6} >
-        <OutfitCard imageURL={outfit.imageURL} date={outfit.date} />
+        <ItemCard item={item} />
       </Grid>))}
     </Grid>
   )
 }
 
-export { OutfitGrid };
+export { ItemGrid };
