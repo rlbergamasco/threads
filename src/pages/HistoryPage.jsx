@@ -1,18 +1,17 @@
-import { Typography, Container } from '@mui/material';
-import OutfitGrid from '../components/OutfitGrid';
-// import { useSelector } from 'react-redux';
-// import { selectOutfits } from "appSlice";
-import Outfits from "../data/outfits.json";
+import { Typography, Box } from '@mui/material';
+import { OutfitGrid } from 'components';
+import { useSelector } from 'react-redux';
+import { selectOutfits } from "appSlice";
 
-
-const HistoryPage = (props) => {
-    
+const HistoryPage = () => {
+    const outfits = useSelector(selectOutfits);
+    console.log(outfits)
     return (
-        <Container maxWidth="sm">
-            <Typography variant="h1" sx={{marginBottom: '.5em'}}>Outfit History</Typography>
-            <OutfitGrid data={Outfits} />
-        </Container>
-        
+        <Box>
+            <Typography variant="h1" sx={{ marginBottom: '.5em' }}>Outfit History</Typography>
+            <OutfitGrid data={outfits} />
+        </Box>
+
     );
 };
 

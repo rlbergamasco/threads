@@ -80,9 +80,9 @@ const App = () => {
         width: '100vw',
         height: '100vh',
         bgcolor: 'background.paper',
-        color: 'text.primary',
+        color: 'text.primary'
       }}>
-        <Box sx={{ p: hideNav ? 0 : 3 }}>
+        <Box sx={{ p: hideNav ? 0 : 3, maxWidth: '500px', margin: 'auto' }}>
           <Routes>
             {ROUTES.map((route) => (
               <Route
