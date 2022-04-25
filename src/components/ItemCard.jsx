@@ -36,9 +36,13 @@ const ItemCard = (props) => {
       <CardActionArea>
         <CardMedia
           height="170"
+
           alt={name}
         >
-            <img style={{ width: "100%", height: "170px", objectFit: "none", objectPosition: `${imageRelX}% ${imageRelY}%`}} src={'/images/' + imageURL}></img>
+          <div stlye={{width: "170px", height: "170px", overflow: "hidden"}}>
+          <img style={{ margin: "0 0 0 -30%", width: "150%", height: "170px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%`}} src={'/images/' + imageURL}></img>
+          </div>
+            
         </CardMedia>
         <CardContent>
           <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }} component="div">
