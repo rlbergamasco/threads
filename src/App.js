@@ -79,7 +79,7 @@ const App = () => {
       <Box sx={{
         p: hideNav ? 0 : 3,
         width: '100vw',
-        height: 'calc(100vh - 82px)',
+        height: hideNav ? '100vh' : 'calc(100vh - 82px)',
         maxWidth: '500px',
         margin: 'auto',
         bgcolor: 'background.paper',
@@ -97,7 +97,7 @@ const App = () => {
         </Routes>
       </Box>
       {hideNav ? null : <Nav selected={selected} />}
-    </ThemeProvider>
+    </ThemeProvider >
   );
 }
 
