@@ -14,7 +14,7 @@ const OutfitCard = (props) => {
           image={'/images/' + imageURL}
           alt={date.toLocaleDateString()}
         />
-        <CardContent>
+        <CardContent sx={{ p: 0, pt: 1, pb: 2 }}>
           <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }} component="div">
             {date.toLocaleDateString()}
           </Typography>

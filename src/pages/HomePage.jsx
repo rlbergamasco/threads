@@ -1,6 +1,7 @@
 import { Typography, Box, Button, Card, CardActionArea } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudSun, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
+import { Add } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import { selectOutfits } from "appSlice";
 
@@ -38,12 +39,12 @@ const HomePage = () => {
             {todayOutfits.length === 0 ?
                 <Box>
                     <Typography align="center" sx={{ py: 1 }}>Looks like you haven’t logged an outfit yet!</Typography>
-                    <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%" }}><FontAwesomeIcon icon={faPlus} style={{ padding: 3 }} />Log Outfit</Button>
+                    <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%" }}><Add fontSize="small" />Log Outfit</Button>
                 </Box>
                 :
                 <Box>
                     {todayOutfits.map((outfit, i) => <HomeOutfitCard key={i} outfit={outfit} />)}
-                    <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", mt: 1 }}><FontAwesomeIcon icon={faPlus} style={{ padding: 3 }} />Log Another Outfit</Button>
+                    <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", mt: 1 }}><Add fontSize="small" />Log Another Outfit</Button>
                 </Box>
             }
             {/* <Typography variant="h2" sx={{ pt: 2 }}>Outfit suggestions based on weather</Typography> */}
