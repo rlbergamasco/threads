@@ -24,7 +24,7 @@ const HomePage = () => {
 
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
     const todayOutfits = outfits.filter(outfit => new Date(outfit.date).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" }) === todayDateLong);
-
+    console.log(unformattedDate.getTime())
     return (
         <Box>
             <Typography variant="h1">Good {timeOfDay}!</Typography>
@@ -38,7 +38,7 @@ const HomePage = () => {
             {todayOutfits.length === 0 ?
                 <Box>
                     <Typography align="center" sx={{ py: 1 }}>Looks like you haven’t logged an outfit yet!</Typography>
-                    <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%" }}><FontAwesomeIcon icon={faPlus} />Log Outfit</Button>
+                    <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%" }}><FontAwesomeIcon icon={faPlus} style={{ padding: 3 }} />Log Outfit</Button>
                 </Box>
                 :
                 <Box>

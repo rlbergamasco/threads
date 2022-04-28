@@ -77,24 +77,26 @@ const App = () => {
   return (
     <ThemeProvider theme={hideNav ? lightTheme : theme}>
       <Box sx={{
+        p: hideNav ? 0 : 3,
         width: '100vw',
-        height: '100vh',
+        height: 'calc(100vh - 82px)',
+        maxWidth: '500px',
+        margin: 'auto',
         bgcolor: 'background.paper',
-        color: 'text.primary'
+        color: 'text.primary',
+        overflow: 'scroll'
       }}>
-        <Box sx={{ p: hideNav ? 0 : 3, maxWidth: '500px', margin: 'auto' }}>
-          <Routes>
-            {ROUTES.map((route) => (
-              <Route
-                key={route.path}
-                exact={route.path === '/'}
-                {...route}
-              />
-            ))}
-          </Routes>
-        </Box>
-        {hideNav ? null : <Nav selected={selected} />}
+        <Routes>
+          {ROUTES.map((route) => (
+            <Route
+              key={route.path}
+              exact={route.path === '/'}
+              {...route}
+            />
+          ))}
+        </Routes>
       </Box>
+      {hideNav ? null : <Nav selected={selected} />}
     </ThemeProvider>
   );
 }
