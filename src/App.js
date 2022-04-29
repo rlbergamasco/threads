@@ -21,8 +21,8 @@ const App = () => {
         main: isDark ? '#6D74BD' : '#3A418C',
       },
       background: {
-        default: isDark ? '#202020' : '#F6F6F6',
-        paper: isDark ? '#151515' : '#fff',
+        default: isDark ? '#151515' : '#F6F6F6',
+        paper: isDark ? '#202020' : '#fff',
       },
       text: {
         primary: isDark ? '#fff' : 'rgba(0, 0, 0, 0.87)',
