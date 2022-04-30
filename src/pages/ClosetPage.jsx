@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Typography, Box } from '@mui/material';
-import { ItemGrid, FilterDrawer } from 'components';
+import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems, selectClosetSort, selectClosetDisplay, changeClosetSort, changeClosetDisplay } from "appSlice";
 import { Search, Tune } from '@mui/icons-material';
 
 const ClosetPage = () => {
     const items = useSelector(selectItems);
-    const [openDrawer, setOpenDrawer] = useState(false);
+    const [openMenu, setOpenMenu] = useState(false);
     const sort = useSelector(selectClosetSort);
     const display = useSelector(selectClosetDisplay);
     const sortOptions = ['Alphabetical', 'Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
@@ -19,15 +19,15 @@ const ClosetPage = () => {
                     <Typography variant="h1">Closet</Typography>
                     <Box sx={{ flexGrow: 1 }} />
                     <Search fontSize="large" />
-                    <Tune fontSize="large" onClick={() => setOpenDrawer(true)} />
+                    <Tune fontSize="large" onClick={() => setOpenMenu(true)} />
                 </Box>
             </Box>
             <Box sx={{ mt: 7 }}>
                 <ItemGrid items={items} />
             </Box>
-            <FilterDrawer
-                open={openDrawer}
-                setOpen={setOpenDrawer}
+            <FilterMenu
+                open={openMenu}
+                setOpen={setOpenMenu}
                 sort={sort}
                 changeSort={changeClosetSort}
                 sortOptions={sortOptions}

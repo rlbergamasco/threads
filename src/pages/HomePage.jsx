@@ -1,4 +1,4 @@
-import { Typography, Box, Button, Card, CardActionArea } from '@mui/material';
+import { Typography, Box, Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 import { Add } from '@mui/icons-material';
@@ -18,7 +18,7 @@ const HomePage = () => {
         case (hour < 16):
             timeOfDay = "Afternoon"
             break;
-        case (hour < 24):
+        default:
             timeOfDay = "Evening"
             break;
     }
