@@ -6,3 +6,4 @@ export { LogOutfitPage } from './LogOutfitPage';
 export { LoginPage } from './LoginPage';
 export { SignupPage } from './SignupPage';
 export { StartPage } from './StartPage';
+export { LogItemPage } from './LogItemPage';

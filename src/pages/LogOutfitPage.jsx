@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from '@mui/material';
+import { Typography, Box, Button, TextField } from '@mui/material';
 import { Add } from '@mui/icons-material';
 import { OutfitCard } from 'components';
 import { HomePage } from './HomePage';
@@ -17,14 +17,13 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box sx={{ mt: 5 }}>
-                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "100%" }}><Add fontSize="large" /></Button>
-                <Typography align="center" sx={{ py: 1 }}>Tap to add a photo!</Typography>
+                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5 }}>
                 <Typography variant="h2">Clothing Items</Typography>
                 <Box sx={{ flexGrow: 1 }} />
-                <Button href="/closet" variant="contained" sx={{ textTransform: 'capitalize', width: "50%"}}><Add fontSize="small" />Edit Items in Outfit</Button>
+                <Button href="/logItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%"}}><Add fontSize="small" />Edit Items in Outfit</Button>
             </Box>
 
             <Box sx={{ mt: 3 }}>
@@ -35,8 +34,10 @@ const LogOutfitPage = () => {
                 <Typography variant="h2">Notes</Typography>
             </Box>
 
+            <TextField label="" sx={{ width: '100%', my: 1 }} />
+
             <Box sx={{ mt: 5 }}>
-            <Button href="/home" variant="contained" sx={{ textTransform: 'capitalize', width: "30%"}}>Save</Button>
+            <Button href="/home" variant="contained" align="center" sx={{ textTransform: 'capitalize', width: "100%"}}>Save</Button>
             </Box>
 
 
