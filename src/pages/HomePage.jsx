@@ -48,7 +48,7 @@ const HomePage = () => {
         <Box>
             <Typography variant="h1">Good {timeOfDay}!</Typography>
 
-            <Box sx={{ display: 'flex', alignItems: 'center', pb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 2 }}>
                 <Typography variant="h2">{currentDate}</Typography>
                 <Box sx={{ flexGrow: 1 }} />
 
