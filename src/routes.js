@@ -1,4 +1,4 @@
-import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage, LogOutfitPage, SignupPage, StartPage, LogItemPage } from 'pages';
+import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage, LogOutfitPage, SignupPage, StartPage, LogItemPage, FindItemPage } from 'pages';
 
 const ROUTES = [
     {
@@ -36,6 +36,10 @@ const ROUTES = [
     {
         path: '/logItem',
         element: <LogItemPage />,
+    },
+    {
+        path: '/findItem',
+        element: <FindItemPage />,
     },
 ];
 

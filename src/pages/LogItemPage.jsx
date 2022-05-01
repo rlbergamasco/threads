@@ -18,7 +18,7 @@ const LogItemPage = () => {
             <TextField label="" sx={{ width: '100%', my: 1 }} />
 
             <Box sx={{ mt: 5 }}>
-            <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
+                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
             </Box>
 
             <Box sx={{ mt: 5 }}>

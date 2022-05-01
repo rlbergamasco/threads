@@ -7,3 +7,4 @@ export { LoginPage } from './LoginPage';
 export { SignupPage } from './SignupPage';
 export { StartPage } from './StartPage';
 export { LogItemPage } from './LogItemPage';
+export { FindItemPage } from './FindItemPage';
