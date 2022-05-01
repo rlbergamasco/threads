@@ -11,7 +11,6 @@ const TagSelector = ({ allowEditTags, setSelectedTags, selectSelectedTags }) => 
     const tagCategories = ['Clothing Type', 'Color', 'Occasion', 'Weather', 'Other'];
     const tagOptions = useSelector(selectTags);
     const selectedTags = useSelector(selectSelectedTags);
-    console.log(selectedTags);
 
     return (
         <React.Fragment>
@@ -64,7 +63,7 @@ export { TagSelector };
 
 const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSelectedTags }) => {
     const dispatch = useDispatch();
-    const [value, setValue] = useState(selectedTags[category]);
+    const [value, setValue] = useState(selectedTags[category] ? selectedTags[category] : []);
 
     const {
         getRootProps,
