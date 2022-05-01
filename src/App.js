@@ -27,6 +27,7 @@ const App = () => {
       text: {
         primary: isDark ? '#fff' : 'rgba(0, 0, 0, 0.87)',
       },
+      divider: isDark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 0, 0, 0.12)',
     },
     typography: {
       fontFamily: '"Lato", "Roboto", "Helvetica", "Arial", sans-serif',

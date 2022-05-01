@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import { OutfitGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
-import { selectOutfits, selectHistorySort, selectHistoryDisplay, changeHistorySort, changeHistoryDisplay } from "appSlice";
+import { selectOutfits } from "appSlice";
+import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "historySlice";
 import { Search, Tune } from '@mui/icons-material';
 
 const HistoryPage = () => {
     const outfits = useSelector(selectOutfits);
     const [openMenu, setOpenMenu] = useState(false);
-    const sort = useSelector(selectHistorySort);
-    const display = useSelector(selectHistoryDisplay);
+    const sort = useSelector(selectSort);
+    const display = useSelector(selectDisplay);
     const sortOptions = ['Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
 
     return (
@@ -29,10 +30,12 @@ const HistoryPage = () => {
                 open={openMenu}
                 setOpen={setOpenMenu}
                 sort={sort}
-                changeSort={changeHistorySort}
+                changeSort={changeSort}
                 sortOptions={sortOptions}
                 display={display}
-                changeDisplay={changeHistoryDisplay}
+                changeDisplay={changeDisplay}
+                selectSelectedTags={selectSelectedTags}
+                changeSelectedTags={changeSelectedTags}
             />
         </Box>
     );

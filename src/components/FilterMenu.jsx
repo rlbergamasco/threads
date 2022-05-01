@@ -4,17 +4,12 @@ import { TagSelector } from 'components';
 import { Close, GridView, ViewList } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 
-const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, changeDisplay }) => {
+const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, changeDisplay, changeSelectedTags, selectSelectedTags }) => {
     const dispatch = useDispatch();
     const displayOptions = {
         Grid: <GridView fontSize='large' />,
         List: <ViewList fontSize='large' />
     }
-
-    const [expanded, setExpanded] = useState(false);
-    const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
-    };
 
     return (
         <Drawer open={open} onClose={() => setOpen(false)} anchor='right'>
@@ -59,7 +54,7 @@ const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, cha
                 <Divider />
                 <Box sx={{ py: 2 }}>
                     <Typography variant="h2" sx={{ pb: 1 }}>Filter</Typography>
-                    <TagSelector />
+                    <TagSelector setSelectedTags={changeSelectedTags} selectSelectedTags={selectSelectedTags} />
                 </Box>
             </Box>
         </Drawer>
