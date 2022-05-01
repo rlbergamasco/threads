@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Box, Button } from '@mui/material';
+import { Typography, Box, Button, Fab } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems } from "appSlice";
@@ -28,10 +28,6 @@ const ClosetPage = () => {
                 <ItemGrid items={items} />
             </Box>
 
-            <Box sx={{ mt: 5 }}>
-                <Button href="/logItem" variant="contained" sx={{ textTransform: 'capitalize', width: "100%"}}><Add fontSize="small" />Add New Item</Button>
-            </Box>
-
             <FilterMenu
                 open={openMenu}
                 setOpen={setOpenMenu}
@@ -43,6 +39,20 @@ const ClosetPage = () => {
                 selectSelectedTags={selectSelectedTags}
                 changeSelectedTags={changeSelectedTags}
             />
+            <Fab color="primary"
+                aria-label="add"
+                href="/logItem"
+                sx={{
+                    margin: 0,
+                    top: 'auto',
+                    right: 20,
+                    bottom: 102,
+                    left: 'auto',
+                    position: 'fixed',
+                }}
+            >
+                <Add fontSize='large' />
+            </Fab>
         </Box>
     );
 };
