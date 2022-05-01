@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Dialog, Typography, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTags, addTag } from "appSlice";
 import PropTypes from 'prop-types';
@@ -11,6 +11,7 @@ const TagSelector = ({ allowEditTags, setSelectedTags, selectSelectedTags }) => 
     const tagCategories = ['Clothing Type', 'Color', 'Occasion', 'Weather', 'Other'];
     const tagOptions = useSelector(selectTags);
     const selectedTags = useSelector(selectSelectedTags);
+    const [newTagValue, setNewTagValue] = useState(null);
 
     return (
         <React.Fragment>
@@ -19,29 +20,11 @@ const TagSelector = ({ allowEditTags, setSelectedTags, selectSelectedTags }) => 
                     <CustomSelector
                         allowEditTags={allowEditTags}
                         category={cat}
-                        options={tagOptions.filter(op => op.category === cat).map(op => op.title)}
+                        options={[...new Set([newTagValue, ...tagOptions.filter(op => op.category === cat).map(op => op.title)].filter(el => el !== null))]}
                         selectedTags={selectedTags}
-                        setSelectedTags={setSelectedTags} />
-                    {/* <Autocomplete
-                        multiple
-                        disablePortal
-                        autoHighlight
-                        id="combo-box"
-                        options={[...new Set([inputValue, ...tagOptions.filter(op => op.category === cat).map(op => op.title)].filter(el => el !== null))]}
-                        sx={{ width: 300 }}
-                        renderInput={(params) => <TextField {...params} label={cat} />}
-                        // renderOption={(props, option, i) => <Typography key={i} onClick={() => setValue([option])}>{option}</Typography>}
-                        onChange={(e, newValue) => {
-                            // console.log(newValue);
-                        }}
-                        onInputChange={(e, newInputValue) => {
-                            if (newInputValue === '' || !allowEditTags) {
-                                setInputValue(null);
-                            } else {
-                                setInputValue(newInputValue);
-                            }
-                        }}
-                    /> */}
+                        setSelectedTags={setSelectedTags}
+                        setNewTagValue={setNewTagValue}
+                    />
                 </Box>
             )}
         </React.Fragment>
@@ -61,9 +44,21 @@ export { TagSelector };
 
 // CUSTOM SELECTOR 
 
-const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSelectedTags }) => {
+const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSelectedTags, setNewTagValue }) => {
     const dispatch = useDispatch();
     const [value, setValue] = useState(selectedTags[category] ? selectedTags[category] : []);
+    const [open, setOpen] = useState(false);
+    const [tagName, setTagName] = useState(false);
+
+    const handleClick = (label) => {
+        setTagName(label);
+        setOpen(true);
+    }
+
+    const handleDeleteTag = () => {
+        console.log("delete " + tagName + " from " + category);
+        setOpen(false);
+    }
 
     const {
         getRootProps,
@@ -73,6 +68,7 @@ const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSel
         getListboxProps,
         groupedOptions,
         focused,
+        inputValue,
         setAnchorEl,
     } = useAutocomplete({
         id: 'tag-selector',
@@ -83,9 +79,16 @@ const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSel
     });
 
     useEffect(() => {
-        const temp = category === 'Clothing Type' ? 'Type' : category;
         dispatch(setSelectedTags({ [category]: value }));
     }, [value]);
+
+    useEffect(() => {
+        if (inputValue === '' || !allowEditTags) {
+            setNewTagValue(null);
+        } else {
+            setNewTagValue(inputValue);
+        }
+    }, [inputValue]);
 
     return (
         <Root>
@@ -106,11 +109,20 @@ const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSel
                             null :
                             <li key={i} className={allowEditTags ? '' : 'hide-menu'}>
                                 <span onClick={() => setValue(new Array(...new Set([...value, option])))}>{option}</span>
-                                <MoreHoriz onClick={() => console.log("clicked")} fontSize="small" />
+                                <MoreHoriz onClick={() => handleClick(option)} fontSize="small" />
                             </li>
                     ))}
                 </Listbox>
             ) : null}
+            <Dialog open={open} onClose={() => setOpen(false)}>
+                <Box sx={{ p: 1 }}>
+                    <Typography align='center'>Delete "{tagName}" tag?</Typography>
+                    <Box sx={{ display: 'flex', p: 1 }}>
+                        <Button variant='contained' sx={{ textTransform: 'capitalize', mr: 1 }} onClick={() => setOpen(false)}>Cancel</Button>
+                        <Button variant='contained' sx={{ textTransform: 'capitalize' }} onClick={handleDeleteTag}>Confirm</Button>
+                    </Box>
+                </Box>
+            </Dialog>
         </Root>
     );
 }

@@ -24,11 +24,20 @@ export const historySlice = createSlice({
         },
         changeSelectedTags: (state, action) => {
             state.selectedTags[Object.keys(action.payload)[0]] = Object.values(action.payload)[0];
+        },
+        resetTags: (state) => {
+            state.selectedTags = {
+                Type: [],
+                Color: [],
+                Occasion: [],
+                Weather: [],
+                Other: [],
+            }
         }
     },
 });
 
-export const { changeSort, changeDisplay, changeSelectedTags } = historySlice.actions;
+export const { changeSort, changeDisplay, changeSelectedTags, resetTags } = historySlice.actions;
 
 export const selectSort = (state) => state.history.sort;
 export const selectDisplay = (state) => state.history.display;

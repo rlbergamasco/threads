@@ -24,11 +24,20 @@ export const closetSlice = createSlice({
         },
         changeSelectedTags: (state, action) => {
             state.selectedTags[Object.keys(action.payload)[0]] = Object.values(action.payload)[0];
+        },
+        resetTags: (state) => {
+            state.selectedTags = {
+                Type: [],
+                Color: [],
+                Occasion: [],
+                Weather: [],
+                Other: [],
+            }
         }
     },
 });
 
-export const { changeSort, changeDisplay, changeSelectedTags } = closetSlice.actions;
+export const { changeSort, changeDisplay, changeSelectedTags, resetTags } = closetSlice.actions;
 
 export const selectSort = (state) => state.closet.sort;
 export const selectDisplay = (state) => state.closet.display;
