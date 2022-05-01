@@ -4,9 +4,12 @@ import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 import { Add } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import { selectOutfits } from "appSlice";
+import { useState } from 'react';
+import fetchWeather from '../data/weather'
 
 const HomePage = () => {
     const outfits = useSelector(selectOutfits);
+
     const unformattedDate = new Date()
     const currentDate = unformattedDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" })
     const hour = unformattedDate.getHours();
@@ -26,16 +29,35 @@ const HomePage = () => {
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
     const todayOutfits = outfits.filter(outfit => new Date(outfit.date).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" }) === todayDateLong);
     console.log(unformattedDate.getTime())
+
+    const [temperature, setTemperature] = useState(undefined);
+    const [weatherIcon, setWeatherIcon] = useState(undefined);
+
+    navigator.geolocation.getCurrentPosition(position => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        fetchWeather(lat, lon)
+            .then(weatherData => {
+                setTemperature(weatherData.temperature);
+                setWeatherIcon(weatherData.icon);
+            })
+    })
+
     return (
         <Box>
             <Typography variant="h1">Good {timeOfDay}!</Typography>
+
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2 }}>
                 <Typography variant="h2">{currentDate}</Typography>
                 <Box sx={{ flexGrow: 1 }} />
-                <FontAwesomeIcon icon={faCloudSun} size="sm" style={{ padding: 3 }} />
-                <Typography>72&#176;</Typography>
+
+                <FontAwesomeIcon icon={weatherIcon || faCloudSun} size="sm" style={{ padding: 3 }} />
+                <Typography>{temperature || 72}°</Typography>
             </Box>
+
             <Typography variant="h2">Today's Outfit{todayOutfits.length > 1 ? "s" : ""}</Typography>
+
             {todayOutfits.length === 0 ?
                 <Box>
                     <Typography align="center" sx={{ py: 1 }}>Looks like you haven’t logged an outfit yet!</Typography>
