@@ -102,10 +102,12 @@ const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSel
             {groupedOptions.length > 0 ? (
                 <Listbox {...getListboxProps()}>
                     {groupedOptions.map((option, i) => (
-                        <li key={i}>
-                            <span onClick={() => setValue(new Array(...new Set([...value, option])))}>{option}</span>
-                            <MoreHoriz onClick={() => console.log("clicked")} fontSize="small" />
-                        </li>
+                        value.includes(option) ?
+                            null :
+                            <li key={i} className={allowEditTags ? '' : 'hide-menu'}>
+                                <span onClick={() => setValue(new Array(...new Set([...value, option])))}>{option}</span>
+                                <MoreHoriz onClick={() => console.log("clicked")} fontSize="small" />
+                            </li>
                     ))}
                 </Listbox>
             ) : null}
@@ -233,12 +235,9 @@ const Listbox = styled('ul')(
     }
   }
 
-  & li[aria-selected='true'] {
-    background-color: ${theme.palette.background.default};
-    font-weight: 600;
-
+  & li.hide-menu {
     & svg {
-      color: ${theme.palette.primary.main};
+      color: transparent;
     }
   }
 
