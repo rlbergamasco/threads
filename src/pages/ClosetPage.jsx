@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
-import { selectItems, selectClosetSort, selectClosetDisplay, changeClosetSort, changeClosetDisplay } from "appSlice";
+import { selectItems } from "appSlice";
+import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "closetSlice";
 import { Search, Tune } from '@mui/icons-material';
 
 const ClosetPage = () => {
     const items = useSelector(selectItems);
     const [openMenu, setOpenMenu] = useState(false);
-    const sort = useSelector(selectClosetSort);
-    const display = useSelector(selectClosetDisplay);
+    const sort = useSelector(selectSort);
+    const display = useSelector(selectDisplay);
     const sortOptions = ['Alphabetical', 'Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
 
     return (
@@ -29,10 +30,12 @@ const ClosetPage = () => {
                 open={openMenu}
                 setOpen={setOpenMenu}
                 sort={sort}
-                changeSort={changeClosetSort}
+                changeSort={changeSort}
                 sortOptions={sortOptions}
                 display={display}
-                changeDisplay={changeClosetDisplay}
+                changeDisplay={changeDisplay}
+                selectSelectedTags={selectSelectedTags}
+                changeSelectedTags={changeSelectedTags}
             />
         </Box>
     );

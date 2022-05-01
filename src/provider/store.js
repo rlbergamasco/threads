@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import throttle from "lodash/throttle";
 import appReducer from "appSlice";
+import closetReducer from "closetSlice";
+import historyReducer from "historySlice";
 import { loadState, saveState } from "./persist";
 
 const persistedState = loadState();
@@ -8,6 +10,8 @@ const persistedState = loadState();
 export const store = configureStore({
     reducer: {
         app: appReducer,
+        closet: closetReducer,
+        history: historyReducer,
     },
     preloadedState: persistedState
 });
