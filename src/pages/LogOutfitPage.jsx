@@ -4,6 +4,25 @@ import { OutfitCard } from 'components';
 import { HomePage } from './HomePage';
 
 const LogOutfitPage = () => {
+    const unformattedDate = new Date()
+    const currentDate = unformattedDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" })
+    const hour = unformattedDate.getHours();
+    let timeOfDay = "Morning"
+    switch (true) {
+        case (hour < 12):
+            timeOfDay = "Morning"
+            break;
+        case (hour < 16):
+            timeOfDay = "Afternoon"
+            break;
+        default:
+            timeOfDay = "Evening"
+            break;
+    }
+
+    const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
+    console.log(unformattedDate.getTime())
+
     return (
         <Box>
             <Box sx={{ position: 'fixed', width: '100vw', zIndex: 10, top: 0, left: 0, bgcolor: 'background.paper' }}>
@@ -13,7 +32,7 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box sx={{ mt: 7 }}>
-                <Typography variant="h2">Date: {HomePage.currentDate}</Typography>
+                <Typography variant="h2">Date: {currentDate}</Typography>
             </Box>
 
             <Box sx={{ mt: 5 }}>
@@ -27,7 +46,7 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box sx={{ mt: 3 }}>
-            <Typography align="center" sx={{ py: 1 }}>Looks like you haven’t added an item yet!</Typography>
+                <Typography align="center" sx={{ py: 1 }}>Looks like you haven’t added an item yet!</Typography>
             </Box>
 
             <Box sx={{ mt: 5 }}>

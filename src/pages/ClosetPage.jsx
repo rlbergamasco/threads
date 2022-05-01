@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Button } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems } from "appSlice";
 import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "closetSlice";
-import { Search, Tune } from '@mui/icons-material';
+import { Search, Tune, Add } from '@mui/icons-material';
 
 const ClosetPage = () => {
     const items = useSelector(selectItems);
@@ -23,9 +23,15 @@ const ClosetPage = () => {
                     <Tune fontSize="large" onClick={() => setOpenMenu(true)} />
                 </Box>
             </Box>
+
             <Box sx={{ mt: 7 }}>
                 <ItemGrid items={items} />
             </Box>
+
+            <Box sx={{ mt: 5 }}>
+                <Button href="/logItem" variant="contained" sx={{ textTransform: 'capitalize', width: "100%"}}><Add fontSize="small" />Add New Item</Button>
+            </Box>
+
             <FilterMenu
                 open={openMenu}
                 setOpen={setOpenMenu}

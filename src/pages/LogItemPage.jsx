@@ -33,7 +33,7 @@ const LogItemPage = () => {
             <TextField label="" sx={{ width: '100%', my: 1 }} />
 
             <Box sx={{ mt: 5 }}>
-            <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "30%"}}>Save</Button>
+            <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%"}}>Save</Button>
             </Box>
 
 
