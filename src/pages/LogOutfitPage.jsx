@@ -36,13 +36,13 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box sx={{ mt: 5 }}>
-                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
+                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px" }}><Add fontSize="large" />Tap to add a photo!</Button>
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5 }}>
                 <Typography variant="h2">Clothing Items</Typography>
                 <Box sx={{ flexGrow: 1 }} />
-                <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%"}}><Add fontSize="small" />Edit Items in Outfit</Button>
+                <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%" }}><Add fontSize="small" />Edit Items in Outfit</Button>
             </Box>
 
             <Box sx={{ mt: 3 }}>
@@ -56,7 +56,7 @@ const LogOutfitPage = () => {
             <TextField label="" sx={{ width: '100%', my: 1 }} />
 
             <Box sx={{ mt: 5 }}>
-            <Button href="/home" variant="contained" align="center" sx={{ textTransform: 'capitalize', width: "100%"}}>Save</Button>
+                <Button href="/home" variant="contained" align="center" sx={{ textTransform: 'capitalize', width: "100%" }}>Save</Button>
             </Box>
 
 

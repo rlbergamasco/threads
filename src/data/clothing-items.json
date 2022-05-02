@@ -1,6 +1,7 @@
 [
     {
         "id": "00-item",
+        "dateAdded": 1650501051000,
         "notes": "",
         "name": "White Long Sleeved Crop Top",
         "tagIds": [
@@ -12,6 +13,7 @@
     },
     {
         "id": "01-item",
+        "dateAdded": 1650414651000,
         "notes": "",
         "name": "Barrel Medium Wash Jeans",
         "tagIds": [
@@ -23,6 +25,7 @@
     },
     {
         "id": "02-item",
+        "dateAdded": 1650328251,
         "notes": "",
         "name": "Black Vintage Skirt with Pockets",
         "tagIds": [
@@ -34,6 +37,7 @@
     },
     {
         "id": "03-item",
+        "dateAdded": 1650241851,
         "notes": "",
         "name": "Black Vintage Cropped Jacket",
         "tagIds": [

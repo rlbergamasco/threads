@@ -1,17 +1,24 @@
 import { useState } from 'react';
-import { Typography, Box, Button, Fab } from '@mui/material';
+import { Typography, Box, Button, Fab, bottomNavigationActionClasses } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
-import { selectItems } from "appSlice";
+import { selectItems, selectOutfits } from "appSlice";
 import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "closetSlice";
 import { Search, Tune, Add } from '@mui/icons-material';
+import { closetSortOptions } from 'sortAndFilter';
 
 const ClosetPage = () => {
     const items = useSelector(selectItems);
+    const outfits = useSelector(selectOutfits);
+
     const [openMenu, setOpenMenu] = useState(false);
-    const sort = useSelector(selectSort);
+    const selectedSortOptionLabel = useSelector(selectSort);
     const display = useSelector(selectDisplay);
-    const sortOptions = ['Alphabetical', 'Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
+
+    const sortOptions = closetSortOptions;
+
+    const selectedSortOption = sortOptions.find((e) => e.label === selectedSortOptionLabel)
+    const sorted = [...items].sort((a, b) => selectedSortOption.func(a, b, outfits))
 
     return (
         <Box>
@@ -25,13 +32,13 @@ const ClosetPage = () => {
             </Box>
 
             <Box sx={{ mt: 7 }}>
-                <ItemGrid items={items} />
+                <ItemGrid items={sorted} />
             </Box>
 
             <FilterMenu
                 open={openMenu}
                 setOpen={setOpenMenu}
-                sort={sort}
+                selectedSortOptionLabel={selectedSortOptionLabel}
                 changeSort={changeSort}
                 sortOptions={sortOptions}
                 display={display}

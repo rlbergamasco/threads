@@ -4,7 +4,7 @@ import { TagSelector } from 'components';
 import { Close, GridView, ViewList } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 
-const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, changeDisplay, changeSelectedTags, selectSelectedTags }) => {
+const FilterMenu = ({ open, setOpen, selectedSortOptionLabel, changeSort, sortOptions, display, changeDisplay, changeSelectedTags, selectSelectedTags }) => {
     const dispatch = useDispatch();
     const displayOptions = {
         Grid: <GridView fontSize='large' />,
@@ -43,9 +43,9 @@ const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, cha
                     <Typography variant="h2">Sort by</Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                         {sortOptions.map((option, i) =>
-                            <Button key={i} variant={option === sort ? 'contained' : 'outlined'} onClick={() => dispatch(changeSort(option))} sx={{ mt: 1 }}>
+                            <Button key={i} variant={option.label === selectedSortOptionLabel ? 'contained' : 'outlined'} onClick={() => dispatch(changeSort(option.label))} sx={{ mt: 1 }}>
                                 <Typography sx={{ textTransform: 'capitalize' }}>
-                                    {option}
+                                    {option.label}
                                 </Typography>
                             </Button>
                         )}
