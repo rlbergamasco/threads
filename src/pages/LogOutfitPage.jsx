@@ -1,5 +1,5 @@
 import { Typography, Box, Button, TextField } from '@mui/material';
-import { Add } from '@mui/icons-material';
+import { Add, AddAPhoto } from '@mui/icons-material';
 import { OutfitCard } from 'components';
 import { HomePage } from './HomePage';
 
@@ -35,8 +35,9 @@ const LogOutfitPage = () => {
                 <Typography variant="h2">Date: {currentDate}</Typography>
             </Box>
 
-            <Box sx={{ mt: 5 }}>
-                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px", bgcolor: 'text.disabled'}}><Add fontSize="large"/>Tap to add a photo!</Button>
+            <Box href="" variant="contained" 
+                sx={{ mt: 2, mx: 3, display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%"}}>
+                <AddAPhoto fontSize="large"></AddAPhoto>
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5 }}>

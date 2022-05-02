@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Typography, Box, Button, TextField } from '@mui/material';
-import { Add } from '@mui/icons-material';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTags, addTag } from "appSlice";
 import { TagSelector } from 'components';
+import { Add, AddAPhoto } from '@mui/icons-material';
+import { HomePage } from './HomePage';
 
 const LogItemPage = () => {
     let selectedTags = {
@@ -66,29 +67,32 @@ const LogItemPage = () => {
                 </Box>
             </Box>
 
-            <Box sx={{ mt: 7 }}>
+            <Box href="" variant="contained"
+                sx={{ mt: 7, mx: 3, display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%" }}>
+                <AddAPhoto fontSize="large"></AddAPhoto>
+            </Box>
+
+            <Box sx={{ mt: 3 }}>
                 <Typography variant="h2">Name</Typography>
             </Box>
 
             <TextField label="" value={name} onChange={(event) => setName(event.target.value)} sx={{ width: '100%', my: 1 }} />
 
-            <Box sx={{ mt: 2 }}>
-                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
-            </Box>
-
             <Box sx={{ mt: 4 }}>
-                <Typography variant="h2">Tags</Typography>
-                <TagSelector allowEditTags setSelectedTags={setSelectedTags} selectedTags={selectedTags} />
-            </Box>
+                <Box sx={{ mt: 5 }}>
+                    <Typography variant="h2">Tags</Typography>
+                    <TagSelector allowEditTags setSelectedTags={setSelectedTags} selectedTags={selectedTags} />
+                </Box>
 
-            <Box sx={{ mt: 3 }}>
-                <Typography variant="h2">Notes</Typography>
-            </Box>
+                <Box sx={{ mt: 3 }}>
+                    <Typography variant="h2">Notes</Typography>
+                </Box>
 
-            <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 5 }} />
+                <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 5 }} />
 
-            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <Button href="javascript:history.back()" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw'}}>Save</Button>
+                <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Button href="javascript:history.back()" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
+                </Box>
             </Box>
 
         </Box>
