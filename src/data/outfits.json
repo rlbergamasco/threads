@@ -162,5 +162,28 @@
            
         ],
         "date": 1649908324000
+    },
+    {
+        "id": "02-outfit",
+        "imageURL": "02-outfit.jpg",
+        "notes": "Great for dinner out with work friends.",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "04-item"
+            },
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "05-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "06-item"
+            }
+        ],
+        "date": 1649821924000
     }
 ]
