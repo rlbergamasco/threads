@@ -1,6 +1,6 @@
 import { Typography, Box, Button, TextField } from '@mui/material';
 import { Add, AddAPhoto } from '@mui/icons-material';
-import { OutfitCard } from 'components';
+import { OutfitCard, PhotoAPI, UploadImage } from 'components';
 import { HomePage } from './HomePage';
 
 const LogOutfitPage = () => {
@@ -35,15 +35,14 @@ const LogOutfitPage = () => {
                 <Typography variant="h2">Date: {currentDate}</Typography>
             </Box>
 
-            <Box href="" variant="contained" 
-                sx={{ mt: 2, mx: 3, display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%"}}>
-                <AddAPhoto fontSize="large"></AddAPhoto>
+            <Box sx={{ mt: 3 }}>
+                <UploadImage></UploadImage>
             </Box>
 
-            <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5,  }}>
                 <Typography variant="h2">Clothing Items</Typography>
                 <Box sx={{ flexGrow: 1 }} />
-                <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%"}}><Add fontSize="small" />Edit Items in Outfit</Button>
+                <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%" }}><Add fontSize="small" />Edit Items in Outfit</Button>
             </Box>
 
             <Box sx={{ mt: 3 }}>
@@ -56,8 +55,8 @@ const LogOutfitPage = () => {
 
             <TextField label="" sx={{ width: '100%', my: 1, mb: 5 }} />
 
-            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <Button href="/home" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw'}}>Save</Button>
+            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button href="/home" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
             </Box>
 
         </Box>
@@ -65,3 +64,22 @@ const LogOutfitPage = () => {
 };
 
 export { LogOutfitPage };
+
+/*
+
+box with camera in the middle
+
+<Box href="" variant="contained" 
+                sx={{ mt: 2, mx: 3, display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%"}}>
+                <AddAPhoto fontSize="large"></AddAPhoto>
+            </Box>
+
+camera next to upload image
+
+<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', pb: 2, mt: 5 }}>
+                <UploadImage></UploadImage>
+                <Box sx={{ flexGrow: 1 }} />
+                <AddAPhoto fontSize="large"></AddAPhoto>
+            </Box>
+
+*/
