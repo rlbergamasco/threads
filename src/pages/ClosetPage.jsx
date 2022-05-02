@@ -13,6 +13,7 @@ const ClosetPage = () => {
     const sort = useSelector(selectSort);
     const display = useSelector(selectDisplay);
     const sortOptions = ['Alphabetical', 'Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
+    const selectedTags = useSelector(selectSelectedTags);
 
     return (
         <Box>
@@ -38,7 +39,7 @@ const ClosetPage = () => {
                 sortOptions={sortOptions}
                 display={display}
                 changeDisplay={changeDisplay}
-                selectSelectedTags={selectSelectedTags}
+                selectedTags={selectedTags}
                 changeSelectedTags={changeSelectedTags}
             />
             <Fab color="primary"

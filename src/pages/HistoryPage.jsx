@@ -13,6 +13,7 @@ const HistoryPage = () => {
     const sort = useSelector(selectSort);
     const display = useSelector(selectDisplay);
     const sortOptions = ['Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
+    const selectedTags = useSelector(selectSelectedTags);
 
     return (
         <Box>
@@ -37,7 +38,7 @@ const HistoryPage = () => {
                 sortOptions={sortOptions}
                 display={display}
                 changeDisplay={changeDisplay}
-                selectSelectedTags={selectSelectedTags}
+                selectedTags={selectedTags}
                 changeSelectedTags={changeSelectedTags}
             />
         </Box>

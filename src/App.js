@@ -26,6 +26,7 @@ const App = () => {
       },
       text: {
         primary: isDark ? '#fff' : 'rgba(0, 0, 0, 0.87)',
+        disabled: isDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.38)',
       },
       divider: isDark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 0, 0, 0.12)',
     },
