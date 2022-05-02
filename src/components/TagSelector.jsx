@@ -80,6 +80,8 @@ const CustomSelector = ({ currentTags, options, category, allowEditTags, selecte
     });
 
     useEffect(() => {
+        console.log(selectedTags)
+
         setSelectedTags({ [category]: value });
     }, [value]);
 

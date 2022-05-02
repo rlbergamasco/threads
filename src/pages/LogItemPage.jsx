@@ -25,8 +25,10 @@ const LogItemPage = () => {
     };
 
     const setSelectedTags = (change) => {
+        console.log(change);
         selectedTags[Object.keys(change)[0]] = Object.values(change)[0];
     };
+
 
     const currentTags = useSelector(selectTags);
     const [name, setName] = useState('');
