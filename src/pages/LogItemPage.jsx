@@ -72,8 +72,8 @@ const LogItemPage = () => {
 
             <TextField label="" value={name} onChange={(event) => setName(event.target.value)} sx={{ width: '100%', my: 1 }} />
 
-            <Box sx={{ mt: 4 }}>
-                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px" }}><Add fontSize="large" />Tap to add a photo!</Button>
+            <Box sx={{ mt: 2 }}>
+                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
             </Box>
 
             <Box sx={{ mt: 4 }}>
@@ -85,11 +85,10 @@ const LogItemPage = () => {
                 <Typography variant="h2">Notes</Typography>
             </Box>
 
-            <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', my: 1 }} />
+            <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 5 }} />
 
-            <Box sx={{ mt: 4 }}>
-                <Button onClick={handleSave} variant="contained" sx={{ textTransform: 'capitalize', width: "100%" }}>Save</Button>
-                {/* add href='/closet' to button */}
+            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Button href="javascript:history.back()" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw'}}>Save</Button>
             </Box>
 
         </Box>

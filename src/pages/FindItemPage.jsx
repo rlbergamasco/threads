@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Box, Button, Fab, TextField } from '@mui/material';
+import { Typography, Box, Button, Fab, TextField, Link } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems } from "appSlice";
@@ -19,7 +19,7 @@ const FindItemPage = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
                     <Typography variant="h1">Find an Item</Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Button href="javascript:history.back()" variant="contained" sx={{ textTransform: 'capitalize', width: "20%"}}>Cancel</Button>
+                    <Link href="javascript:history.back()" underline="none">Back</Link>
                 </Box>
             </Box>
 
@@ -27,8 +27,12 @@ const FindItemPage = () => {
                 <TextField label="Search for item..." sx={{ width: '100%', my: 1 }} />
             </Box>
 
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: 3, mb: 5}}>
                 <ItemGrid items={items} />
+            </Box>
+
+            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Button href="/logItem" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw'}}>Create New Clothing Item</Button>
             </Box>
 
             <FilterMenu
@@ -42,20 +46,6 @@ const FindItemPage = () => {
                 selectSelectedTags={selectSelectedTags}
                 changeSelectedTags={changeSelectedTags}
             />
-            <Fab color="primary"
-                aria-label="add"
-                href="/logItem"
-                sx={{
-                    margin: 0,
-                    top: 'auto',
-                    right: 20,
-                    bottom: 102,
-                    left: 'auto',
-                    position: 'fixed',
-                }}
-            >
-                <Add fontSize='large' />
-            </Fab>
         </Box>
     );
 };

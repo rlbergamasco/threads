@@ -2,7 +2,7 @@
     {
         "id": "00-outfit",
         "imageURL": "Outfit1.jpeg",
-        "notes": "",
+        "notes": "I love this outfit so much. I got so many compliments.",
         "items": [
             {
                 "imageRelativeY": 0.25,
@@ -20,7 +20,7 @@
     {
         "id": "01-outfit",
         "imageURL": "Outfit2.jpeg",
-        "notes": "",
+        "notes": "Casual and cute!",
         "items": [
             {
                 "imageRelativeY": 0.25,
