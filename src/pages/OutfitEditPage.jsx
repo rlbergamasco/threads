@@ -9,7 +9,7 @@ import { ItemList, TagList, DateList, Share } from 'components'
 import { Add, AddAPhoto } from '@mui/icons-material';
 
 const OutfitEditPage = () => {
-    
+
     let params = useParams();
     const id = params.id;
     const outfits = useSelector(selectOutfits);
@@ -34,15 +34,15 @@ const OutfitEditPage = () => {
     }
 
     return (
-        <Box sx={{width: "100%"}}>
-            <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-            <Link href={`/outfits/${outfit.id}`} underline="none">
-                Cancel
-            </Link>
-            <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Outfit Details</Typography>
-            <Link onClick={handleSave} href={`/outfits/${outfit.id}`} underline="none">
-                Save
-            </Link>
+        <Box sx={{ width: "100%" }}>
+            <Box sx={{ position: 'fixed', top: 0, left: 0, zIndex: 10, p: 3, pb: 2, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.paper' }}>
+                <Link href={`/outfits/${outfit.id}`} underline="none">
+                    Cancel
+                </Link>
+                <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Outfit Details</Typography>
+                <Link onClick={handleSave} href={`/outfits/${outfit.id}`} underline="none">
+                    Save
+                </Link>
             </Box>
             {/* <Box
                 component="img"
@@ -55,7 +55,7 @@ const OutfitEditPage = () => {
                 alt="The house from the offer."
                 src={`/images/${outfit.imageURL}`}
             /> */}
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: 6 }}>
                 <UploadImage message="Replace outfit photo" defaultImageURL={imageURL}></UploadImage>
             </Box>
 
@@ -72,17 +72,17 @@ const OutfitEditPage = () => {
             {items && (
                 <List>
                     {items.map((item) => {
-                         const imageRelY = (item.imageRelativeY * 100).toString();
-                         const imageRelX = (item.imageRelativeX * 100).toString();
-                         const itemName = allItems.filter((testItem) => testItem.id == item.itemId)[0].name;
+                        const imageRelY = (item.imageRelativeY * 100).toString();
+                        const imageRelX = (item.imageRelativeX * 100).toString();
+                        const itemName = allItems.filter((testItem) => testItem.id == item.itemId)[0].name;
                         return (
-                                <ListItem
+                            <ListItem
                                 key={itemName}
                                 disablePadding
                                 button
                                 component={Link}
                                 to={''}
-                                >
+                            >
                                 <ListItemButton>
                                     <ListItemAvatar>
                                         <div style={{ width: "50px", height: "50px", overflow: "hidden" }}>
@@ -95,7 +95,7 @@ const OutfitEditPage = () => {
                         )
                     })}
                 </List>
-               
+
             )}
 
             <Box sx={{ mt: 5 }}>
@@ -103,7 +103,7 @@ const OutfitEditPage = () => {
             </Box>
 
             <TextField label="" sx={{ width: '100%', my: 1, mb: 5 }} />
-           
+
         </Box>
     );
 };

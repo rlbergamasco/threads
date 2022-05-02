@@ -24,18 +24,18 @@ const ItemEditPage = () => {
     if (!item.imageURL) {
         let outfitsSorted = [...outfits].sort((a, b) => b.date - a.date);
         for (let outfit of outfitsSorted) {
-          for (let item of outfit.items) {
-            if (item.itemId === id) {
-              imageURL = outfit.imageURL;
-              imageRelY = (item.imageRelativeY * 100).toString();
-              imageRelX = (item.imageRelativeX * 100).toString();
+            for (let item of outfit.items) {
+                if (item.itemId === id) {
+                    imageURL = outfit.imageURL;
+                    imageRelY = (item.imageRelativeY * 100).toString();
+                    imageRelX = (item.imageRelativeX * 100).toString();
+                }
             }
-          }
         }
     }
 
     const dispatch = useDispatch();
-    
+
 
     let selectedTags = {
         ['Clothing Type']: [],
@@ -68,7 +68,7 @@ const ItemEditPage = () => {
         selectedTags[`${itemTag.category}`] = [...selectedTags[`${itemTag.category}`], itemTag.title];
     }
 
-    
+
 
     const findNewTags = () => {
         Object.keys(selectedTags).forEach(key => {
@@ -107,20 +107,20 @@ const ItemEditPage = () => {
         console.log(tagIds)
     }
 
-   
+
 
 
 
     return (
-        <Box sx={{width: "100%"}}>
-            <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-            <Link href={`/items/${item.id}`} underline="none">
-                Cancel
-            </Link>
-            <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Item Details</Typography>
-            <Link onClick={handleSave} href={`/items/${item.id}`} underline="none">
-                Save
-            </Link>
+        <Box sx={{ width: "100%" }}>
+            <Box sx={{ position: 'fixed', top: 0, left: 0, zIndex: 10, p: 3, pb: 2, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.paper' }}>
+                <Link href={`/items/${item.id}`} underline="none">
+                    Cancel
+                </Link>
+                <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Item Details</Typography>
+                <Link onClick={handleSave} href={`/items/${item.id}`} underline="none">
+                    Save
+                </Link>
             </Box>
 
             <Box sx={{ mt: 7 }}>
@@ -142,10 +142,10 @@ const ItemEditPage = () => {
             </Box>
 
             <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 7 }} />
-           
+
         </Box>
     );
-    
+
 };
 
 export { ItemEditPage };
