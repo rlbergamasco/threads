@@ -80,13 +80,14 @@ const App = () => {
     <ThemeProvider theme={hideNav ? lightTheme : theme}>
       <Box sx={{
         p: hideNav ? 0 : 3,
+        pb: hideNav ? 0 : 11,
         width: '100vw',
-        height: hideNav ? '100vh' : 'calc(100vh - 82px)',
+        minHeight: '100vh',
         maxWidth: '500px',
         margin: 'auto',
         bgcolor: 'background.paper',
         color: 'text.primary',
-        overflow: 'scroll'
+        overflow: 'visible'
       }}>
         <Routes>
           {ROUTES.map((route) => (

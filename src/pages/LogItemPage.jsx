@@ -3,8 +3,7 @@ import { Typography, Box, Button, TextField } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTags, addTag } from "appSlice";
 import { TagSelector } from 'components';
-import { Add, AddAPhoto } from '@mui/icons-material';
-import { HomePage } from './HomePage';
+import { AddAPhoto } from '@mui/icons-material';
 
 const LogItemPage = () => {
     let selectedTags = {
@@ -89,7 +88,7 @@ const LogItemPage = () => {
                     <Typography variant="h2">Notes</Typography>
                 </Box>
 
-                <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 5 }} />
+                <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 7 }} />
 
                 <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Button href="javascript:history.back()" onClick={handleSave} variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
