@@ -2,11 +2,7 @@ import { useState } from 'react';
 import { Typography, Box, Button, TextField } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTags, addTag, addItem } from "appSlice";
-import { TagSelector } from 'components';
-import { selectTags, addTag } from "appSlice";
 import { TagSelector, UploadImage } from 'components';
-import { Add, AddAPhoto } from '@mui/icons-material';
-import { HomePage } from './HomePage';
 import { v4 as uuidv4 } from "uuid";
 
 const LogItemPage = () => {
