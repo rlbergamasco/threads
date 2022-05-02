@@ -62,7 +62,7 @@ const OutfitEditPage = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5, }}>
                 <Typography variant="h2">Clothing Items</Typography>
                 <Box sx={{ flexGrow: 1 }} />
-                <Button href={``} variant="contained" sx={{ textTransform: 'capitalize', width: "50%" }}><Add fontSize="small" />Edit Items in Outfit</Button>
+                <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', px: 1 }}><Typography variant="body2">Edit Items in Outfit</Typography></Button>
             </Box>
 
             {/* <Box sx={{ mt: 3 }}>
