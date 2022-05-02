@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Box, Button, Fab, TextField } from '@mui/material';
+import { Typography, Box, Button, Fab, TextField, Link } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems } from "appSlice";
@@ -19,7 +19,7 @@ const FindItemPage = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
                     <Typography variant="h1">Find an Item</Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Button href="javascript:history.back()" variant="contained" sx={{ textTransform: 'capitalize', width: "20%"}}>Cancel</Button>
+                    <Link href="javascript:history.back()" underline="none">Back</Link>
                 </Box>
             </Box>
 
