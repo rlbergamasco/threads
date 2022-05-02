@@ -14,7 +14,7 @@ const OutfitDetailsPage = () => {
     let outfit = outfits.filter((o) => o.id == id)[0]
     return (
         <Box sx={{ width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-            <Box sx={{ width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Box sx={{ position: 'fixed', top: 0, left: 0, zIndex: 10, p: 3, pb: 2, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.paper' }}>
                 <Link href="/history" underline="none">
                     Back
                 </Link>
@@ -29,7 +29,8 @@ const OutfitDetailsPage = () => {
                     margin: "1em 0",
                     width: "300px",
                     height: "300px",
-                    objectFit: "cover"
+                    objectFit: "cover",
+                    mt: 6
                 }}
                 alt="The house from the offer."
                 src={`/images/${outfit.imageURL}`}

@@ -7,7 +7,7 @@ import { selectItems, selectOutfits } from "appSlice";
 import { ItemList, TagList, DateList, OutfitList } from 'components'
 
 const ItemDetailsPage = () => {
-    
+
     let params = useParams();
     const id = params.id;
     const items = useSelector(selectItems);
@@ -22,54 +22,55 @@ const ItemDetailsPage = () => {
     if (!item.imageURL) {
         let outfitsSorted = [...outfits].sort((a, b) => b.date - a.date);
         for (let outfit of outfitsSorted) {
-          console.log(outfit)
-          for (let item of outfit.items) {
-            if (item.itemId === id) {
-              imageURL = outfit.imageURL;
-              imageRelY = (item.imageRelativeY * 100).toString();
-              imageRelX = (item.imageRelativeX * 100).toString();
+            console.log(outfit)
+            for (let item of outfit.items) {
+                if (item.itemId === id) {
+                    imageURL = outfit.imageURL;
+                    imageRelY = (item.imageRelativeY * 100).toString();
+                    imageRelX = (item.imageRelativeX * 100).toString();
+                }
             }
-          }
         }
-      }
-    
-   
+    }
 
 
-      
+
+
+
 
     return (
-        <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-            <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-            <Link href="/closet" underline="none">
-                Back
-            </Link>
-            <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Item Details</Typography>
-            <Link href={`/editItem/${item.id}`}  underline="none">
-                Edit
-            </Link>
+        <Box sx={{ width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+            <Box sx={{ position: 'fixed', top: 0, left: 0, zIndex: 10, p: 3, pb: 2, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.paper' }}>
+                <Link href="/closet" underline="none">
+                    Back
+                </Link>
+                <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Item Details</Typography>
+                <Link href={`/editItem/${item.id}`} underline="none">
+                    Edit
+                </Link>
             </Box>
             <Box
                 sx={{
-                    margin: "1em 0",  
-                }} 
+                    margin: "1em 0",
+                    mt: 6
+                }}
             >
                 <div style={{ width: "300px", height: "300px", overflow: "hidden" }}>
                     <img style={{ margin: "0 0 0 -30%", width: "150%", height: "300px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }} src={`/images/${imageURL}`}></img>
                 </div>
             </Box>
             <Typography variant="h2">{item.name}</Typography>
-            <TagList item={item}/>
-            {item.notes && 
+            <TagList item={item} />
+            {item.notes &&
                 <List
-                    dense 
-                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-                    subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Item Notes</Typography></ListSubheader>}
+                    dense
+                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                    subheader={<ListSubheader sx={{ mt: 2, mb: 1, color: 'text.primary' }} component="div" ><Typography variant="h2">Item Notes</Typography></ListSubheader>}
                 >
-                    <ListItem><Typography variant="h2">{item.notes}</Typography></ListItem>
+                    <ListItem><Typography>{item.notes}</Typography></ListItem>
                 </List>
             }
-            <OutfitList item={item}/>
+            <OutfitList item={item} />
             {/* <ItemList outfit={outfit}/>
             <TagList outfit={outfit}/>
             <DateList outfit={outfit}/>
