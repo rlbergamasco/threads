@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectTags, addTag, addItem } from "appSlice";
 import { TagSelector, UploadImage } from 'components';
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 const LogItemPage = () => {
     const dispatch = useDispatch();
+    let navigate = useNavigate();
 
     let selectedTags = {
         ['Clothing Type']: [],
@@ -42,28 +44,35 @@ const LogItemPage = () => {
     }
 
     const addNewTagToRedux = (title, category) => {
+        const id = uuidv4();
         const newTag = {
-            id: uuidv4(),
-            // CHANGE ID NUMBER
+            id: id,
             title: title,
             category: category
         };
+        tagIds.push(id);
         dispatch(addTag(newTag));
     }
 
     const newItem = {
         id: uuidv4(),
+        dateAdded: new Date().getTime(),
         notes: notes,
         name: name,
         tagIds: tagIds
     };
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     const handleSave = () => {
         findNewTags();
-        Object.keys(newTags).forEach(category => newTags[category].forEach(title => addNewTagToRedux(title, category)));
         Object.keys(selectedTags).forEach(category => selectedTags[category].forEach(title => tagIds.push(...[currentTags.find(tag => tag.title === title && tag.category === category) ? currentTags.find(tag => tag.title === title && tag.category === category).id : null].filter(el => el !== null))))
-        // dispatch(addItem(newItem));
-        // console.log(tagIds)
+        Object.keys(newTags).forEach(category => newTags[category].forEach(title => addNewTagToRedux(title, category)));
+        console.log(tagIds);
+        dispatch(addItem(newItem));
+        sleep(1000).then(() => { navigate(-1) });
     }
 
     return (
@@ -115,3 +124,4 @@ export { LogItemPage };
             </Box>
 
 */
+// href="javascript:history.back()"
