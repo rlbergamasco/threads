@@ -8,6 +8,7 @@ const DateList = ({ outfit }) => {
     const allOutfits = useSelector(selectOutfits);
     const dates = allOutfits.filter((testOutfit) => testOutfit.id == outfitId).map((outfit) => outfit.date);
     console.log(dates);
+    // dates.map((date) => new Date(outfit.date))
     let uniqDates = [...new Set(dates)];
 
 
@@ -17,22 +18,21 @@ const DateList = ({ outfit }) => {
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
             subheader={<ListSubheader sx={{margin: "1em 0", color: "black"}} component="div" ><Typography variant="h2">Dates Worn</Typography></ListSubheader>}
         >
-        <div style={{display: "flex", flexWrap: "wrap", width: "100%", padding: "0 16px 0 16px"}}>
 
         {uniqDates.map((date) => {
-            let formattedDate = new Date(outfit.date);
+            let formattedDate = new Date(date);
 
             return (
                 <ListItem
                 key={date}
                 disablePadding
-                sx={{width: "auto"}}
+                sx={{marginLeft: "16px"}}
                 >
                     <Typography variant="h2">{formattedDate.toLocaleDateString()}</Typography>
                 </ListItem>
                 );
         })}
-        </div>
+      
     </List>
     )
 }
