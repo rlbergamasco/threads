@@ -8,7 +8,7 @@ import { HomePage } from './HomePage';
 
 const LogItemPage = () => {
     let selectedTags = {
-        Type: [],
+        ['Clothing Type']: [],
         Color: [],
         Occasion: [],
         Weather: [],
@@ -16,7 +16,7 @@ const LogItemPage = () => {
     };
 
     let newTags = {
-        Type: [],
+        ['Clothing Type']: [],
         Color: [],
         Occasion: [],
         Weather: [],
@@ -36,7 +36,7 @@ const LogItemPage = () => {
 
     const findNewTags = () => {
         Object.keys(selectedTags).forEach(key => {
-            newTags[key] = selectedTags[key].filter(tag => !currentTags.some(e => e.label === tag && e.category === (key === 'Type' ? 'Clothing Type' : key)))
+            newTags[key] = selectedTags[key].filter(tag => !currentTags.some(e => e.label === tag && e.category === key))
         })
     }
 
@@ -45,6 +45,7 @@ const LogItemPage = () => {
         // Add new tags to redux
         // find tag ids and setTagIds
         // add newItem to redux
+        console.log(newTags)
     }
 
     const newItem = {
@@ -68,7 +69,7 @@ const LogItemPage = () => {
             </Box>
 
             <Box href="" variant="contained"
-                sx={{ mt: 7, mx: 3, display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%" }}>
+                sx={{ mt: 7, mx: 'auto', display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: '100%', maxWidth: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%" }}>
                 <AddAPhoto fontSize="large"></AddAPhoto>
             </Box>
 

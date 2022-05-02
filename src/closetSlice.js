@@ -4,7 +4,7 @@ const initialState = {
     sort: 'Most Recently Worn',
     display: 'Grid',
     selectedTags: {
-        Type: [],
+        ['Clothing Type']: [],
         Color: [],
         Occasion: [],
         Weather: [],
