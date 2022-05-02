@@ -36,7 +36,7 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box sx={{ mt: 5 }}>
-                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
+                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px", bgcolor: 'text.disabled'}}><Add fontSize="large"/>Tap to add a photo!</Button>
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5 }}>
@@ -53,13 +53,11 @@ const LogOutfitPage = () => {
                 <Typography variant="h2">Notes</Typography>
             </Box>
 
-            <TextField label="" sx={{ width: '100%', my: 1 }} />
+            <TextField label="" sx={{ width: '100%', my: 1, mb: 5 }} />
 
-            <Box sx={{ mt: 5 }}>
-            <Button href="/home" variant="contained" align="center" sx={{ textTransform: 'capitalize', width: "100%"}}>Save</Button>
+            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Button href="/home" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw'}}>Save</Button>
             </Box>
-
-
 
         </Box>
     );

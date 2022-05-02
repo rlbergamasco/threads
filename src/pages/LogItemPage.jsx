@@ -17,7 +17,7 @@ const LogItemPage = () => {
 
             <TextField label="" sx={{ width: '100%', my: 1 }} />
 
-            <Box sx={{ mt: 5 }}>
+            <Box sx={{ mt: 2 }}>
                 <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px"}}><Add fontSize="large"/>Tap to add a photo!</Button>
             </Box>
 
@@ -30,13 +30,11 @@ const LogItemPage = () => {
                 <Typography variant="h2">Notes</Typography>
             </Box>
 
-            <TextField label="" sx={{ width: '100%', my: 1 }} />
+            <TextField label="" sx={{ width: '100%', mt: 1, mb: 5 }} />
 
-            <Box sx={{ mt: 5 }}>
-            <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%"}}>Save</Button>
+            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Button href="javascript:history.back()" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw'}}>Save</Button>
             </Box>
-
-
 
         </Box>
     );
