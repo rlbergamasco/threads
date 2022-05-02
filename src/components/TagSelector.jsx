@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Dialog, Typography, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTags, addTag } from "appSlice";
+import { selectTags, deleteTag } from "appSlice";
 import PropTypes from 'prop-types';
 import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
 import { MoreHoriz, Close } from '@mui/icons-material';
@@ -17,6 +17,7 @@ const TagSelector = ({ allowEditTags, setSelectedTags, selectedTags }) => {
             {tagCategories.map((cat, i) =>
                 <Box key={i} sx={{ py: 1 }}>
                     <CustomSelector
+                        currentTags={tagOptions}
                         allowEditTags={allowEditTags}
                         category={cat}
                         options={[...new Set([newTagValue, ...tagOptions.filter(op => op.category === cat).map(op => op.title)].filter(el => el !== null))]}
@@ -43,7 +44,7 @@ export { TagSelector };
 
 // CUSTOM SELECTOR 
 
-const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSelectedTags, setNewTagValue }) => {
+const CustomSelector = ({ currentTags, options, category, allowEditTags, selectedTags, setSelectedTags, setNewTagValue }) => {
     const dispatch = useDispatch();
     const [value, setValue] = useState(selectedTags[category] ? selectedTags[category] : []);
     const [open, setOpen] = useState(false);
@@ -54,8 +55,9 @@ const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSel
         setOpen(true);
     }
 
-    const handleDeleteTag = () => {
-        console.log("delete " + tagName + " from " + category);
+    const handleDeleteTag = (id) => {
+        console.log("delete " + tagName + " from " + category + ' id: ' + id);
+        dispatch(deleteTag(id));
         setOpen(false);
     }
 
@@ -118,7 +120,7 @@ const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSel
                     <Typography align='center'>Delete "{tagName}" tag?</Typography>
                     <Box sx={{ display: 'flex', p: 1 }}>
                         <Button variant='contained' sx={{ textTransform: 'capitalize', mr: 1 }} onClick={() => setOpen(false)}>Cancel</Button>
-                        <Button variant='contained' sx={{ textTransform: 'capitalize' }} onClick={handleDeleteTag}>Confirm</Button>
+                        <Button variant='contained' sx={{ textTransform: 'capitalize' }} onClick={() => handleDeleteTag(currentTags.find(el => el.category === category && el.title === tagName).id)}>Confirm</Button>
                     </Box>
                 </Box>
             </Dialog>
