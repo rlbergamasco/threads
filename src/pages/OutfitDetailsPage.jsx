@@ -6,22 +6,22 @@ import { selectOutfits } from "appSlice";
 import { ItemList, TagList, DateList, Share } from 'components'
 
 const OutfitDetailsPage = () => {
-    
+
     let params = useParams();
     const id = params.id;
     const outfits = useSelector(selectOutfits);
 
     let outfit = outfits.filter((o) => o.id == id)[0]
     return (
-        <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-            <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-            <Link href="/history" underline="none">
-                Back
-            </Link>
-            <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Outfit Details</Typography>
-            <Link href={`/editOutfit/${outfit.id}`} underline="none">
-                Edit
-            </Link>
+        <Box sx={{ width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+            <Box sx={{ width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Link href="/history" underline="none">
+                    Back
+                </Link>
+                <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Outfit Details</Typography>
+                <Link href={`/editOutfit/${outfit.id}`} underline="none">
+                    Edit
+                </Link>
             </Box>
             <Box
                 component="img"
@@ -34,23 +34,23 @@ const OutfitDetailsPage = () => {
                 alt="The house from the offer."
                 src={`/images/${outfit.imageURL}`}
             />
-            <ItemList outfit={outfit}/>
-            <TagList outfit={outfit}/>
-            <DateList outfit={outfit}/>
-            {outfit.notes && 
+            <ItemList outfit={outfit} />
+            <TagList outfit={outfit} />
+            <DateList outfit={outfit} />
+            {outfit.notes &&
                 <List
-                    dense 
-                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-                    subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Outfit Notes</Typography></ListSubheader>}
+                    dense
+                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                    subheader={<ListSubheader sx={{ mt: 2, mb: 1, color: 'text.primary' }} component="div" ><Typography variant="h2">Outfit Notes</Typography></ListSubheader>}
                 >
-                    <ListItem><Typography variant="h2">{outfit.notes}</Typography></ListItem>
+                    <ListItem><Typography>{outfit.notes}</Typography></ListItem>
                 </List>
             }
-            <Box style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px"}}>Wear Again</Button>
-            <Share outfit={outfit}/>
+            <Box style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px" }}>Wear Again</Button>
+                <Share outfit={outfit} />
             </Box>
-           
+
         </Box>
     );
 };

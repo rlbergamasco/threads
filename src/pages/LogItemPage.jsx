@@ -69,7 +69,7 @@ const LogItemPage = () => {
             </Box>
 
             <Box href="" variant="contained"
-                sx={{ mt: 7, mx: 'auto', display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: '100%', maxWidth: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%" }}>
+                sx={{ mt: 7, mx: 'auto', display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: '100%', maxWidth: "350px", height: "350px", bgcolor: 'divider', borderRadius: "3%" }}>
                 <AddAPhoto fontSize="large"></AddAPhoto>
             </Box>
 

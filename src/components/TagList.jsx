@@ -9,28 +9,28 @@ const TagList = ({ outfit, item }) => {
 
     if (item) {
         return (
-            <List 
-            dense 
-            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-            subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Tags</Typography></ListSubheader>}
+            <List
+                dense
+                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                subheader={<ListSubheader sx={{ mt: 2, mb: 1, color: 'text.primary' }} component="div" ><Typography variant="h2">Tags</Typography></ListSubheader>}
             >
-            <div style={{display: "flex", flexWrap: "wrap", width: "100%", padding: "0 16px 0 16px"}}>
+                <div style={{ display: "flex", flexWrap: "wrap", width: "100%", padding: "0 16px 0 16px" }}>
 
-            {item.tagIds.map((tagId) => {
-                let tagObj = allTags.filter((testTag) => testTag.id == tagId)[0];
-                
-                return (
-                    <ListItem
-                    key={tagId}
-                    disablePadding
-                    sx={{width: "auto"}}
-                    >
-                        <StyledTag label={tagObj.title}  />
-                    </ListItem>
-                    );
-            })}
-            </div>
-        </List>
+                    {item.tagIds.map((tagId) => {
+                        let tagObj = allTags.filter((testTag) => testTag.id == tagId)[0];
+
+                        return (
+                            <ListItem
+                                key={tagId}
+                                disablePadding
+                                sx={{ width: "auto" }}
+                            >
+                                <StyledTag label={tagObj.title} />
+                            </ListItem>
+                        );
+                    })}
+                </div>
+            </List>
         )
     }
     let items = outfit.items;
@@ -39,30 +39,30 @@ const TagList = ({ outfit, item }) => {
     let tags = [];
     outfitItems.forEach((item) => tags.push(...item.tagIds));
     let uniqTags = [...new Set(tags)];
-    
-    return (
-        <List 
-            dense 
-            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-            subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Tags</Typography></ListSubheader>}
-        >
-        <div style={{display: "flex", flexWrap: "wrap", width: "100%", padding: "0 16px 0 16px"}}>
 
-        {uniqTags.map((tag) => {
-            let tagObj = allTags.filter((testTag) => testTag.id == tag)[0];
-            
-            return (
-                <ListItem
-                key={tag}
-                disablePadding
-                sx={{width: "auto"}}
-                >
-                    <StyledTag label={tagObj.title}  />
-                </ListItem>
-                );
-        })}
-        </div>
-    </List>
+    return (
+        <List
+            dense
+            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+            subheader={<ListSubheader sx={{ margin: "1em 0", color: 'text.primary' }} component="div" ><Typography variant="h2">Tags</Typography></ListSubheader>}
+        >
+            <div style={{ display: "flex", flexWrap: "wrap", width: "100%", padding: "0 16px 0 16px" }}>
+
+                {uniqTags.map((tag) => {
+                    let tagObj = allTags.filter((testTag) => testTag.id == tag)[0];
+
+                    return (
+                        <ListItem
+                            key={tag}
+                            disablePadding
+                            sx={{ width: "auto" }}
+                        >
+                            <StyledTag label={tagObj.title} />
+                        </ListItem>
+                    );
+                })}
+            </div>
+        </List>
     )
 }
 

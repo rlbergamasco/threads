@@ -36,14 +36,16 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box href="" variant="contained"
-                sx={{ mt: 2, mx: 'auto', display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: '100%', maxWidth: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%" }}>
-                <AddAPhoto fontSize="large"></AddAPhoto>
+                sx={{ mt: 2, mx: 'auto', display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: '100%', maxWidth: "350px", height: "350px", bgcolor: 'divider', borderRadius: "3%" }}>
+                <AddAPhoto fontSize="large" />
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5 }}>
                 <Typography variant="h2">Clothing Items</Typography>
                 <Box sx={{ flexGrow: 1 }} />
-                <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%" }}><Add fontSize="small" />Edit Items in Outfit</Button>
+                <Button href="/findItem" variant="contained" sx={{ px: 1 }}>
+                    <Typography variant="body2" sx={{ textTransform: 'capitalize' }}>Edit Items in Outfit</Typography>
+                </Button>
             </Box>
 
             <Box sx={{ mt: 3 }}>

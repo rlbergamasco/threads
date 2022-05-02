@@ -12,27 +12,26 @@ const DateList = ({ outfit }) => {
 
 
     return (
-        <List 
-            dense 
-            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-            subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Dates Worn</Typography></ListSubheader>}
+        <List
+            dense
+            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+            subheader={<ListSubheader sx={{ mt: 2, mb: 1, color: 'text.primary' }} component="div" ><Typography variant="h2">Dates Worn</Typography></ListSubheader>}
         >
+            {uniqDates.map((date) => {
+                let formattedDate = new Date(date);
 
-        {uniqDates.map((date) => {
-            let formattedDate = new Date(date);
-
-            return (
-                <ListItem
-                key={date}
-                disablePadding
-                sx={{marginLeft: "16px"}}
-                >
-                    <Typography variant="h2">{formattedDate.toLocaleDateString()}</Typography>
-                </ListItem>
+                return (
+                    <ListItem
+                        key={date}
+                        disablePadding
+                        sx={{ marginLeft: "16px" }}
+                    >
+                        <Typography>{formattedDate.toLocaleDateString()}</Typography>
+                    </ListItem>
                 );
-        })}
-      
-    </List>
+            })}
+
+        </List>
     )
 }
 
