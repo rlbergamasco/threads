@@ -25,9 +25,10 @@ export const appSlice = createSlice({
         addOutfit: (state, action) => {
             state.items.append(action.payload);
         },
-        // editOutfit: (state, action) => {
-        //     state.outfits.find(el => el.id === action.payload.id) = action.payload;
-        // },
+        editOutfit: (state, action) => {
+            let idx = state.outfits.findIndex(el => el.id === action.payload.id);
+            state.outfits[idx] = action.payload;
+        },
         addItem: (state, action) => {
             state.items = [...state.items, action.payload];
         },
@@ -61,7 +62,7 @@ export const appSlice = createSlice({
     },
 });
 
-export const { toggleIsDark, addOutfit, addItem, editItem, addTag, deleteTag, changeSelected, changeClosetSort, changeHistorySort, changeClosetDisplay, changeHistoryDisplay } = appSlice.actions;
+export const { toggleIsDark, addOutfit, editOutfit, addItem, editItem, addTag, deleteTag, changeSelected, changeClosetSort, changeHistorySort, changeClosetDisplay, changeHistoryDisplay } = appSlice.actions;
 
 export const selectIsDark = (state) => state.app.isDark;
 export const selectOutfits = (state) => state.app.outfits;
