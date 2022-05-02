@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Typography, Box, Button, Fab, TextField, Link } from '@mui/material';
-import { ItemGrid, FilterMenu } from 'components';
+import { ItemGrid, FilterMenu, ItemList } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems } from "appSlice";
 import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "closetSlice";
@@ -28,7 +28,7 @@ const FindItemPage = () => {
             </Box>
 
             <Box sx={{ mt: 3, mb: 5}}>
-                <ItemGrid items={items} />
+                <ItemGrid display="List" items={items} />
             </Box>
 
             <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
