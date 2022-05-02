@@ -1,4 +1,4 @@
-const getOutfitsForItemId = (itemId, selectedOutfits) => {
+export const getOutfitsForItemId = (itemId, selectedOutfits) => {
     const filtered = selectedOutfits.filter((outfit) => {
         let containsItem = outfit.items.map((x) => x.itemId).includes(itemId);
         return containsItem;
@@ -64,9 +64,6 @@ const closetLeastRecentlyAdded = (a, b, selectedOutfits) => {
     return (a.dateAdded > b.dateAdded) ? 1 : -1
 }
 
-const closet = ['Alphabetical', 'Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
-const history = ['Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
-
 export const closetSortOptions = [
     {
         label: 'Alphabetical',
@@ -98,11 +95,43 @@ export const closetSortOptions = [
     }
 ]
 
+const historyMostRecentlyWorn = (a, b, selectedOutfits) => {
+    return (a.date < b.date) ? 1 : -1
+}
+
+const historyLeastRecentlyWorn = (a, b, selectedOutfits) => {
+    return (a.date > b.date) ? 1 : -1
+}
+
+const historyMostWorn = (a, b, selectedOutfits) => {
+    const outfitsWithSameIdAsA = selectedOutfits.filter((outfit) => outfit.id === a.id)
+    const outfitsWithSameIdAsB = selectedOutfits.filter((outfit) => outfit.id === b.id)
+
+    return (outfitsWithSameIdAsA.length < outfitsWithSameIdAsB.length) ? 1 : -1
+}
+
+const historyLeastWorn = (a, b, selectedOutfits) => {
+    const outfitsWithSameIdAsA = selectedOutfits.filter((outfit) => outfit.id === a.id)
+    const outfitsWithSameIdAsB = selectedOutfits.filter((outfit) => outfit.id === b.id)
+
+    return (outfitsWithSameIdAsA.length > outfitsWithSameIdAsB.length) ? 1 : -1
+}
+
 export const historySortOptions = [
-    'Most Recently Worn',
-    'Least Recently Worn',
-    'Most Worn',
-    'Least Worn',
-    'Date Added: Most Recent',
-    'Date Added: Least Recent'
+    {
+        label: 'Most Recently Worn',
+        func: historyMostRecentlyWorn
+    },
+    {
+        label: 'Least Recently Worn',
+        func: historyLeastRecentlyWorn
+    },
+    {
+        label: 'Most Worn',
+        func: historyMostWorn
+    },
+    {
+        label: 'Least Worn',
+        func: historyLeastWorn
+    }
 ];

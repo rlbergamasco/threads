@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectItems, selectOutfits } from "appSlice";
 import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "closetSlice";
 import { Search, Tune, Add } from '@mui/icons-material';
-import { closetSortOptions } from 'sortAndFilter';
+import { closetSortOptions } from 'sortOptions';
 
 const ClosetPage = () => {
     const items = useSelector(selectItems);

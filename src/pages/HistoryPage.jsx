@@ -5,13 +5,17 @@ import { useSelector } from 'react-redux';
 import { selectOutfits } from "appSlice";
 import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "historySlice";
 import { Search, Tune } from '@mui/icons-material';
+import { historySortOptions } from 'sortOptions';
 
 const HistoryPage = () => {
     const outfits = useSelector(selectOutfits);
     const [openMenu, setOpenMenu] = useState(false);
-    const sort = useSelector(selectSort);
+    const selectedSortOptionLabel = useSelector(selectSort);
     const display = useSelector(selectDisplay);
-    const sortOptions = ['Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
+    const sortOptions = historySortOptions;
+
+    const selectedSortOption = sortOptions.find((e) => e.label === selectedSortOptionLabel)
+    const sorted = [...outfits].sort((a, b) => selectedSortOption.func(a, b, outfits))
 
     return (
         <Box>
@@ -24,12 +28,13 @@ const HistoryPage = () => {
                 </Box>
             </Box>
             <Box sx={{ mt: 7 }}>
-                <OutfitGrid outfits={outfits} />
+                <OutfitGrid outfits={sorted} />
             </Box>
+
             <FilterMenu
                 open={openMenu}
                 setOpen={setOpenMenu}
-                sort={sort}
+                selectedSortOptionLabel={selectedSortOptionLabel}
                 changeSort={changeSort}
                 sortOptions={sortOptions}
                 display={display}
