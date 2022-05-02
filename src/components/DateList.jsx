@@ -8,7 +8,6 @@ const DateList = ({ outfit }) => {
     const allOutfits = useSelector(selectOutfits);
     const dates = allOutfits.filter((testOutfit) => testOutfit.id == outfitId).map((outfit) => outfit.date);
     console.log(dates);
-    // dates.map((date) => new Date(outfit.date))
     let uniqDates = [...new Set(dates)];
 
 
@@ -16,7 +15,7 @@ const DateList = ({ outfit }) => {
         <List 
             dense 
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-            subheader={<ListSubheader sx={{margin: "1em 0", color: "black"}} component="div" ><Typography variant="h2">Dates Worn</Typography></ListSubheader>}
+            subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Dates Worn</Typography></ListSubheader>}
         >
 
         {uniqDates.map((date) => {

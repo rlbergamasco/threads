@@ -10,7 +10,7 @@ const ItemList = ({ outfit }) => {
         <List 
             dense 
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-            subheader={<ListSubheader sx={{margin: "1em 0", color: "black"}} component="div" ><Typography variant="h2">Clothing Items</Typography></ListSubheader>}
+            subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Clothing Items</Typography></ListSubheader>}
         >
         {items.map((item) => {
         const imageRelY = (item.imageRelativeY * 100).toString();

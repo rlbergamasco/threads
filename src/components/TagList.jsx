@@ -17,7 +17,7 @@ const TagList = ({ outfit }) => {
         <List 
             dense 
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-            subheader={<ListSubheader sx={{margin: "1em 0", color: "black"}} component="div" ><Typography variant="h2">Tags</Typography></ListSubheader>}
+            subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Tags</Typography></ListSubheader>}
         >
         <div style={{display: "flex", flexWrap: "wrap", width: "100%", padding: "0 16px 0 16px"}}>
 

@@ -42,14 +42,14 @@ const OutfitDetailsPage = () => {
                 <List
                     dense 
                     sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-                    subheader={<ListSubheader sx={{margin: "1em 0", color: "black"}} component="div" ><Typography variant="h2">Outfit Notes</Typography></ListSubheader>}
+                    subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Outfit Notes</Typography></ListSubheader>}
                 >
                     <ListItem><Typography variant="h2">{outfit.notes}</Typography></ListItem>
                 </List>
             }
             <Box>
-            <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px"}}>Wear Again</Button>
-            <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px"}}>Share <ShareIcon sx={{marginLeft: "5px"}} fontSize="small"/></Button>
+            <Button variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px"}}>Wear Again</Button>
+            <Button variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px"}}>Share <ShareIcon sx={{marginLeft: "5px"}} fontSize="small"/></Button>
 
             </Box>
            
