@@ -141,7 +141,7 @@ const Label = styled('label')`
 
 const InputWrapper = styled('div')(
     ({ theme }) => `
-  width: 300px;
+  width: 330px;
   max-width: '100%';
   border: 1px solid ${theme.palette.text.disabled};
   background-color: ${theme.palette.background.paper};
@@ -222,7 +222,7 @@ const StyledTag = styled(Tag)(
 
 const Listbox = styled('ul')(
     ({ theme }) => `
-  width: 300px;
+  width: 330px;
   max-width: '95%';
   margin: 2px 0 0;
   padding: 0;

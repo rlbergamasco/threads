@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Typography, Box, Button, TextField } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTags, addTag } from "appSlice";
+import { selectTags, addTag, addItem } from "appSlice";
 import { TagSelector } from 'components';
 import { AddAPhoto } from '@mui/icons-material';
 
 const LogItemPage = () => {
+    const dispatch = useDispatch();
+
     let selectedTags = {
         ['Clothing Type']: [],
         Color: [],
@@ -31,20 +33,22 @@ const LogItemPage = () => {
     // GENERATE ID?
     const [name, setName] = useState('');
     const [notes, setNotes] = useState('');
-    const [tagIds, setTagIds] = useState([]);
+    let tagIds = [];
 
     const findNewTags = () => {
         Object.keys(selectedTags).forEach(key => {
-            newTags[key] = selectedTags[key].filter(tag => !currentTags.some(e => e.label === tag && e.category === key))
+            newTags[key] = selectedTags[key].filter(tag => !currentTags.some(e => e.title === tag && e.category === key))
         })
     }
 
-    const handleTags = () => {
-        findNewTags();
-        // Add new tags to redux
-        // find tag ids and setTagIds
-        // add newItem to redux
-        console.log(newTags)
+    const addNewTagToRedux = (title, category) => {
+        const newTag = {
+            id: `00-${category === 'Clothing Type' ? 'type' : category.toLowerCase()}`,
+            // CHANGE ID NUMBER
+            title: title,
+            category: category
+        };
+        dispatch(addTag(newTag));
     }
 
     const newItem = {
@@ -55,8 +59,11 @@ const LogItemPage = () => {
     };
 
     const handleSave = () => {
-        alert('not actually saved')
-        handleTags();
+        findNewTags();
+        Object.keys(newTags).forEach(category => newTags[category].forEach(title => addNewTagToRedux(title, category)));
+        Object.keys(selectedTags).forEach(category => selectedTags[category].forEach(title => tagIds.push(...[currentTags.find(tag => tag.title === title && tag.category === category) ? currentTags.find(tag => tag.title === title && tag.category === category).id : null].filter(el => el !== null))))
+        // dispatch(addItem(newItem));
+        console.log(tagIds)
     }
 
     return (
@@ -91,7 +98,7 @@ const LogItemPage = () => {
                 <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 7 }} />
 
                 <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
-                    <Button href="javascript:history.back()" onClick={handleSave} variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
+                    <Button onClick={handleSave} variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
                 </Box>
             </Box>
 
