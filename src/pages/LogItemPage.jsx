@@ -3,11 +3,11 @@ import { Typography, Box, Button, TextField } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTags, addTag, addItem } from "appSlice";
 import { TagSelector } from 'components';
-import { AddAPhoto } from '@mui/icons-material';
 import { selectTags, addTag } from "appSlice";
 import { TagSelector, UploadImage } from 'components';
 import { Add, AddAPhoto } from '@mui/icons-material';
 import { HomePage } from './HomePage';
+import { v4 as uuidv4 } from "uuid";
 
 const LogItemPage = () => {
     const dispatch = useDispatch();
@@ -33,8 +33,6 @@ const LogItemPage = () => {
     };
 
     const currentTags = useSelector(selectTags);
-    const id = '';
-    // GENERATE ID?
     const [name, setName] = useState('');
     const [notes, setNotes] = useState('');
     let tagIds = [];
@@ -47,7 +45,7 @@ const LogItemPage = () => {
 
     const addNewTagToRedux = (title, category) => {
         const newTag = {
-            id: `00-${category === 'Clothing Type' ? 'type' : category.toLowerCase()}`,
+            id: uuidv4(),
             // CHANGE ID NUMBER
             title: title,
             category: category
@@ -56,7 +54,7 @@ const LogItemPage = () => {
     }
 
     const newItem = {
-        id: id,
+        id: uuidv4(),
         notes: notes,
         name: name,
         tagIds: tagIds
