@@ -3,8 +3,11 @@ import { Box, Typography, Drawer, Button, Avatar, Divider } from '@mui/material'
 import { TagSelector } from 'components';
 import { Close, GridView, ViewList } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
+// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, changeDisplay, changeSelectedTags, selectSelectedTags }) => {
+const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, changeDisplay, changeSelectedTags, selectedTags }) => {
     const dispatch = useDispatch();
     const displayOptions = {
         Grid: <GridView fontSize='large' />,
@@ -54,7 +57,18 @@ const FilterMenu = ({ open, setOpen, sort, changeSort, sortOptions, display, cha
                 <Divider />
                 <Box sx={{ py: 2 }}>
                     <Typography variant="h2" sx={{ pb: 1 }}>Filter</Typography>
-                    <TagSelector setSelectedTags={changeSelectedTags} selectSelectedTags={selectSelectedTags} />
+                    <TagSelector setSelectedTags={(v) => dispatch(changeSelectedTags(v))} selectedTags={selectedTags} />
+                    {/* <Typography variant="h2" sx={{ pb: 1 }}>Date Range</Typography>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <DatePicker
+                            label="Basic example"
+                            value={value}
+                            onChange={(newValue) => {
+                                setValue(newValue);
+                            }}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
+                    </LocalizationProvider> */}
                 </Box>
             </Box>
         </Drawer>
