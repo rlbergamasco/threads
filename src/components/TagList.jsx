@@ -3,10 +3,37 @@ import { useSelector } from 'react-redux';
 import { selectItems, selectTags } from "appSlice";
 import { styled } from '@mui/material/styles';
 
-const TagList = ({ outfit }) => {
-    let items = outfit.items;
-    const allItems = useSelector(selectItems);
+const TagList = ({ outfit, item }) => {
     const allTags = useSelector(selectTags);
+    const allItems = useSelector(selectItems);
+
+    if (item) {
+        return (
+            <List 
+            dense 
+            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
+            subheader={<ListSubheader sx={{margin: "1em 0", color: 'text.primary'}} component="div" ><Typography variant="h2">Tags</Typography></ListSubheader>}
+            >
+            <div style={{display: "flex", flexWrap: "wrap", width: "100%", padding: "0 16px 0 16px"}}>
+
+            {item.tagIds.map((tagId) => {
+                let tagObj = allTags.filter((testTag) => testTag.id == tagId)[0];
+                
+                return (
+                    <ListItem
+                    key={tagId}
+                    disablePadding
+                    sx={{width: "auto"}}
+                    >
+                        <StyledTag label={tagObj.title}  />
+                    </ListItem>
+                    );
+            })}
+            </div>
+        </List>
+        )
+    }
+    let items = outfit.items;
 
     const outfitItems = allItems.filter((testItem) => items.some((i) => i.itemId == testItem.id));
     let tags = [];

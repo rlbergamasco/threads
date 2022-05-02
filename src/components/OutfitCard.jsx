@@ -7,7 +7,7 @@ const OutfitCard = ({outfit}) => {
   
   return (
     <Card sx={{ maxWidth: 345, boxShadow: 'none', borderRadius: 0 }}>
-      <CardActionArea href={`/${outfit.id}`}>
+      <CardActionArea href={`/outfits/${outfit.id}`}>
         <CardMedia
           component="img"
           height="170"

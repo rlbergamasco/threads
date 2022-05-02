@@ -31,7 +31,7 @@ const ItemCard = (props) => {
 
   return (
     <Card sx={{ maxWidth: 345, boxShadow: 'none', borderRadius: 0 }}>
-      <CardActionArea>
+      <CardActionArea href={`/items/${id}`}>
         <CardMedia
           height="170"
           alt={name}

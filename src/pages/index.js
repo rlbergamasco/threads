@@ -9,3 +9,4 @@ export { StartPage } from './StartPage';
 export { LogItemPage } from './LogItemPage';
 export { FindItemPage } from './FindItemPage';
 export { OutfitDetailsPage } from './OutfitDetailsPage';
+export { ItemDetailsPage } from './ItemDetailsPage';
