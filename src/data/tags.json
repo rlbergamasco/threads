@@ -72,22 +72,22 @@
     {
         "id": "01-occasion",
         "title": "casual",
-        "category": "Occassion"
+        "category": "Occasion"
     },
     {
         "id": "02-occasion",
         "title": "formal",
-        "category": "Occassion"
+        "category": "Occasion"
     },
     {
         "id": "03-occasion",
         "title": "party",
-        "category": "Occassion"
+        "category": "Occasion"
     },
     {
         "id": "04-occasion",
         "title": "gym",
-        "category": "Occassion"
+        "category": "Occasion"
     },
     {
         "id": "00-weather",

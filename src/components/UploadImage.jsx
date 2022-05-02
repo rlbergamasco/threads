@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { Typography, Button, Box} from '@mui/material';
 import { AddAPhoto } from '@mui/icons-material';
 
-const UploadImage = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const UploadImage = ({ message, defaultImageURL }) => {
+  const [selectedImage, setSelectedImage] = useState(defaultImageURL ? defaultImageURL : null);
+  let m = message ? message : "Upload Outfit Photo!";
 
+  
   return (
     <Box sx={{ p: 2, border: 1, borderColor: 'primary' }} >
-      <Typography>Upload Outfit Photo!</Typography>
+      <Typography>{m}</Typography>
       {selectedImage && (
         <div>
-        <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
+        <img alt="not fount" width={"250px"} src={typeof selectedImage  == "string" ? `/images/${selectedImage}` : URL.createObjectURL(selectedImage)} />
         <Button onClick={()=>setSelectedImage(null)}>Remove</Button>
         </div>
       )}
