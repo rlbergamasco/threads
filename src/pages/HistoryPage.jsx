@@ -28,7 +28,7 @@ const HistoryPage = () => {
             </Box>
 
             <Box sx={{ mt: search?15:7 }}>
-                <OutfitGrid outfits={outfits} />
+                <OutfitGrid display={display} outfits={outfits} />
             </Box> 
             <FilterMenu
                 open={openMenu}
