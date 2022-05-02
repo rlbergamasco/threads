@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Box, Button, Fab } from '@mui/material';
+import { Typography, Box, Button, Fab, TextField } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems } from "appSlice";
@@ -9,6 +9,7 @@ import { Search, Tune, Add } from '@mui/icons-material';
 const ClosetPage = () => {
     const items = useSelector(selectItems);
     const [openMenu, setOpenMenu] = useState(false);
+    const [search, setSearch] = useState(false);
     const sort = useSelector(selectSort);
     const display = useSelector(selectDisplay);
     const sortOptions = ['Alphabetical', 'Most Recently Worn', 'Least Recently Worn', 'Most Worn', 'Least Worn', 'Date Added: Most Recent', 'Date Added: Least Recent'];
@@ -19,12 +20,13 @@ const ClosetPage = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
                     <Typography variant="h1">Closet</Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Search fontSize="large" />
+                    <Search fontSize="large" onClick={() => setSearch(!search)} />
                     <Tune fontSize="large" onClick={() => setOpenMenu(true)} />
                 </Box>
+                {search?<TextField label="Search" sx={{ width: '90vw', mx: 3}} />: null}
             </Box>
 
-            <Box sx={{ mt: 7 }}>
+            <Box sx={{ mt: search?15:7 }}>
                 <ItemGrid items={items} />
             </Box>
 
