@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectItems, selectOutfits } from "appSlice";
 import { ItemList, TagList, DateList, OutfitList } from 'components'
 
-const ItemDetailsPage = () => {
+const ItemEditPage = () => {
     
     let params = useParams();
     const id = params.id;
@@ -41,12 +41,12 @@ const ItemDetailsPage = () => {
     return (
         <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
             <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-            <Link href="/closet" underline="none">
-                Back
+            <Link href={`/items/${item.id}`} underline="none">
+                Cancel
             </Link>
             <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Item Details</Typography>
-            <Link href={`/editItem/${item.id}`}  underline="none">
-                Edit
+            <Link href="#" underline="none">
+                Save
             </Link>
             </Box>
             <Box
@@ -92,4 +92,4 @@ const ItemDetailsPage = () => {
     );
 };
 
-export { ItemDetailsPage };
+export { ItemEditPage };

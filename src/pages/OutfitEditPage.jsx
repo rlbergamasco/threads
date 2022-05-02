@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectOutfits } from "appSlice";
 import { ItemList, TagList, DateList, Share } from 'components'
 
-const OutfitDetailsPage = () => {
+const OutfitEditPage = () => {
     
     let params = useParams();
     const id = params.id;
@@ -15,12 +15,12 @@ const OutfitDetailsPage = () => {
     return (
         <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
             <Box sx={{width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-            <Link href="/history" underline="none">
-                Back
+            <Link href={`/outfits/${outfit.id}`} underline="none">
+                Cancel
             </Link>
             <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Outfit Details</Typography>
-            <Link href={`/editOutfit/${outfit.id}`} underline="none">
-                Edit
+            <Link href="#" underline="none">
+                Save
             </Link>
             </Box>
             <Box
@@ -55,4 +55,4 @@ const OutfitDetailsPage = () => {
     );
 };
 
-export { OutfitDetailsPage };
+export { OutfitEditPage };

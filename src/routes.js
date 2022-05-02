@@ -1,4 +1,4 @@
-import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage, LogOutfitPage, SignupPage, StartPage, LogItemPage, FindItemPage, OutfitDetailsPage, ItemDetailsPage } from 'pages';
+import { HomePage, HistoryPage, ClosetPage, SettingsPage, LoginPage, LogOutfitPage, SignupPage, StartPage, LogItemPage, FindItemPage, OutfitDetailsPage, ItemDetailsPage, OutfitEditPage, ItemEditPage } from 'pages';
 
 const ROUTES = [
     {
@@ -48,6 +48,14 @@ const ROUTES = [
     {
         path: '/items/:id',
         element:  <ItemDetailsPage />
+    },
+    {
+        path: '/editOutfit/:id',
+        element:  <OutfitEditPage />
+    },
+    {
+        path: '/editItem/:id',
+        element:  <ItemEditPage />
     },
 ];
 
