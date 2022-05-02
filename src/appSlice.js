@@ -38,7 +38,7 @@ export const appSlice = createSlice({
             state.tags = [...state.tags, action.payload];
         },
         deleteTag: (state, action) => {
-            state.tags = state.tags.filter(el => el.id === action.payload);
+            state.tags = state.tags.filter(el => el.id !== action.payload);
             // payload should just be tag id
         },
         changeSelected: (state, action) => {
