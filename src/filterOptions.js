@@ -39,16 +39,31 @@ export const closetFilterLogic = (item, selectedTagLabels, allTags) => {
     const categoryStatuses = {};
 
     Object.keys(selectedTagLabels).forEach(category => {
-        const itemTagIds = category.tagIds;
+        const selectedTagIdsInCategory = selectedTags[category].map(tag => tag.id);
 
-        const containsAllSelectedTagsInCategory = selectedTags.every(tag => {
-            return itemTagIds.includes(tag.id);
-        })
+        if (selectedTagIdsInCategory.length === 0) {
+            categoryStatuses[category] = true
+            return
+        }
+
+        const containsAllSelectedTagsInCategory = selectedTagIdsInCategory
+            .map(selectedTagId => {
+                return item.tagIds.includes(selectedTagId);
+            })
+            .includes(true);
+
+        if (item.tagIds.includes("01-type")) {
+            console.log(selectedTagIdsInCategory)
+            console.log(category, containsAllSelectedTagsInCategory);
+        }
 
         categoryStatuses[category] = containsAllSelectedTagsInCategory;
     })
 
     // const isIncluded = Object.keys(categoryStatuses).every(category => categoryStatuses[category]);
-    const isIncluded = Object.keys(categoryStatuses).map(cat => categoryStatuses[cat]).includes(true);
-    return isIncluded
+    const isExcluded = Object.keys(categoryStatuses).map(cat => categoryStatuses[cat]).includes(false);
+
+    // console.log(categoryStatuses)
+
+    return !isExcluded
 };

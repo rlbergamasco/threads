@@ -21,7 +21,7 @@ const LogOutfitPage = () => {
     }
 
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
-    console.log(unformattedDate.getTime())
+    // console.log(unformattedDate.getTime())
 
     return (
         <Box>
@@ -39,7 +39,7 @@ const LogOutfitPage = () => {
                 <UploadImage></UploadImage>
             </Box>
 
-            <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5,  }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5, }}>
                 <Typography variant="h2">Clothing Items</Typography>
                 <Box sx={{ flexGrow: 1 }} />
                 <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%" }}><Add fontSize="small" />Edit Items in Outfit</Button>

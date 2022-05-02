@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { Typography, Box, Button, Fab, TextField, bottomNavigationActionClasses } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
-import { selectItems, selectOutfits } from "appSlice";
+import { selectItems, selectOutfits, selectTags } from "appSlice";
 import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "closetSlice";
 import { Search, Tune, Add } from '@mui/icons-material';
 import { closetSortOptions } from 'sortOptions';
+import { closetFilterLogic } from 'filterOptions';
 
 const ClosetPage = () => {
     const items = useSelector(selectItems);
     const outfits = useSelector(selectOutfits);
+    const allTags = useSelector(selectTags);
 
     const [openMenu, setOpenMenu] = useState(false);
     const [search, setSearch] = useState(false);
@@ -22,6 +24,8 @@ const ClosetPage = () => {
 
     const selectedSortOption = sortOptions.find((e) => e.label === selectedSortOptionLabel)
     const sorted = [...items].sort((a, b) => selectedSortOption.func(a, b, outfits))
+
+    const filtered = sorted.filter((item) => closetFilterLogic(item, selectedTags, allTags));
 
     return (
         <Box>
@@ -36,7 +40,7 @@ const ClosetPage = () => {
             </Box>
 
             <Box sx={{ mt: search ? 15 : 7 }}>
-                <ItemGrid display={display} items={sorted} />
+                <ItemGrid display={display} items={filtered} />
             </Box>
 
             <FilterMenu

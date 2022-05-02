@@ -16,14 +16,14 @@ const ItemCard = (props) => {
   if (!item.imageURL) {
     let outfitsSorted = [...outfits].sort((a, b) => b.date - a.date);
     for (let outfit of outfitsSorted) {
-      console.log(outfit)
+      // console.log(outfit)
       for (let item of outfit.items) {
         if (item.itemId === id) {
           imageURL = outfit.imageURL;
           imageRelY = (item.imageRelativeY * 100).toString();
           imageRelX = (item.imageRelativeX * 100).toString();
-          console.log(imageRelX)
-          console.log(imageRelY)
+          // console.log(imageRelX)
+          // console.log(imageRelY)
         }
       }
     }

@@ -14,7 +14,7 @@ const ItemDetailsPage = () => {
     let outfits = useSelector(selectOutfits);
 
     let item = items.filter((i) => i.id == id)[0]
-    console.log(item);
+    // console.log(item);
     let imageURL = "";
     let imageRelX = "";
     let imageRelY = "";
@@ -22,7 +22,7 @@ const ItemDetailsPage = () => {
     if (!item.imageURL) {
         let outfitsSorted = [...outfits].sort((a, b) => b.date - a.date);
         for (let outfit of outfitsSorted) {
-            console.log(outfit)
+            // console.log(outfit)
             for (let item of outfit.items) {
                 if (item.itemId === id) {
                     imageURL = outfit.imageURL;

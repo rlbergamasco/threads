@@ -17,7 +17,7 @@ const ItemList = ({ outfit }) => {
                 const imageRelY = (item.imageRelativeY * 100).toString();
                 const imageRelX = (item.imageRelativeX * 100).toString();
                 const itemName = allItems.filter((testItem) => testItem.id == item.itemId)[0].name;
-                console.log(itemName)
+                // console.log(itemName)
                 return (
                     <ListItem
                         key={itemName}

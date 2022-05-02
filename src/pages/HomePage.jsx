@@ -28,7 +28,7 @@ const HomePage = () => {
 
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
     const todayOutfits = outfits.filter(outfit => new Date(outfit.date).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" }) === todayDateLong);
-    console.log(unformattedDate.getTime())
+    // console.log(unformattedDate.getTime())
 
     const [temperature, setTemperature] = useState(undefined);
     const [weatherIcon, setWeatherIcon] = useState(undefined);

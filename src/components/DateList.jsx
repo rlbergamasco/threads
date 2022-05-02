@@ -7,7 +7,7 @@ const DateList = ({ outfit }) => {
     const outfitId = outfit.id;
     const allOutfits = useSelector(selectOutfits);
     const dates = allOutfits.filter((testOutfit) => testOutfit.id == outfitId).map((outfit) => outfit.date);
-    console.log(dates);
+    // console.log(dates);
     let uniqDates = [...new Set(dates)];
 
 

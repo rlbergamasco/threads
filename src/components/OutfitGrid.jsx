@@ -3,35 +3,35 @@ import { OutfitCard } from 'components';
 import { Link } from "react-router-dom";
 
 const OutfitGrid = ({ outfits, display }) => {
-  console.log(display)
+  // console.log(display)
   if (display == "List") {
     return (
-      <List 
-      dense 
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
+      <List
+        dense
+        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       >
-      {outfits.map((outfit) => {
+        {outfits.map((outfit) => {
           let date = new Date(outfit.date).toLocaleDateString();
-      return (
-          <ListItem
-          key={outfit.id + outfit.date}
-          disablePadding
-          button
-          component={Link}
-          to={`/outfits/${outfit.id}`}
-          >
-          <ListItemButton>
-              <ListItemAvatar>
-              <div style={{ width: "100px", height: "100px", overflow: "hidden" }}>
-              <img src={'/images/' + outfit.imageURL} style={{height: "100px", width: "100px", objectFit: "cover"}}></img>
-              </div>
-              </ListItemAvatar>
-              <Typography variant="h2" sx={{marginLeft: "1em"}} primary={date}>{date}</Typography>
-          </ListItemButton>
-          </ListItem>
+          return (
+            <ListItem
+              key={outfit.id + outfit.date}
+              disablePadding
+              button
+              component={Link}
+              to={`/outfits/${outfit.id}`}
+            >
+              <ListItemButton>
+                <ListItemAvatar>
+                  <div style={{ width: "100px", height: "100px", overflow: "hidden" }}>
+                    <img src={'/images/' + outfit.imageURL} style={{ height: "100px", width: "100px", objectFit: "cover" }}></img>
+                  </div>
+                </ListItemAvatar>
+                <Typography variant="h2" sx={{ marginLeft: "1em" }} primary={date}>{date}</Typography>
+              </ListItemButton>
+            </ListItem>
           );
-      })}
-    </List>
+        })}
+      </List>
     )
   }
   return (
