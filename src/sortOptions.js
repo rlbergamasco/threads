@@ -39,7 +39,7 @@ const closetLeastRecentlyWorn = (a, b, selectedOutfits) => {
         return -1
     }
 
-    return (outfitsWithA[0].date > outfitsWithB[0].date)
+    return (outfitsWithA[0].date > outfitsWithB[0].date) ? 1 : -1;
 }
 
 const closetMostWorn = (a, b, selectedOutfits) => {
