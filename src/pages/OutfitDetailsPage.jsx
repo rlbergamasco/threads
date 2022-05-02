@@ -1,10 +1,9 @@
 import { Typography, Box, Link, Paper, List, ListSubheader, ListItem, Button } from '@mui/material';
-import ShareIcon from '@mui/icons-material/Share';
 import { OutfitGrid } from 'components';
 import { Routes, Route, useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { selectOutfits } from "appSlice";
-import { ItemList, TagList, DateList } from 'components'
+import { ItemList, TagList, DateList, Share } from 'components'
 
 const OutfitDetailsPage = () => {
     
@@ -47,10 +46,9 @@ const OutfitDetailsPage = () => {
                     <ListItem><Typography variant="h2">{outfit.notes}</Typography></ListItem>
                 </List>
             }
-            <Box>
+            <Box style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px"}}>Wear Again</Button>
-            <Button href="" variant="contained" sx={{ textTransform: 'capitalize', margin: "1em 16px 0 16px"}}>Share <ShareIcon sx={{marginLeft: "5px"}} fontSize="small"/></Button>
-
+            <Share outfit={outfit}/>
             </Box>
            
         </Box>
