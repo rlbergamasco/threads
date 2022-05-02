@@ -18,14 +18,13 @@ const TagList = ({ outfit, item }) => {
 
                     {item.tagIds.map((tagId) => {
                         let tagObj = allTags.filter((testTag) => testTag.id == tagId)[0];
-
                         return (
                             <ListItem
                                 key={tagId}
                                 disablePadding
                                 sx={{ width: "auto" }}
                             >
-                                <StyledTag label={tagObj.title} />
+                                {tagObj ? <StyledTag label={tagObj.title} /> : null}
                             </ListItem>
                         );
                     })}
