@@ -1,17 +1,16 @@
 import { List, ListItem, ListItemButton, ListItemAvatar, ListItemText, Avatar, ListSubheader, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectOutfits } from "appSlice";
+import { Link } from "react-router-dom";
 
 const OutfitList = ({ item }) => {
     const outfits = useSelector(selectOutfits);
     let outfitsSorted = [...outfits].sort((a, b) => b.date - a.date);
-
     let itemOutfits = outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.id));
     let uniqOutfitsSorted = Array.from(new Set(itemOutfits.map(o => o.id))).map(id => {
         return itemOutfits.find(a => a.id === id)
     });
     
-
     return (
         <List 
             dense 
@@ -24,6 +23,9 @@ const OutfitList = ({ item }) => {
             <ListItem
             key={outfit.id}
             disablePadding
+            button
+            component={Link}
+            to={`/outfits/${outfit.id}`}
             >
             <ListItemButton>
                 <ListItemAvatar>

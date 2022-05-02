@@ -1,6 +1,7 @@
 import { List, ListItem, ListItemButton, ListItemAvatar, ListItemText, Avatar, ListSubheader, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectItems } from "appSlice";
+import { Link } from "react-router-dom";
 
 const ItemList = ({ outfit }) => {
     let items = outfit.items;
@@ -21,6 +22,9 @@ const ItemList = ({ outfit }) => {
             <ListItem
             key={itemName}
             disablePadding
+            button
+            component={Link}
+            to={`/items/${item.itemId}`}
             >
             <ListItemButton>
                 <ListItemAvatar>
