@@ -46,10 +46,14 @@ const sharedFilterLogic = (containedTagIds, selectedTagLabels, allTags) => {
     return !isExcluded
 }
 
+export const itemSearchLogic = (item, searchTerm) => {
+    return item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.notes.toLowerCase().includes(searchTerm.toLowerCase())
+};
+
 export const closetFilterLogic = (item, selectedTagLabels, allTags, searchTerm) => {
     const includedByTagFilters = sharedFilterLogic(item.tagIds, selectedTagLabels, allTags);
-    const includedBySearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.notes.toLowerCase().includes(searchTerm.toLowerCase())
-    return includedByTagFilters && (searchTerm === "" ? true : includedBySearch)
+    const includedBySearch = itemSearchLogic(item, searchTerm);
+    return includedByTagFilters && (searchTerm === "" ? true : includedBySearch);
 };
 
 export const historyFilterLogic = (outfit, allClothingItems, selectedTagLabels, allTags, searchTerm) => {
@@ -63,9 +67,7 @@ export const historyFilterLogic = (outfit, allClothingItems, selectedTagLabels, 
     const includedByTagFilters = sharedFilterLogic(tagIdsInOutfit, selectedTagLabels, allTags);
 
     const includedBySearch = itemsInOutfit
-        .map(item => {
-            return item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.notes.toLowerCase().includes(searchTerm.toLowerCase())
-        })
+        .map(item => itemSearchLogic(item, searchTerm))
         .includes(true)
 
     return includedByTagFilters && (searchTerm === "" ? true : includedBySearch)
