@@ -91,7 +91,7 @@ const LogItemPage = () => {
                 <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 5 }} />
 
                 <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Button href="javascript:history.back()" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
+                    <Button href="javascript:history.back()" onClick={handleSave} variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
                 </Box>
             </Box>
 

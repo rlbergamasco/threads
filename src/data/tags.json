@@ -1,107 +1,107 @@
 [
     {
         "id": "00-type",
-        "label": "shirt",
+        "title": "shirt",
         "category": "Clothing Type"
     },
     {
         "id": "01-type",
-        "label": "pants",
+        "title": "pants",
         "category": "Clothing Type"
     },
     {
         "id": "02-type",
-        "label": "shorts",
+        "title": "shorts",
         "category": "Clothing Type"
     },
     {
         "id": "00-color",
-        "label": "white",
+        "title": "white",
         "category": "Color"
     },
     {
         "id": "01-color",
-        "label": "black",
+        "title": "black",
         "category": "Color"
     },
     {
         "id": "02-color",
-        "label": "red",
+        "title": "red",
         "category": "Color"
     },
     {
         "id": "03-color",
-        "label": "orange",
+        "title": "orange",
         "category": "Color"
     },
     {
         "id": "04-color",
-        "label": "yellow",
+        "title": "yellow",
         "category": "Color"
     },
     {
         "id": "05-color",
-        "label": "green",
+        "title": "green",
         "category": "Color"
     },
     {
         "id": "06-color",
-        "label": "blue",
+        "title": "blue",
         "category": "Color"
     },
     {
         "id": "07-color",
-        "label": "indigo",
+        "title": "indigo",
         "category": "Color"
     },
     {
         "id": "08-color",
-        "label": "violet",
+        "title": "violet",
         "category": "Color"
     },
     {
         "id": "00-occasion",
-        "label": "cute",
+        "title": "cute",
         "category": "Occasion"
     },
     {
         "id": "01-occasion",
-        "label": "casual",
+        "title": "casual",
         "category": "Occassion"
     },
     {
         "id": "02-occasion",
-        "label": "formal",
+        "title": "formal",
         "category": "Occassion"
     },
     {
         "id": "03-occasion",
-        "label": "party",
+        "title": "party",
         "category": "Occassion"
     },
     {
         "id": "04-occasion",
-        "label": "gym",
+        "title": "gym",
         "category": "Occassion"
     },
     {
         "id": "00-weather",
-        "label": "warm",
+        "title": "warm",
         "category": "Weather"
     },
     {
         "id": "01-weather",
-        "label": "cold",
+        "title": "cold",
         "category": "Weather"
     },
     {
         "id": "02-weather",
-        "label": "sunny",
+        "title": "sunny",
         "category": "Weather"
     },
     {
         "id": "03-weather",
-        "label": "rainy",
+        "title": "rainy",
         "category": "Weather"
     }
 ]

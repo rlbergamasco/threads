@@ -19,7 +19,7 @@ const TagSelector = ({ allowEditTags, setSelectedTags, selectedTags }) => {
                     <CustomSelector
                         allowEditTags={allowEditTags}
                         category={cat}
-                        options={[...new Set([newTagValue, ...tagOptions.filter(op => op.category === cat).map(op => op.label)].filter(el => el !== null))]}
+                        options={[...new Set([newTagValue, ...tagOptions.filter(op => op.category === cat).map(op => op.title)].filter(el => el !== null))]}
                         selectedTags={selectedTags}
                         setSelectedTags={setSelectedTags}
                         setNewTagValue={setNewTagValue}
@@ -141,7 +141,8 @@ const Label = styled('label')`
 
 const InputWrapper = styled('div')(
     ({ theme }) => `
-  width: 100%;
+  width: 300px;
+  max-width: '100%';
   border: 1px solid ${theme.palette.text.disabled};
   background-color: ${theme.palette.background.paper};
   border-radius: 4px;
@@ -222,6 +223,7 @@ const StyledTag = styled(Tag)(
 const Listbox = styled('ul')(
     ({ theme }) => `
   width: 300px;
+  max-width: '95%';
   margin: 2px 0 0;
   padding: 0;
   position: absolute;
