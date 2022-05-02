@@ -4,6 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectTags, addTag, addItem } from "appSlice";
 import { TagSelector } from 'components';
 import { AddAPhoto } from '@mui/icons-material';
+import { selectTags, addTag } from "appSlice";
+import { TagSelector, UploadImage } from 'components';
+import { Add, AddAPhoto } from '@mui/icons-material';
+import { HomePage } from './HomePage';
 
 const LogItemPage = () => {
     const dispatch = useDispatch();
@@ -74,9 +78,8 @@ const LogItemPage = () => {
                 </Box>
             </Box>
 
-            <Box href="" variant="contained"
-                sx={{ mt: 7, mx: 'auto', display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: '100%', maxWidth: "350px", height: "350px", bgcolor: 'divider', borderRadius: "3%" }}>
-                <AddAPhoto fontSize="large"></AddAPhoto>
+            <Box sx={{ mt: 7 }}>
+                <UploadImage></UploadImage>
             </Box>
 
             <Box sx={{ mt: 3 }}>
@@ -85,8 +88,8 @@ const LogItemPage = () => {
 
             <TextField label="" value={name} onChange={(event) => setName(event.target.value)} sx={{ width: '100%', my: 1 }} />
 
-            <Box sx={{ mt: 4 }}>
-                <Box sx={{ mt: 5 }}>
+            <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3 }}>
                     <Typography variant="h2">Tags</Typography>
                     <TagSelector allowEditTags setSelectedTags={setSelectedTags} selectedTags={selectedTags} />
                 </Box>
@@ -107,3 +110,12 @@ const LogItemPage = () => {
 };
 
 export { LogItemPage };
+
+/*
+
+<Box href="" variant="contained"
+                sx={{ mt: 7, mx: 3, display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: "350px", height: "350px", bgcolor: 'text.disabled', borderRadius: "3%" }}>
+                <AddAPhoto fontSize="large"></AddAPhoto>
+            </Box>
+
+*/
