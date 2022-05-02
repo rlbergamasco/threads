@@ -58,6 +58,7 @@ const ItemDetailsPage = () => {
                     <img style={{ margin: "0 0 0 -30%", width: "150%", height: "300px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }} src={`/images/${imageURL}`}></img>
                 </div>
             </Box>
+            <Typography variant="h2">{item.name}</Typography>
             <TagList item={item}/>
             {item.notes && 
                 <List

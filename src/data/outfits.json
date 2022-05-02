@@ -1,7 +1,7 @@
 [
     {
         "id": "00-outfit",
-        "imageURL": "Outfit1.jpeg",
+        "imageURL": "00-outfit.jpeg",
         "notes": "I love this outfit so much. I got so many compliments.",
         "items": [
             {
@@ -19,7 +19,7 @@
     },
     {
         "id": "01-outfit",
-        "imageURL": "Outfit2.jpeg",
+        "imageURL": "01-outfit.jpeg",
         "notes": "Casual and cute!",
         "items": [
             {
@@ -36,111 +36,131 @@
         "date": 1650597513000
     },
     {
-        "id": "00-outfit",
-        "imageURL": "Outfit1.jpeg",
-        "notes": "",
+        "id": "02-outfit",
+        "imageURL": "02-outfit.jpg",
+        "notes": "Great for dinner out with work friends.",
         "items": [
             {
                 "imageRelativeY": 0.25,
-                "imageRelativeX": 0.5,
-                "itemId": "03-item"
+                "imageRelativeX": 0.6,
+                "itemId": "04-item"
+            },
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "05-item"
             },
             {
                 "imageRelativeY": 0.75,
                 "imageRelativeX": 0.5,
-                "itemId": "02-item"
+                "itemId": "06-item"
             }
         ],
-        "date": 1650683913000
+        "date": 1650426724000
     },
     {
-        "id": "01-outfit",
-        "imageURL": "Outfit2.jpeg",
+        "id": "03-outfit",
+        "imageURL": "03-outfit.jpg",
+        "notes": "Beachy vibe!",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "07-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "08-item"
+            }
+           
+        ],
+        "date": 1650340324000
+    },
+    {
+        "id": "04-outfit",
+        "imageURL": "04-outfit.jpg",
         "notes": "",
         "items": [
             {
                 "imageRelativeY": 0.25,
                 "imageRelativeX": 0.6,
-                "itemId": "00-item"
+                "itemId": "09-item"
             },
-            {
-                "imageRelativeY": 0.75,
-                "imageRelativeX": 0.5,
-                "itemId": "01-item"
-            }
-        ],
-        "date": 1650683913000
-    },
-    {
-        "id": "00-outfit",
-        "imageURL": "Outfit1.jpeg",
-        "notes": "",
-        "items": [
             {
                 "imageRelativeY": 0.25,
-                "imageRelativeX": 0.5,
-                "itemId": "03-item"
+                "imageRelativeX": 0.6,
+                "itemId": "10-item"
             },
             {
                 "imageRelativeY": 0.75,
                 "imageRelativeX": 0.5,
-                "itemId": "02-item"
+                "itemId": "11-item"
             }
+           
         ],
-        "date": 1650683913000
+        "date": 1650253924000
     },
     {
-        "id": "01-outfit",
-        "imageURL": "Outfit2.jpeg",
+        "id": "05-outfit",
+        "imageURL": "05-outfit.jpg",
         "notes": "",
         "items": [
             {
                 "imageRelativeY": 0.25,
                 "imageRelativeX": 0.6,
-                "itemId": "00-item"
+                "itemId": "07-item"
             },
             {
                 "imageRelativeY": 0.75,
                 "imageRelativeX": 0.5,
-                "itemId": "01-item"
+                "itemId": "12-item"
             }
+           
         ],
-        "date": 1650683913000
+        "date": 1650081124000
     },
     {
-        "id": "00-outfit",
-        "imageURL": "Outfit1.jpeg",
-        "notes": "",
-        "items": [
-            {
-                "imageRelativeY": 0.25,
-                "imageRelativeX": 0.5,
-                "itemId": "03-item"
-            },
-            {
-                "imageRelativeY": 0.75,
-                "imageRelativeX": 0.5,
-                "itemId": "02-item"
-            }
-        ],
-        "date": 1650683913000
-    },
-    {
-        "id": "01-outfit",
-        "imageURL": "Outfit2.jpeg",
+        "id": "06-outfit",
+        "imageURL": "06-outfit.jpg",
         "notes": "",
         "items": [
             {
                 "imageRelativeY": 0.25,
                 "imageRelativeX": 0.6,
-                "itemId": "00-item"
+                "itemId": "13-item"
             },
             {
                 "imageRelativeY": 0.75,
                 "imageRelativeX": 0.5,
-                "itemId": "01-item"
+                "itemId": "14-item"
             }
+           
         ],
-        "date": 1650683913000
+        "date": 1649994724000
+    },
+    {
+        "id": "07-outfit",
+        "imageURL": "07-outfit.jpg",
+        "notes": "",
+        "items": [
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "15-item"
+            },
+            {
+                "imageRelativeY": 0.25,
+                "imageRelativeX": 0.6,
+                "itemId": "16-item"
+            },
+            {
+                "imageRelativeY": 0.75,
+                "imageRelativeX": 0.5,
+                "itemId": "17-item"
+            }
+           
+        ],
+        "date": 1649908324000
     }
 ]
