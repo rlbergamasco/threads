@@ -2,15 +2,18 @@ import { useState } from 'react';
 import { Typography, Box, TextField, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { OutfitGrid, FilterMenu, SearchBar } from 'components';
 import { useSelector } from 'react-redux';
-import { selectOutfits } from "appSlice";
+import { selectOutfits, selectItems, selectTags } from "appSlice";
 import { selectSort, selectDisplay, changeSort, changeDisplay, selectSelectedTags, changeSelectedTags } from "historySlice";
 import { Search, Tune } from '@mui/icons-material';
 import { historySortOptions } from 'sortOptions';
+import { historyFilterLogic } from 'filterOptions';
 
 const HistoryPage = () => {
     const outfits = useSelector(selectOutfits);
     const display = useSelector(selectDisplay);
     const selectedTags = useSelector(selectSelectedTags);
+    const allClothingItems = useSelector(selectItems);
+    const allTags = useSelector(selectTags);
     const selectedSortOptionLabel = useSelector(selectSort);
 
     const [openMenu, setOpenMenu] = useState(false);
@@ -19,6 +22,8 @@ const HistoryPage = () => {
     const sortOptions = historySortOptions;
     const selectedSortOption = sortOptions.find((e) => e.label === selectedSortOptionLabel)
     const sorted = [...outfits].sort((a, b) => selectedSortOption.func(a, b, outfits))
+
+    const filtered = sorted.filter(outfit => historyFilterLogic(outfit, allClothingItems, selectedTags, allTags));
 
     return (
         <Box>
@@ -33,7 +38,7 @@ const HistoryPage = () => {
             </Box>
 
             <Box sx={{ mt: search ? 15 : 7 }}>
-                <OutfitGrid display={display} outfits={sorted} />
+                <OutfitGrid display={display} outfits={filtered} />
             </Box>
             <FilterMenu
                 open={openMenu}

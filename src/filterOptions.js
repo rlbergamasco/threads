@@ -1,19 +1,3 @@
-// selectedTagLabels: {
-//     ['Clothing Type']: ['shirt'],
-//     Color: [],
-//     Occasion: [],
-//     Weather: [],
-//     Other: [],
-// }
-
-// allTags: [
-//     {
-//         "id": "01-type",
-//         "title": "pants",
-//         "category": "Clothing Type"
-//     }   
-// ]
-
 const selectedTagLabelsToTags = (selectedTagLabels, allTags) => {
     const selectedTags = {};
 
@@ -33,7 +17,7 @@ const selectedTagLabelsToTags = (selectedTagLabels, allTags) => {
     return selectedTags;
 };
 
-export const closetFilterLogic = (item, selectedTagLabels, allTags) => {
+const sharedFilterLogic = (containedTagIds, selectedTagLabels, allTags) => {
     const selectedTags = selectedTagLabelsToTags(selectedTagLabels, allTags);
 
     const categoryStatuses = {};
@@ -48,22 +32,27 @@ export const closetFilterLogic = (item, selectedTagLabels, allTags) => {
 
         const containsAllSelectedTagsInCategory = selectedTagIdsInCategory
             .map(selectedTagId => {
-                return item.tagIds.includes(selectedTagId);
+                return containedTagIds.includes(selectedTagId);
             })
             .includes(true);
-
-        if (item.tagIds.includes("01-type")) {
-            console.log(selectedTagIdsInCategory)
-            console.log(category, containsAllSelectedTagsInCategory);
-        }
 
         categoryStatuses[category] = containsAllSelectedTagsInCategory;
     })
 
-    // const isIncluded = Object.keys(categoryStatuses).every(category => categoryStatuses[category]);
     const isExcluded = Object.keys(categoryStatuses).map(cat => categoryStatuses[cat]).includes(false);
 
-    // console.log(categoryStatuses)
-
     return !isExcluded
+}
+
+export const closetFilterLogic = (item, selectedTagLabels, allTags) => {
+    return sharedFilterLogic(item.tagIds, selectedTagLabels, allTags);
+};
+
+export const historyFilterLogic = (outfit, allClothingItems, selectedTagLabels, allTags) => {
+    const tagIdsInOutfit = outfit.items
+        .map(item => item.itemId)
+        .map(id => allClothingItems.find(item => item.id === id))
+        .reduce((currentTagIds, item) => currentTagIds.concat(item.tagIds), []);
+
+    return sharedFilterLogic(tagIdsInOutfit, selectedTagLabels, allTags);
 };
