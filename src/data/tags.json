@@ -15,6 +15,11 @@
         "category": "Clothing Type"
     },
     {
+        "id": "03-type",
+        "title": "skirt",
+        "category": "Clothing Type"
+    },
+    {
         "id": "00-color",
         "title": "white",
         "category": "Color"

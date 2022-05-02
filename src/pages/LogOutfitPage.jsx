@@ -1,5 +1,5 @@
 import { Typography, Box, Button, TextField } from '@mui/material';
-import { Add } from '@mui/icons-material';
+import { Add, AddAPhoto } from '@mui/icons-material';
 import { OutfitCard } from 'components';
 import { HomePage } from './HomePage';
 
@@ -35,14 +35,17 @@ const LogOutfitPage = () => {
                 <Typography variant="h2">Date: {currentDate}</Typography>
             </Box>
 
-            <Box sx={{ mt: 5 }}>
-                <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", height: "300px" }}><Add fontSize="large" />Tap to add a photo!</Button>
+            <Box href="" variant="contained"
+                sx={{ mt: 2, mx: 'auto', display: "flex", justifyContent: "center", alignItems: "center", textTransform: 'capitalize', width: '100%', maxWidth: "350px", height: "350px", bgcolor: 'divider', borderRadius: "3%" }}>
+                <AddAPhoto fontSize="large" />
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5 }}>
                 <Typography variant="h2">Clothing Items</Typography>
                 <Box sx={{ flexGrow: 1 }} />
-                <Button href="/findItem" variant="contained" sx={{ textTransform: 'capitalize', width: "50%" }}><Add fontSize="small" />Edit Items in Outfit</Button>
+                <Button href="/findItem" variant="contained" sx={{ px: 1 }}>
+                    <Typography variant="body2" sx={{ textTransform: 'capitalize' }}>Edit Items in Outfit</Typography>
+                </Button>
             </Box>
 
             <Box sx={{ mt: 3 }}>
@@ -53,13 +56,11 @@ const LogOutfitPage = () => {
                 <Typography variant="h2">Notes</Typography>
             </Box>
 
-            <TextField label="" sx={{ width: '100%', my: 1 }} />
+            <TextField label="" sx={{ width: '100%', my: 1, mb: 5 }} />
 
-            <Box sx={{ mt: 5 }}>
-                <Button href="/home" variant="contained" align="center" sx={{ textTransform: 'capitalize', width: "100%" }}>Save</Button>
+            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button href="/home" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
             </Box>
-
-
 
         </Box>
     );

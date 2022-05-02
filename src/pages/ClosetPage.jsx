@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Box, Button, Fab, bottomNavigationActionClasses } from '@mui/material';
+import { Typography, Box, Button, Fab, TextField, bottomNavigationActionClasses } from '@mui/material';
 import { ItemGrid, FilterMenu } from 'components';
 import { useSelector } from 'react-redux';
 import { selectItems, selectOutfits } from "appSlice";
@@ -12,8 +12,11 @@ const ClosetPage = () => {
     const outfits = useSelector(selectOutfits);
 
     const [openMenu, setOpenMenu] = useState(false);
-    const selectedSortOptionLabel = useSelector(selectSort);
+    const [search, setSearch] = useState(false);
+
     const display = useSelector(selectDisplay);
+    const selectedTags = useSelector(selectSelectedTags);
+    const selectedSortOptionLabel = useSelector(selectSort);
 
     const sortOptions = closetSortOptions;
 
@@ -26,13 +29,14 @@ const ClosetPage = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
                     <Typography variant="h1">Closet</Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Search fontSize="large" />
+                    <Search fontSize="large" onClick={() => setSearch(!search)} />
                     <Tune fontSize="large" onClick={() => setOpenMenu(true)} />
                 </Box>
+                {search ? <TextField label="Search" sx={{ width: '90vw', mx: 3 }} /> : null}
             </Box>
 
-            <Box sx={{ mt: 7 }}>
-                <ItemGrid items={sorted} />
+            <Box sx={{ mt: search ? 15 : 7 }}>
+                <ItemGrid display={display} items={sorted} />
             </Box>
 
             <FilterMenu
@@ -43,7 +47,7 @@ const ClosetPage = () => {
                 sortOptions={sortOptions}
                 display={display}
                 changeDisplay={changeDisplay}
-                selectSelectedTags={selectSelectedTags}
+                selectedTags={selectedTags}
                 changeSelectedTags={changeSelectedTags}
             />
             <Fab color="primary"

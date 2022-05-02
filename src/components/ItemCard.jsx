@@ -31,12 +31,12 @@ const ItemCard = (props) => {
 
   return (
     <Card sx={{ maxWidth: 345, boxShadow: 'none', borderRadius: 0 }}>
-      <CardActionArea>
+      <CardActionArea href={`/items/${id}`}>
         <CardMedia
           height="170"
           alt={name}
         >
-          <div stlye={{ width: "170px", height: "170px", overflow: "hidden" }}>
+          <div style={{ width: "170px", height: "170px", overflow: "hidden" }}>
             <img style={{ margin: "0 0 0 -30%", width: "150%", height: "170px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }} src={'/images/' + imageURL}></img>
           </div>
         </CardMedia>

@@ -29,13 +29,13 @@ export const appSlice = createSlice({
         //     state.outfits.find(el => el.id === action.payload.id) = action.payload;
         // },
         addItem: (state, action) => {
-            state.items.append(action.payload);
+            state.items = [...state.items, action.payload];
         },
         // editItem: (state, action) => {
         //     state.items.find(el => el.id === action.payload.id) = action.payload;
         // },
         addTag: (state, action) => {
-            state.tags.append(action.payload);
+            state.tags = [...state.tags, action.payload];
         },
         deleteTag: (state, action) => {
             state.tags = state.tags.filter(el => el.id === action.payload);

@@ -7,10 +7,9 @@ import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
 import { MoreHoriz, Close } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
 
-const TagSelector = ({ allowEditTags, setSelectedTags, selectSelectedTags }) => {
+const TagSelector = ({ allowEditTags, setSelectedTags, selectedTags }) => {
     const tagCategories = ['Clothing Type', 'Color', 'Occasion', 'Weather', 'Other'];
     const tagOptions = useSelector(selectTags);
-    const selectedTags = useSelector(selectSelectedTags);
     const [newTagValue, setNewTagValue] = useState(null);
 
     return (
@@ -79,7 +78,7 @@ const CustomSelector = ({ options, category, allowEditTags, selectedTags, setSel
     });
 
     useEffect(() => {
-        dispatch(setSelectedTags({ [category]: value }));
+        setSelectedTags({ [category]: value });
     }, [value]);
 
     useEffect(() => {
@@ -142,8 +141,9 @@ const Label = styled('label')`
 
 const InputWrapper = styled('div')(
     ({ theme }) => `
-  width: 300px;
-  border: 1px solid ${theme.palette.text.primary};
+  width: 330px;
+  max-width: '100%';
+  border: 1px solid ${theme.palette.text.disabled};
   background-color: ${theme.palette.background.paper};
   border-radius: 4px;
   padding: 2px;
@@ -222,7 +222,8 @@ const StyledTag = styled(Tag)(
 
 const Listbox = styled('ul')(
     ({ theme }) => `
-  width: 300px;
+  width: 330px;
+  max-width: '95%';
   margin: 2px 0 0;
   padding: 0;
   position: absolute;

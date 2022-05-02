@@ -1,13 +1,13 @@
 import React from 'react';
 import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
 
-const OutfitCard = (props) => {
-  let imageURL = props.imageURL;
-  let date = new Date(props.date);
-
+const OutfitCard = ({outfit}) => {
+  let imageURL = outfit.imageURL;
+  let date = new Date(outfit.date);
+  
   return (
     <Card sx={{ maxWidth: 345, boxShadow: 'none', borderRadius: 0 }}>
-      <CardActionArea>
+      <CardActionArea href={`/outfits/${outfit.id}`}>
         <CardMedia
           component="img"
           height="170"

@@ -2,7 +2,7 @@
     {
         "id": "00-item",
         "dateAdded": 1650501051000,
-        "notes": "",
+        "notes": "This is great for going out to dinner.",
         "name": "White Long Sleeved Crop Top",
         "tagIds": [
             "00-color",
@@ -45,6 +45,164 @@
             "00-occasion",
             "01-occasion",
             "01-weather"
+        ]
+    },
+    {
+        "id": "04-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Black Leather Coat",
+        "tagIds": [
+            "01-color",
+            "01-weather"
+        ]
+    },
+    {
+        "id": "05-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Red Silky Blouse",
+        "tagIds": [
+            "02-color",
+            "02-occasion",
+            "01-weather",
+            "00-type"
+        ]
+    },
+    {
+        "id": "06-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Black Slim Pants",
+        "tagIds": [
+            "01-color",
+            "00-occasion",
+            "02-occasion",
+            "01-type"
+        ]
+    },
+    {
+        "id": "07-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Floral Tank Top",
+        "tagIds": [
+            "01-occasion",
+            "00-type",
+            "05-color"
+        ]
+    },
+    {
+        "id": "08-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "White Crochet Mini Skirt",
+        "tagIds": [
+            "00-color",
+            "01-occasion",
+            "03-type"
+        ]
+    },
+    {
+        "id": "09-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "White Tube Top",
+        "tagIds": [
+            "00-color",
+            "00-occasion",
+            "00-type"
+        ]
+    },
+    {
+        "id": "10-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "White Croped Long Sleeve Sweater",
+        "tagIds": [
+            "00-color",
+            "00-occasion",
+            "00-type"
+        ]
+    },
+    {
+        "id": "11-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Light Blue Mom Jeans",
+        "tagIds": [
+            "06-color",
+            "00-occasion",
+            "01-type"
+        ]
+    },
+    {
+        "id": "12-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Black Leather Pants",
+        "tagIds": [
+            "02-color",
+            "00-occasion",
+            "02-occasion",
+            "01-type"
+        ]
+    },
+    {
+        "id": "13-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "White Ribbed Crop Top",
+        "tagIds": [
+            "00-color",
+            "00-occasion",
+            "00-type",
+            "00-weather",
+            "03-occasion"
+        ]
+    },
+    {
+        "id": "14-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Pink Suede Skirt",
+        "tagIds": [
+            "00-occasion",
+            "03-type",
+            "00-weather",
+            "03-occasion"
+        ]
+    },
+    {
+        "id": "15-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Plaid Flannel",
+        "tagIds": [
+            "01-occasion",
+            "00-type",
+            "01-weather"
+        ]
+    },
+    {
+        "id": "16-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "White Simple Top",
+        "tagIds": [
+            "01-occasion",
+            "00-type",
+            "00-color"
+        ]
+    },
+    {
+        "id": "17-item",
+        "dateAdded": 1650241851,
+        "notes": "",
+        "name": "Gray Denim Skirt",
+        "tagIds": [
+            "01-occasion",
+            "03-type"
         ]
     }
 ]
