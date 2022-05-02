@@ -14,7 +14,8 @@ const ClosetPage = () => {
     const allTags = useSelector(selectTags);
 
     const [openMenu, setOpenMenu] = useState(false);
-    const [search, setSearch] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [showSearchField, setShowSearchField] = useState(false);
 
     const display = useSelector(selectDisplay);
     const selectedTags = useSelector(selectSelectedTags);
@@ -25,7 +26,7 @@ const ClosetPage = () => {
     const selectedSortOption = sortOptions.find((e) => e.label === selectedSortOptionLabel)
     const sorted = [...items].sort((a, b) => selectedSortOption.func(a, b, outfits))
 
-    const filtered = sorted.filter((item) => closetFilterLogic(item, selectedTags, allTags));
+    const filtered = sorted.filter((item) => closetFilterLogic(item, selectedTags, allTags, searchTerm));
 
     return (
         <Box>
@@ -33,13 +34,13 @@ const ClosetPage = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
                     <Typography variant="h1">Closet</Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Search fontSize="large" onClick={() => setSearch(!search)} />
+                    <Search fontSize="large" onClick={() => setShowSearchField(!showSearchField)} />
                     <Tune fontSize="large" onClick={() => setOpenMenu(true)} />
                 </Box>
-                {search ? <TextField label="Search" sx={{ width: '90vw', mx: 3 }} /> : null}
+                {showSearchField ? <TextField value={searchTerm} onChange={e => setSearchTerm(e.target.value)} label="Search" sx={{ width: '90vw', mx: 3 }} /> : null}
             </Box>
 
-            <Box sx={{ mt: search ? 15 : 7 }}>
+            <Box sx={{ mt: showSearchField ? 15 : 7 }}>
                 <ItemGrid display={display} items={filtered} />
             </Box>
 

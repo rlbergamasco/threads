@@ -17,13 +17,14 @@ const HistoryPage = () => {
     const selectedSortOptionLabel = useSelector(selectSort);
 
     const [openMenu, setOpenMenu] = useState(false);
-    const [search, setSearch] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [showSearchField, setShowSearchField] = useState(false);
 
     const sortOptions = historySortOptions;
     const selectedSortOption = sortOptions.find((e) => e.label === selectedSortOptionLabel)
     const sorted = [...outfits].sort((a, b) => selectedSortOption.func(a, b, outfits))
 
-    const filtered = sorted.filter(outfit => historyFilterLogic(outfit, allClothingItems, selectedTags, allTags));
+    const filtered = sorted.filter(outfit => historyFilterLogic(outfit, allClothingItems, selectedTags, allTags, searchTerm));
 
     return (
         <Box>
@@ -31,13 +32,13 @@ const HistoryPage = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
                     <Typography variant="h1">Outfit History</Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Search fontSize="large" onClick={() => setSearch(!search)} />
+                    <Search fontSize="large" onClick={() => setShowSearchField(!showSearchField)} />
                     <Tune fontSize="large" onClick={() => setOpenMenu(true)} />
                 </Box>
-                {search ? <TextField label="Search" sx={{ width: '90vw', mx: 3 }} /> : null}
+                {showSearchField ? <TextField value={searchTerm} onChange={e => setSearchTerm(e.target.value)} label="Search" sx={{ width: '90vw', mx: 3 }} /> : null}
             </Box>
 
-            <Box sx={{ mt: search ? 15 : 7 }}>
+            <Box sx={{ mt: showSearchField ? 15 : 7 }}>
                 <OutfitGrid display={display} outfits={filtered} />
             </Box>
             <FilterMenu

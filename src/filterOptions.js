@@ -1,3 +1,5 @@
+import { getOutfitsForItemId } from "sortOptions";
+
 const selectedTagLabelsToTags = (selectedTagLabels, allTags) => {
     const selectedTags = {};
 
@@ -44,15 +46,27 @@ const sharedFilterLogic = (containedTagIds, selectedTagLabels, allTags) => {
     return !isExcluded
 }
 
-export const closetFilterLogic = (item, selectedTagLabels, allTags) => {
-    return sharedFilterLogic(item.tagIds, selectedTagLabels, allTags);
+export const closetFilterLogic = (item, selectedTagLabels, allTags, searchTerm) => {
+    const includedByTagFilters = sharedFilterLogic(item.tagIds, selectedTagLabels, allTags);
+    const includedBySearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.notes.toLowerCase().includes(searchTerm.toLowerCase())
+    return includedByTagFilters && (searchTerm === "" ? true : includedBySearch)
 };
 
-export const historyFilterLogic = (outfit, allClothingItems, selectedTagLabels, allTags) => {
-    const tagIdsInOutfit = outfit.items
+export const historyFilterLogic = (outfit, allClothingItems, selectedTagLabels, allTags, searchTerm) => {
+    const itemsInOutfit = outfit.items
         .map(item => item.itemId)
         .map(id => allClothingItems.find(item => item.id === id))
+
+    const tagIdsInOutfit = itemsInOutfit
         .reduce((currentTagIds, item) => currentTagIds.concat(item.tagIds), []);
 
-    return sharedFilterLogic(tagIdsInOutfit, selectedTagLabels, allTags);
+    const includedByTagFilters = sharedFilterLogic(tagIdsInOutfit, selectedTagLabels, allTags);
+
+    const includedBySearch = itemsInOutfit
+        .map(item => {
+            return item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.notes.toLowerCase().includes(searchTerm.toLowerCase())
+        })
+        .includes(true)
+
+    return includedByTagFilters && (searchTerm === "" ? true : includedBySearch)
 };
