@@ -28,7 +28,7 @@ const ClosetPage = () => {
             </Box>
 
             <Box sx={{ mt: search?15:7 }}>
-                <ItemGrid items={items} />
+                <ItemGrid display={display} items={items} />
             </Box>
 
             <FilterMenu
