@@ -12,6 +12,7 @@ const OutfitDetailsPage = () => {
     const outfits = useSelector(selectOutfits);
 
     let outfit = outfits.filter((o) => o.id == id)[0]
+
     return (
         <Box sx={{ width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
             <Box sx={{ position: 'fixed', top: 0, left: 0, zIndex: 10, p: 3, pb: 2, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.paper' }}>

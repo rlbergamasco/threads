@@ -25,6 +25,7 @@ const LogOutfitPage = () => {
     const [pickedDate, setPickedDate] = useState(datePickerFormat);
 
     const dispatch = useDispatch();
+    const id = uuidv4();
 
     let timeOfDay = "Morning"
     switch (true) {
@@ -45,7 +46,7 @@ const LogOutfitPage = () => {
             return;
         }
         dispatch(addOutfit({
-            id: uuidv4(),
+            id: id,
             notes: notes,
             imageURL: imageURL,
             items: items,
@@ -82,7 +83,8 @@ const LogOutfitPage = () => {
                         onChange={(event) => setPickedDate(event.target.value)}
                     />
                 </Box>
-                <UploadImage></UploadImage>
+
+                <UploadImage id={id} defaultImageURL={imageURL} setImageURL={setImageURL} />
 
                 <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5, }}>
                     <Typography variant="h2">Clothing Items</Typography>
