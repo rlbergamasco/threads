@@ -85,7 +85,7 @@ const HomePage = () => {
                             <ItemCard textVariant="body1" item={clothingTypeStats.mostWornInfo.item} />
                         </Grid>
                         <Grid item key={i * (-1) - 1} xs={6} >
-                            <Typography variant="h2" align="center" sx={{ pb: 1 }}>Lease worn {clothingTypeStats.clothingType}</Typography>
+                            <Typography variant="h2" align="center" sx={{ pb: 1 }}>Least worn {clothingTypeStats.clothingType}</Typography>
                             <ItemCard textVariant="body1" item={clothingTypeStats.leastWornInfo.item} />
                         </Grid>
                     </Grid>
