@@ -56,8 +56,6 @@ const LogOutfitPage = () => {
     }
 
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
-    // console.log(unformattedDate.getTime())
-    console.log(addingItemsView)
     if (!addingItemsView) {
         return (
             <Box>

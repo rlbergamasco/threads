@@ -34,7 +34,6 @@ export const appSlice = createSlice({
         },
         editItem: (state, action) => {
             let idx = state.items.findIndex(el => el.id === action.payload.id);
-            console.log(idx);
             state.items[idx] = action.payload;
         },
         addTag: (state, action) => {

@@ -14,7 +14,6 @@ const ItemGrid = ({ display, items }) => {
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       >
         {items.map((item) => {
-          // console.log(item)
           const itemName = item.name;
           let imageURL = "";
           let imageRelX = "";

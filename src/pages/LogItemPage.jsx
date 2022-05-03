@@ -72,7 +72,6 @@ const LogItemPage = () => {
         findNewTags();
         Object.keys(selectedTags).forEach(category => selectedTags[category].forEach(title => tagIds.push(...[currentTags.find(tag => tag.title === title && tag.category === category) ? currentTags.find(tag => tag.title === title && tag.category === category).id : null].filter(el => el !== null))))
         Object.keys(newTags).forEach(category => newTags[category].forEach(title => addNewTagToRedux(title, category)));
-        console.log(tagIds);
         dispatch(addItem(newItem));
         sleep(1000).then(() => { navigate(-1) });
     }

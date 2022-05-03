@@ -3,7 +3,6 @@ import { OutfitCard } from 'components';
 import { Link } from "react-router-dom";
 
 const OutfitGrid = ({ outfits, display }) => {
-  // console.log(display)
   if (display == "List") {
     return (
       <List
