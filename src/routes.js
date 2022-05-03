@@ -43,19 +43,19 @@ const ROUTES = [
     },
     {
         path: '/outfits/:id',
-        element:  <OutfitDetailsPage />
+        element: <OutfitDetailsPage />
     },
     {
         path: '/items/:id',
-        element:  <ItemDetailsPage />
+        element: <ItemDetailsPage />
     },
     {
         path: '/editOutfit/:id',
-        element:  <OutfitEditPage />
+        element: <OutfitEditPage />
     },
     {
         path: '/editItem/:id',
-        element:  <ItemEditPage />
+        element: <ItemEditPage />
     },
 ];
 

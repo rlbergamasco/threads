@@ -27,12 +27,12 @@ const FindItemPage = () => {
                 <TextField label="Search for item..." sx={{ width: '100%', my: 1 }} />
             </Box>
 
-            <Box sx={{ mt: 3, mb: 5}}>
+            <Box sx={{ mt: 3, mb: 5 }}>
                 <ItemGrid display="List" items={items} />
             </Box>
 
-            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <Button href="/logItem" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw'}}>Create New Clothing Item</Button>
+            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Button href="/logItem" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Create New Clothing Item</Button>
             </Box>
 
             <FilterMenu
