@@ -25,7 +25,7 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box sx={{ mt: 3 }}>
-                <Typography variant="h2" sx={{ pb: 1 }}>Date {pickedDate}</Typography>
+                <Typography variant="h2" sx={{ pb: 1 }}>Date</Typography>
                 <TextField
                     id="date"
                     label=""
