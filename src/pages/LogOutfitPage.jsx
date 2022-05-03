@@ -21,8 +21,8 @@ const LogOutfitPage = () => {
     const hour = unformattedDate.getHours();
     const currentDate = unformattedDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" })
     let navigate = useNavigate();
-
-    const [pickedDate, setPickedDate] = useState(currentDate);
+    const datePickerFormat = unformattedDate.toISOString().split('T')[0];
+    const [pickedDate, setPickedDate] = useState(datePickerFormat);
 
     const dispatch = useDispatch();
 
@@ -71,7 +71,7 @@ const LogOutfitPage = () => {
                     <Typography variant="h2">Date: {currentDate}</Typography>
                 </Box>
 
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ my: 3 }}>
                     <Typography variant="h2" sx={{ pb: 1 }}>Date</Typography>
                     <TextField
                         id="date"
