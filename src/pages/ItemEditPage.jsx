@@ -64,9 +64,9 @@ const ItemEditPage = () => {
 
     for (const tag of item.tagIds) {
         let itemTag = currentTags.filter((curTag) => curTag['id'] == tag)[0];
-        console.log(itemTag)
-        console.log(selectedTags[`${itemTag.category}`])
-        selectedTags[`${itemTag.category}`] = [...selectedTags[`${itemTag.category}`], itemTag.title];
+        if (itemTag) {
+            selectedTags[`${itemTag.category}`] = [...selectedTags[`${itemTag.category}`], itemTag.title];
+        }
     }
 
 
