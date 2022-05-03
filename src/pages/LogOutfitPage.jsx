@@ -49,7 +49,7 @@ const LogOutfitPage = () => {
             notes: notes,
             imageURL: imageURL,
             items: items,
-            date: new Date(pickedDate).getTime()
+            date: new Date(pickedDate).getTime() + 86400000
         }
         ));
         navigate('/home');
