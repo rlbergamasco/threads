@@ -17,6 +17,7 @@ const ItemList = ({ outfit }) => {
                 const imageRelY = (item.imageRelativeY * 100).toString();
                 const imageRelX = (item.imageRelativeX * 100).toString();
                 const itemName = allItems.filter((testItem) => testItem.id == item.itemId)[0].name;
+                const itemImg = allItems.filter((testItem) => testItem.id == item.itemId)[0].imageURL;
                 // console.log(itemName)
                 return (
                     <ListItem
@@ -29,7 +30,7 @@ const ItemList = ({ outfit }) => {
                         <ListItemButton>
                             <ListItemAvatar>
                                 <div style={{ width: "50px", height: "50px", overflow: "hidden" }}>
-                                    <img src={outfit.imageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
+                                    <img src={itemImg ? itemImg : outfit.imageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
                                 </div>
                             </ListItemAvatar>
                             <ListItemText id={itemName} primary={itemName} />
