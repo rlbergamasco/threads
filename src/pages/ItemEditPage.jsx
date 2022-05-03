@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Typography, Box, Link, Paper, List, ListSubheader, ListItem, Button, TextField } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
 import { useState } from 'react';
@@ -18,7 +19,8 @@ const ItemEditPage = () => {
     let outfits = useSelector(selectOutfits);
 
     let item = items.filter((i) => i.id == id)[0]
-    let imageURL = "";
+    const [imageURL, setImageURL] = useState('');
+    let tempImageURL = "";
     let imageRelX = "";
     let imageRelY = "";
     // Getting imageURL for outfit if not supplied
@@ -27,7 +29,7 @@ const ItemEditPage = () => {
         for (let outfit of outfitsSorted) {
             for (let item of outfit.items) {
                 if (item.itemId === id) {
-                    imageURL = outfit.imageURL;
+                    tempImageURL = outfit.imageURL;
                     imageRelY = (item.imageRelativeY * 100).toString();
                     imageRelX = (item.imageRelativeX * 100).toString();
                 }
@@ -37,6 +39,9 @@ const ItemEditPage = () => {
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        setImageURL(tempImageURL)
+    }, [tempImageURL]);
 
     let selectedTags = {
         ['Clothing Type']: [],
@@ -100,7 +105,8 @@ const ItemEditPage = () => {
             id: item.id,
             notes: notes,
             name: name,
-            tagIds: tagIds
+            tagIds: tagIds,
+            imageURL: imageURL
         }
         ));
         sleep(1000).then(() => { navigate(`/items/${item.id}`) });
@@ -121,7 +127,7 @@ const ItemEditPage = () => {
             </Box>
 
             <Box sx={{ mt: 7 }}>
-                <UploadImage message="You are currently using a default image from an outfit. Upload a different image to customize!"></UploadImage>
+                <UploadImage id={item.id} defaultImageURL={imageURL} setImageURL={setImageURL} message="You are currently using a default image from an outfit. Upload a different image to customize!"></UploadImage>
             </Box>
 
             <Box sx={{ mt: 3 }}>

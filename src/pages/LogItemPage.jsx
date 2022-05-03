@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const LogItemPage = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
+    const id = uuidv4();
 
     let selectedTags = {
         ['Clothing Type']: [],
@@ -45,7 +46,6 @@ const LogItemPage = () => {
     }
 
     const addNewTagToRedux = (title, category) => {
-        const id = uuidv4();
         const newTag = {
             id: id,
             title: title,
@@ -86,7 +86,7 @@ const LogItemPage = () => {
             </Box>
 
             <Box sx={{ mt: 7 }}>
-                <UploadImage defaultImageURL={imageURL} setImageURL={setImageURL} />
+                <UploadImage id={id} defaultImageURL={imageURL} setImageURL={setImageURL} />
             </Box>
 
             <Box sx={{ mt: 3 }}>
