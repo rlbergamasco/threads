@@ -9,7 +9,7 @@ const UploadImage = ({ id, message, defaultImageURL, setImageURL }) => {
   const [uploadProgress, setUploadProgress] = useState(undefined);
   const [uploadError, setUploadError] = useState(undefined);
 
-  let m = message ? message : "Upload Outfit Photo!";
+  let m = message ? message : "Upload Photo!";
 
 
   const handleUpload = (event) => {
