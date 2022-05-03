@@ -23,7 +23,7 @@ export const appSlice = createSlice({
             state.isDark = !state.isDark;
         },
         addOutfit: (state, action) => {
-            state.items.append(action.payload);
+            state.outfits = [...state.outfits, action.payload];
         },
         editOutfit: (state, action) => {
             let idx = state.outfits.findIndex(el => el.id === action.payload.id);

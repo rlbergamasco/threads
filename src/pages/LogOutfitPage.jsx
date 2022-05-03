@@ -8,6 +8,7 @@ import { OutfitCard, PhotoAPI, UploadImage } from 'components';
 import { HomePage } from './HomePage';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 const LogOutfitPage = () => {
     const [addingItemsView, setAddingItemsView] = useState(false);
@@ -19,6 +20,7 @@ const LogOutfitPage = () => {
     const allOutfits = useSelector(selectOutfits);
     const hour = unformattedDate.getHours();
     const currentDate = unformattedDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" })
+    let navigate = useNavigate();
 
     const [pickedDate, setPickedDate] = useState(currentDate);
 
@@ -38,6 +40,10 @@ const LogOutfitPage = () => {
     }
 
     const handleSave = () => {
+        if (items.length == 0) {
+            navigate('/home');
+            return;
+        }
         dispatch(addOutfit({
             id: uuidv4(),
             notes: notes,
@@ -46,6 +52,7 @@ const LogOutfitPage = () => {
             date: currentDate
         }
         ));
+        navigate('/home');
     }
 
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
