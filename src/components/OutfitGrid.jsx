@@ -23,7 +23,7 @@ const OutfitGrid = ({ outfits, display }) => {
               <ListItemButton>
                 <ListItemAvatar>
                   <div style={{ width: "100px", height: "100px", overflow: "hidden" }}>
-                    <img src={'/images/' + outfit.imageURL} style={{ height: "100px", width: "100px", objectFit: "cover" }}></img>
+                    <img src={outfit.imageURL} style={{ height: "100px", width: "100px", objectFit: "cover" }}></img>
                   </div>
                 </ListItemAvatar>
                 <Typography variant="h2" sx={{ marginLeft: "1em" }} primary={date}>{date}</Typography>

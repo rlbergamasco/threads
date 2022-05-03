@@ -26,7 +26,7 @@ const ItemGrid = ({ display, items }) => {
             for (let outfit of outfitsSorted) {
               for (let i of outfit.items) {
                 if (i.itemId === item.id) {
-                  imageURL = '/images/' + outfit.imageURL;
+                  imageURL = outfit.imageURL;
                   imageRelY = (i.imageRelativeY * 100).toString();
                   imageRelX = (i.imageRelativeX * 100).toString();
                 }

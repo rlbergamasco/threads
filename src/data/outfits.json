@@ -1,7 +1,7 @@
 [
     {
         "id": "00-outfit",
-        "imageURL": "00-outfit.jpeg",
+        "imageURL": "/images/00-outfit.jpeg",
         "notes": "I love this outfit so much. I got so many compliments.",
         "items": [
             {
@@ -19,7 +19,7 @@
     },
     {
         "id": "01-outfit",
-        "imageURL": "01-outfit.jpeg",
+        "imageURL": "/images/01-outfit.jpeg",
         "notes": "Casual and cute!",
         "items": [
             {
@@ -37,7 +37,7 @@
     },
     {
         "id": "02-outfit",
-        "imageURL": "02-outfit.jpg",
+        "imageURL": "/images/02-outfit.jpg",
         "notes": "Great for dinner out with work friends.",
         "items": [
             {
@@ -60,7 +60,7 @@
     },
     {
         "id": "03-outfit",
-        "imageURL": "03-outfit.jpg",
+        "imageURL": "/images/03-outfit.jpg",
         "notes": "Beachy vibe!",
         "items": [
             {
@@ -73,13 +73,12 @@
                 "imageRelativeX": 0.5,
                 "itemId": "08-item"
             }
-           
         ],
         "date": 1650340324000
     },
     {
         "id": "04-outfit",
-        "imageURL": "04-outfit.jpg",
+        "imageURL": "/images/04-outfit.jpg",
         "notes": "",
         "items": [
             {
@@ -97,13 +96,12 @@
                 "imageRelativeX": 0.5,
                 "itemId": "11-item"
             }
-           
         ],
         "date": 1650253924000
     },
     {
         "id": "05-outfit",
-        "imageURL": "05-outfit.jpg",
+        "imageURL": "/images/05-outfit.jpg",
         "notes": "",
         "items": [
             {
@@ -116,13 +114,12 @@
                 "imageRelativeX": 0.5,
                 "itemId": "12-item"
             }
-           
         ],
         "date": 1650081124000
     },
     {
         "id": "06-outfit",
-        "imageURL": "06-outfit.jpg",
+        "imageURL": "/images/06-outfit.jpg",
         "notes": "",
         "items": [
             {
@@ -135,13 +132,12 @@
                 "imageRelativeX": 0.5,
                 "itemId": "14-item"
             }
-           
         ],
         "date": 1649994724000
     },
     {
         "id": "07-outfit",
-        "imageURL": "07-outfit.jpg",
+        "imageURL": "/images/07-outfit.jpg",
         "notes": "",
         "items": [
             {
@@ -159,13 +155,12 @@
                 "imageRelativeX": 0.5,
                 "itemId": "17-item"
             }
-           
         ],
         "date": 1649908324000
     },
     {
         "id": "02-outfit",
-        "imageURL": "02-outfit.jpg",
+        "imageURL": "/images/02-outfit.jpg",
         "notes": "Great for dinner out with work friends.",
         "items": [
             {

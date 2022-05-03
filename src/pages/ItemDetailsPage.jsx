@@ -56,7 +56,7 @@ const ItemDetailsPage = () => {
                 }}
             >
                 <div style={{ width: "300px", height: "300px", overflow: "hidden" }}>
-                    <img style={{ margin: "0 0 0 -30%", width: "150%", height: "300px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }} src={`/images/${imageURL}`}></img>
+                    <img style={{ margin: "0 0 0 -30%", width: "150%", height: "300px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }} src={imageURL === "" ? item.imageURL : imageURL}></img>
                 </div>
             </Box>
             <Typography variant="h2">{item.name}</Typography>

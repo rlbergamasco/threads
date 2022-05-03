@@ -90,7 +90,7 @@ const HomeOutfitCard = ({ outfit }) => {
     return (
         <Box sx={{ width: '100%', mt: 1 }}>
             {/* <a> */}
-            <img src={`/images/${outfit.imageURL}`} style={{ width: '100%' }} />
+            <img src={outfit.imageURL} style={{ width: '100%' }} />
             {/* </a> */}
         </Box>
     );

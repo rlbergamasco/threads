@@ -33,7 +33,7 @@ const OutfitDetailsPage = () => {
                     mt: 6
                 }}
                 alt="The house from the offer."
-                src={`/images/${outfit.imageURL}`}
+                src={outfit.imageURL}
             />
             <ItemList outfit={outfit} />
             <TagList outfit={outfit} />

@@ -53,7 +53,7 @@ const OutfitEditPage = () => {
                     objectFit: "cover"
                 }}
                 alt="The house from the offer."
-                src={`/images/${outfit.imageURL}`}
+                src={outfit.imageURL}
             /> */}
             <Box sx={{ mt: 6 }}>
                 <UploadImage message="Replace outfit photo" defaultImageURL={imageURL}></UploadImage>
@@ -86,7 +86,7 @@ const OutfitEditPage = () => {
                                 <ListItemButton>
                                     <ListItemAvatar>
                                         <div style={{ width: "50px", height: "50px", overflow: "hidden" }}>
-                                            <img src={'/images/' + outfit.imageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
+                                            <img src={outfit.imageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
                                         </div>
                                     </ListItemAvatar>
                                     <ListItemText id={itemName} primary={itemName} />

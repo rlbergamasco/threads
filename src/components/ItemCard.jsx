@@ -18,7 +18,7 @@ const ItemCard = (props) => {
     for (let outfit of outfitsSorted) {
       for (let item of outfit.items) {
         if (item.itemId === id) {
-          imageURL = '/images/' + outfit.imageURL;
+          imageURL = outfit.imageURL;
           imageRelY = (item.imageRelativeY * 100).toString();
           imageRelX = (item.imageRelativeX * 100).toString();
         }
