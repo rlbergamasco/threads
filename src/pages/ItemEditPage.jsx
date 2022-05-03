@@ -36,7 +36,8 @@ const ItemEditPage = () => {
             }
         }
     } else {
-        imageURL = item.imageURL;
+        // imageURL = item.imageURL;
+        setImageURL(item.imageURL)
     }
 
     const dispatch = useDispatch();

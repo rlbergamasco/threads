@@ -99,7 +99,8 @@ const LogOutfitPage = () => {
                             const itemName = allItems.filter((testItem) => testItem.id == item.itemId)[0].name;
                             let outfitsSorted = [...allOutfits].sort((a, b) => b.date - a.date);
 
-                            const itemImageURL = outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.itemId))[0].imageURL;
+                            const individualItemImageURL = allItems.find(i => i.id == item.itemId) ? (allItems.find(i => i.id == item.itemId).imageURL ? allItems.find(i => i.id == item.itemId).imageURL : (outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.itemId))[0] ? outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.itemId))[0].imageURL : '')) : imageURL
+                            // const itemImageURL = outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.itemId))[0] ? outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.itemId))[0].imageURL : '';
                             return (
                                 <ListItem
                                     key={itemName}
@@ -120,7 +121,7 @@ const LogOutfitPage = () => {
                                     <ListItemButton>
                                         <ListItemAvatar>
                                             <div style={{ width: "50px", height: "50px", overflow: "hidden" }}>
-                                                <img src={itemImageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
+                                                <img src={individualItemImageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
                                             </div>
                                         </ListItemAvatar>
                                         <ListItemText id={itemName} primary={itemName} />
