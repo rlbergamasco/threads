@@ -5,6 +5,7 @@ import { Nav } from 'components';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsDark, selectSelected, changeSelected } from "appSlice";
 import { ROUTES } from 'routes';
+import {FindItemPage} from 'pages'
 
 const App = () => {
   const isDark = useSelector(selectIsDark);

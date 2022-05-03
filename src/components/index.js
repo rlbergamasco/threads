@@ -12,3 +12,4 @@ export { DateList } from './DateList';
 export { OutfitList } from './OutfitList';
 export { Share } from './Share';
 export { UploadImage } from './UploadImage';
+export { FindItemList } from './FindItemList';

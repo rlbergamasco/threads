@@ -57,6 +57,10 @@ const ROUTES = [
         path: '/editItem/:id',
         element: <ItemEditPage />
     },
+    {
+        path: '/editOutfit/findItem/:id',
+        element: <FindItemPage />,
+    },
 ];
 
 export { ROUTES };
