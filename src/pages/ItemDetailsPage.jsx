@@ -5,9 +5,10 @@ import { Routes, Route, useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { selectItems, selectOutfits } from "appSlice";
 import { ItemList, TagList, DateList, OutfitList } from 'components'
+import { useNavigate } from "react-router-dom";
 
 const ItemDetailsPage = () => {
-
+    let navigate = useNavigate();
     let params = useParams();
     const id = params.id;
     const items = useSelector(selectItems);
@@ -34,14 +35,10 @@ const ItemDetailsPage = () => {
     }
 
 
-
-
-
-
     return (
         <Box sx={{ width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
             <Box sx={{ position: 'fixed', top: 0, left: 0, zIndex: 10, p: 3, pb: 2, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.paper' }}>
-                <Link href="/closet" underline="none">
+                <Link onClick={() => navigate(-1)} underline="none">
                     Back
                 </Link>
                 <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Item Details</Typography>
