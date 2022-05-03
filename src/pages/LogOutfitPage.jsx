@@ -49,7 +49,7 @@ const LogOutfitPage = () => {
             notes: notes,
             imageURL: imageURL,
             items: items,
-            date: new Date(datePickerFormat).getTime()
+            date: new Date(pickedDate).getTime()
         }
         ));
         navigate('/home');
@@ -75,7 +75,9 @@ const LogOutfitPage = () => {
                         type="date"
                         sx={{ width: '100%' }}
                         value={pickedDate}
-                        onChange={(event) => setPickedDate(event.target.value)}
+                        onChange={(event) => {
+                            setPickedDate(event.target.value)
+                        }}
                     />
                 </Box>
 
