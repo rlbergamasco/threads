@@ -45,8 +45,8 @@ const FindItemList = ({ items, handleAddItem }) => {
           >
             <ListItemButton id={item.id}>
               <ListItemAvatar id={item.id}>
-                <div style={{ width: "100px", height: "100px", overflow: "hidden" }}>
-                  <img src={imageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "100px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
+                <div id={item.id} style={{ width: "100px", height: "100px", overflow: "hidden" }}>
+                  <img id={item.id} src={imageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "100px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
                 </div>
               </ListItemAvatar>
               <Typography id={item.id} variant="h2" sx={{ marginLeft: "1em" }}>{itemName}</Typography>
