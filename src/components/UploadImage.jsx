@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Typography, Button, Box } from '@mui/material';
 import PropTypes from 'prop-types';
 import { storage } from '../firebase.js'
-import "firebase/storage"
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 
 const UploadImage = ({ id, message, defaultImageURL, setImageURL }) => {
   const [localURL, setLocalURL] = useState(defaultImageURL || defaultImageURL === '' ? defaultImageURL : null);
@@ -16,7 +16,7 @@ const UploadImage = ({ id, message, defaultImageURL, setImageURL }) => {
     const image = event.target.files[0];
     // setSelectedImage(event.target);
 
-    const uploadTask = storage.ref(`/images/${id}`).put(image)
+    const uploadTask = uploadBytesResumable(ref(storage, `/images/${id}`), image)
 
     uploadTask.on('state_changed',
       (snapshot) => {
@@ -25,7 +25,7 @@ const UploadImage = ({ id, message, defaultImageURL, setImageURL }) => {
       }, (error) => {
         setUploadError(error)
       }, () => {
-        uploadTask.snapshot.ref.getDownloadURL()
+        getDownloadURL(uploadTask.snapshot.ref)
           .then(downloadURL => {
             console.log(downloadURL)
             setLocalURL(downloadURL)
