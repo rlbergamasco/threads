@@ -52,100 +52,100 @@ const LogOutfitPage = () => {
     // console.log(unformattedDate.getTime())
     console.log(addingItemsView)
     if (!addingItemsView) {
-    return (
-        <Box>
-            <Box sx={{ position: 'fixed', width: '100vw', zIndex: 10, top: 0, left: 0, bgcolor: 'background.paper' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
-                    <Typography variant="h1">Log an Outfit</Typography>
-                </Box>
-            </Box>
-
-            <Box sx={{ mt: 7 }}>
-                <Typography variant="h2">Date: {currentDate}</Typography>
-            </Box>
-
-            <Box sx={{ mt: 3 }}>
-                <Typography variant="h2" sx={{ pb: 1 }}>Date</Typography>
-                <TextField
-                    id="date"
-                    label=""
-                    type="date"
-                    sx={{ width: '100%' }}
-                    value={pickedDate}
-                    onChange={(event) => setPickedDate(event.target.value)}
-                />
-            </Box>
-            <UploadImage></UploadImage>
-
-            <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5, }}>
-                <Typography variant="h2">Clothing Items</Typography>
-                <Box sx={{ flexGrow: 1 }} />
-            </Box>
-
-            {items.length==0 && 
-            ( <Box sx={{ mt: 3 }}>
-                <Typography align="center" sx={{ py: 1 }}>Looks like you haven’t added an item yet!</Typography>
-            </Box>)}
-
-            {items && (
-                <List>
-                    {items.map((item) => {
-                        const imageRelY = (item.imageRelativeY * 100).toString();
-                        const imageRelX = (item.imageRelativeX * 100).toString();
-                        const itemName = allItems.filter((testItem) => testItem.id == item.itemId)[0].name;
-                        let outfitsSorted = [...allOutfits].sort((a, b) => b.date - a.date);
-
-                        const itemImageURL = outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.itemId))[0].imageURL;
-                        return (
-                            <ListItem
-                                key={itemName}
-                                disablePadding
-                                button
-                                component={Link}
-                                to={''}
-                                secondaryAction={
-                                    <IconButton onClick={() => {
-                                        let updatedItems = items.filter((i) => i.itemId != item.itemId);
-                                        setItems(updatedItems);
-        
-                                    }} color="primary" edge="end" aria-label="delete">
-                                      <DeleteIcon  />
-                                    </IconButton>
-                                  }
-                            >
-                                <ListItemButton>
-                                    <ListItemAvatar>
-                                        <div style={{ width: "50px", height: "50px", overflow: "hidden" }}>
-                                            <img src={'/images/' + itemImageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
-                                        </div>
-                                    </ListItemAvatar>
-                                    <ListItemText id={itemName} primary={itemName} />
-                                </ListItemButton>
-                            </ListItem>
-                        )
-                    })}
-                </List>
-
-            )}
+        return (
             <Box>
-                <Button onClick={() => setAddingItemsView(true)}  variant="contained" sx={{ textTransform: 'capitalize', width: "100%", mt: 1 }}><Add fontSize="small" />Add Item</Button>
+                <Box sx={{ position: 'fixed', width: '100vw', zIndex: 10, top: 0, left: 0, bgcolor: 'background.paper' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
+                        <Typography variant="h1">Log an Outfit</Typography>
+                    </Box>
+                </Box>
+
+                <Box sx={{ mt: 7 }}>
+                    <Typography variant="h2">Date: {currentDate}</Typography>
+                </Box>
+
+                <Box sx={{ mt: 3 }}>
+                    <Typography variant="h2" sx={{ pb: 1 }}>Date</Typography>
+                    <TextField
+                        id="date"
+                        label=""
+                        type="date"
+                        sx={{ width: '100%' }}
+                        value={pickedDate}
+                        onChange={(event) => setPickedDate(event.target.value)}
+                    />
+                </Box>
+                <UploadImage></UploadImage>
+
+                <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5, }}>
+                    <Typography variant="h2">Clothing Items</Typography>
+                    <Box sx={{ flexGrow: 1 }} />
+                </Box>
+
+                {items.length == 0 &&
+                    (<Box sx={{ mt: 3 }}>
+                        <Typography align="center" sx={{ py: 1 }}>Looks like you haven’t added an item yet!</Typography>
+                    </Box>)}
+
+                {items && (
+                    <List>
+                        {items.map((item) => {
+                            const imageRelY = (item.imageRelativeY * 100).toString();
+                            const imageRelX = (item.imageRelativeX * 100).toString();
+                            const itemName = allItems.filter((testItem) => testItem.id == item.itemId)[0].name;
+                            let outfitsSorted = [...allOutfits].sort((a, b) => b.date - a.date);
+
+                            const itemImageURL = outfitsSorted.filter((outfit) => outfit.items.some((i) => i.itemId == item.itemId))[0].imageURL;
+                            return (
+                                <ListItem
+                                    key={itemName}
+                                    disablePadding
+                                    button
+                                    component={Link}
+                                    to={''}
+                                    secondaryAction={
+                                        <IconButton onClick={() => {
+                                            let updatedItems = items.filter((i) => i.itemId != item.itemId);
+                                            setItems(updatedItems);
+
+                                        }} color="primary" edge="end" aria-label="delete">
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    }
+                                >
+                                    <ListItemButton>
+                                        <ListItemAvatar>
+                                            <div style={{ width: "50px", height: "50px", overflow: "hidden" }}>
+                                                <img src={itemImageURL} style={{ margin: "0 0 0 -30%", width: "150%", height: "50px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }}></img>
+                                            </div>
+                                        </ListItemAvatar>
+                                        <ListItemText id={itemName} primary={itemName} />
+                                    </ListItemButton>
+                                </ListItem>
+                            )
+                        })}
+                    </List>
+
+                )}
+                <Box>
+                    <Button onClick={() => setAddingItemsView(true)} variant="contained" sx={{ textTransform: 'capitalize', width: "100%", mt: 1 }}><Add fontSize="small" />Add Item</Button>
+                </Box>
+
+                <Box sx={{ mt: 5 }}>
+                    <Typography variant="h2">Notes</Typography>
+                </Box>
+
+                <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 7 }} />
+
+                <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Button onClick={handleSave} variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
+                </Box>
+
             </Box>
-
-            <Box sx={{ mt: 5 }}>
-                <Typography variant="h2">Notes</Typography>
-            </Box>
-
-            <TextField label="" value={notes} onChange={(event) => setNotes(event.target.value)} sx={{ width: '100%', mt: 1, mb: 7 }} />
-
-            <Box sx={{ position: 'fixed', bottom: 70, left: 0, bgcolor: 'background.paper', width: '100vw', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button onClick={handleSave} variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
-            </Box>
-
-        </Box>
-    )
+        )
     } else {
         return (
-        <FindItemPage setAddingItemsView={setAddingItemsView} outfitItems={items} setItems={setItems}/>
+            <FindItemPage setAddingItemsView={setAddingItemsView} outfitItems={items} setItems={setItems} />
         )
     }
 };
