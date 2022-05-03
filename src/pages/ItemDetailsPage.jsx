@@ -30,6 +30,8 @@ const ItemDetailsPage = () => {
                 }
             }
         }
+    } else {
+        imageURL = item.imageURL;
     }
 
 
