@@ -13,17 +13,19 @@ const ItemCard = (props) => {
   let imageRelY = "";
 
   // Getting imageURL for outfit if not supplied
-  if (!item.imageURL) {
+  if (!item.imageURL || item.imageURL === "") {
     let outfitsSorted = [...outfits].sort((a, b) => b.date - a.date);
     for (let outfit of outfitsSorted) {
       for (let item of outfit.items) {
         if (item.itemId === id) {
-          imageURL = outfit.imageURL;
+          imageURL = '/images/' + outfit.imageURL;
           imageRelY = (item.imageRelativeY * 100).toString();
           imageRelX = (item.imageRelativeX * 100).toString();
         }
       }
     }
+  } else {
+    imageURL = item.imageURL;
   }
 
   return (
@@ -34,7 +36,7 @@ const ItemCard = (props) => {
           alt={name}
         >
           <div style={{ width: "170px", height: "170px", overflow: "hidden" }}>
-            <img style={{ margin: "0 0 0 -30%", width: "150%", height: "170px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }} src={'/images/' + imageURL}></img>
+            <img style={{ margin: "0 0 0 -30%", width: "150%", height: "170px", objectFit: "cover", objectPosition: `${imageRelX}% ${imageRelY}%` }} src={imageURL}></img>
           </div>
         </CardMedia>
         <CardContent sx={{ p: 0, pt: 1, pb: 2 }}>

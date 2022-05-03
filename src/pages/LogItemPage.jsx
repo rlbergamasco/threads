@@ -35,6 +35,7 @@ const LogItemPage = () => {
     const currentTags = useSelector(selectTags);
     const [name, setName] = useState('');
     const [notes, setNotes] = useState('');
+    const [imageURL, setImageURL] = useState('');
     let tagIds = [];
 
     const findNewTags = () => {
@@ -59,7 +60,8 @@ const LogItemPage = () => {
         dateAdded: new Date().getTime(),
         notes: notes,
         name: name,
-        tagIds: tagIds
+        tagIds: tagIds,
+        imageURL: imageURL
     };
 
     function sleep(ms) {
@@ -84,7 +86,7 @@ const LogItemPage = () => {
             </Box>
 
             <Box sx={{ mt: 7 }}>
-                <UploadImage></UploadImage>
+                <UploadImage defaultImageURL={imageURL} setImageURL={setImageURL} />
             </Box>
 
             <Box sx={{ mt: 3 }}>

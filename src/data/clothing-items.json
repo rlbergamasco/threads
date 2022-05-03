@@ -9,7 +9,8 @@
             "00-occasion",
             "01-occasion",
             "00-weather"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "01-item",
@@ -21,7 +22,8 @@
             "00-occasion",
             "01-occasion",
             "01-weather"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "02-item",
@@ -33,7 +35,8 @@
             "00-occasion",
             "01-occasion",
             "01-weather"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "03-item",
@@ -45,7 +48,8 @@
             "00-occasion",
             "01-occasion",
             "01-weather"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "04-item",
@@ -55,7 +59,8 @@
         "tagIds": [
             "01-color",
             "01-weather"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "05-item",
@@ -67,7 +72,8 @@
             "02-occasion",
             "01-weather",
             "00-type"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "06-item",
@@ -79,7 +85,8 @@
             "00-occasion",
             "02-occasion",
             "01-type"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "07-item",
@@ -90,7 +97,8 @@
             "01-occasion",
             "00-type",
             "05-color"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "08-item",
@@ -101,7 +109,8 @@
             "00-color",
             "01-occasion",
             "03-type"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "09-item",
@@ -112,7 +121,8 @@
             "00-color",
             "00-occasion",
             "00-type"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "10-item",
@@ -123,7 +133,8 @@
             "00-color",
             "00-occasion",
             "00-type"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "11-item",
@@ -134,7 +145,8 @@
             "06-color",
             "00-occasion",
             "01-type"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "12-item",
@@ -146,7 +158,8 @@
             "00-occasion",
             "02-occasion",
             "01-type"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "13-item",
@@ -159,7 +172,8 @@
             "00-type",
             "00-weather",
             "03-occasion"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "14-item",
@@ -171,7 +185,8 @@
             "03-type",
             "00-weather",
             "03-occasion"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "15-item",
@@ -182,7 +197,8 @@
             "01-occasion",
             "00-type",
             "01-weather"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "16-item",
@@ -193,7 +209,8 @@
             "01-occasion",
             "00-type",
             "00-color"
-        ]
+        ],
+        "imageURL": ""
     },
     {
         "id": "17-item",
@@ -203,6 +220,7 @@
         "tagIds": [
             "01-occasion",
             "03-type"
-        ]
+        ],
+        "imageURL": ""
     }
 ]
