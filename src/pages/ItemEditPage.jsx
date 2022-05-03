@@ -1,7 +1,7 @@
 import { Typography, Box, Link, Paper, List, ListSubheader, ListItem, Button, TextField } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
 import { useState } from 'react';
-
+import { useNavigate } from "react-router-dom";
 import { OutfitGrid } from 'components';
 import { Routes, Route, useParams } from "react-router-dom";
 import { selectItems, selectOutfits, selectTags, addTag, addItem, editItem } from "appSlice";
@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from "uuid";
 
 const ItemEditPage = () => {
+    let navigate = useNavigate();
 
     let params = useParams();
     const id = params.id;
@@ -77,21 +78,19 @@ const ItemEditPage = () => {
     }
 
     const addNewTagToRedux = (title, category) => {
+        const id = uuidv4();
         const newTag = {
-            id: uuidv4(),
-            // CHANGE ID NUMBER
+            id: id,
             title: title,
             category: category
         };
+        tagIds.push(id);
         dispatch(addTag(newTag));
     }
 
-    const newItem = {
-        id: uuidv4(),
-        notes: notes,
-        name: name,
-        tagIds: tagIds
-    };
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     const handleSave = () => {
         findNewTags();
@@ -104,11 +103,9 @@ const ItemEditPage = () => {
             tagIds: tagIds
         }
         ));
+        sleep(1000).then(() => { navigate(`/items/${item.id}`) });
         console.log(tagIds)
     }
-
-
-
 
 
     return (
@@ -118,7 +115,7 @@ const ItemEditPage = () => {
                     Cancel
                 </Link>
                 <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>Item Details</Typography>
-                <Link onClick={handleSave} href={`/items/${item.id}`} underline="none">
+                <Link onClick={handleSave} underline="none">
                     Save
                 </Link>
             </Box>

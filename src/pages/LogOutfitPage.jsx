@@ -9,19 +9,6 @@ const LogOutfitPage = () => {
     const hour = unformattedDate.getHours();
     const [pickedDate, setPickedDate] = useState(currentDate);
 
-    let timeOfDay = "Morning"
-    switch (true) {
-        case (hour < 12):
-            timeOfDay = "Morning"
-            break;
-        case (hour < 16):
-            timeOfDay = "Afternoon"
-            break;
-        default:
-            timeOfDay = "Evening"
-            break;
-    }
-
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
     // console.log(unformattedDate.getTime())
 
