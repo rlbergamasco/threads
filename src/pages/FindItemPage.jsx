@@ -24,7 +24,6 @@ const FindItemPage = ({setItems, outfitItems, setAddingItemsView}) => {
         setAddingItemsView(false);
         return
     }
-    console.log("in item page")
 
     return (
         <Box>
@@ -32,7 +31,7 @@ const FindItemPage = ({setItems, outfitItems, setAddingItemsView}) => {
                 <Box sx={{ display: 'flex', alignItems: 'center', p: 3, pb: 2 }}>
                     <Typography variant="h1">Find an Item</Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Link href="javascript:history.back()" underline="none">Back</Link>
+                    <Link onClick={() => setAddingItemsView(false)} underline="none">Back</Link>
                 </Box>
             </Box>
 

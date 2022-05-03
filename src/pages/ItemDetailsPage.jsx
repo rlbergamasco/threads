@@ -13,7 +13,7 @@ const ItemDetailsPage = () => {
     let outfits = useSelector(selectOutfits);
 
     let item = items.filter((i) => i.id == id)[0]
-    // console.log(item);
+    console.log(item);
     let imageURL = "";
     let imageRelX = "";
     let imageRelY = "";
