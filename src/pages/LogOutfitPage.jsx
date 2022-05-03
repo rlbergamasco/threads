@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectOutfits, selectItems, addOutfit } from "appSlice";
 import { Add, AddAPhoto } from '@mui/icons-material';
 import { OutfitCard, PhotoAPI, UploadImage } from 'components';
-import { HomePage } from './HomePage';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
@@ -50,7 +49,7 @@ const LogOutfitPage = () => {
             notes: notes,
             imageURL: imageURL,
             items: items,
-            date: currentDate
+            date: new Date(pickedDate).getTime() + 86400000
         }
         ));
         navigate('/home');
@@ -68,11 +67,7 @@ const LogOutfitPage = () => {
                     </Box>
                 </Box>
 
-                <Box sx={{ mt: 7 }}>
-                    <Typography variant="h2">Date: {currentDate}</Typography>
-                </Box>
-
-                <Box sx={{ my: 3 }}>
+                <Box sx={{ mt: 7, mb: 3 }}>
                     <Typography variant="h2" sx={{ pb: 1 }}>Date</Typography>
                     <TextField
                         id="date"
@@ -80,7 +75,9 @@ const LogOutfitPage = () => {
                         type="date"
                         sx={{ width: '100%' }}
                         value={pickedDate}
-                        onChange={(event) => setPickedDate(event.target.value)}
+                        onChange={(event) => {
+                            setPickedDate(event.target.value)
+                        }}
                     />
                 </Box>
 
