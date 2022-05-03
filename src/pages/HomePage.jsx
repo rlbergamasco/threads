@@ -3,12 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 import { Add } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
-import { selectOutfits } from "appSlice";
+import { selectOutfits, selectItems, selectTags } from "appSlice";
 import { useState } from 'react';
 import fetchWeather from '../data/weather'
+import { getHomepageStats } from 'statsAndThings';
 
 const HomePage = () => {
     const outfits = useSelector(selectOutfits);
+    const items = useSelector(selectItems);
+    const tags = useSelector(selectTags);
 
     const unformattedDate = new Date()
     const currentDate = unformattedDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" })
@@ -28,7 +31,6 @@ const HomePage = () => {
 
     const todayDateLong = unformattedDate.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
     const todayOutfits = outfits.filter(outfit => new Date(outfit.date).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" }) === todayDateLong);
-    // console.log(unformattedDate.getTime())
 
     const [temperature, setTemperature] = useState(undefined);
     const [weatherIcon, setWeatherIcon] = useState(undefined);
@@ -43,6 +45,8 @@ const HomePage = () => {
                 setWeatherIcon(weatherData.icon);
             })
     })
+
+    const stats = getHomepageStats(items, outfits, tags);
 
     return (
         <Box>
@@ -69,7 +73,15 @@ const HomePage = () => {
                     <Button href="/log" variant="contained" sx={{ textTransform: 'capitalize', width: "100%", mt: 1 }}><Add fontSize="small" />Log Another Outfit</Button>
                 </Box>
             }
-            {/* <Typography variant="h2" sx={{ pt: 2 }}>Outfit suggestions based on weather</Typography> */}
+
+            <Typography variant="h2" sx={{ pt: 2 }}>Clothing Type Statistics</Typography>
+
+            {stats.clothingTypeStats.map(clothingTypeStats =>
+                <Box sx={{ my: 2 }} key={clothingTypeStats.clothingType}>
+                    <Typography>Most worn {clothingTypeStats.clothingType}: {clothingTypeStats.mostWornInfo.item.name}</Typography>
+                    <Typography>Least worn {clothingTypeStats.clothingType}: {clothingTypeStats.leastWornInfo.item.name}</Typography>
+                </Box>
+            )}
         </Box >
     );
 };
