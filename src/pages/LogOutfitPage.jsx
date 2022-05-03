@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Typography, Box, Button, TextField } from '@mui/material';
 import { AddAPhoto } from '@mui/icons-material';
 import { OutfitCard, PhotoAPI, UploadImage } from 'components';
 
 const LogOutfitPage = () => {
     const unformattedDate = new Date()
-    const currentDate = unformattedDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" })
+    const currentDate = unformattedDate.toISOString().split("T")[0];
     const hour = unformattedDate.getHours();
+    const [pickedDate, setPickedDate] = useState(currentDate);
+
     let timeOfDay = "Morning"
     switch (true) {
         case (hour < 12):
@@ -31,11 +34,19 @@ const LogOutfitPage = () => {
             </Box>
 
             <Box sx={{ mt: 7 }}>
-                <Typography variant="h2">Date: {currentDate}</Typography>
+                <UploadImage></UploadImage>
             </Box>
 
             <Box sx={{ mt: 3 }}>
-                <UploadImage></UploadImage>
+                <Typography variant="h2" sx={{ pb: 1 }}>Date {pickedDate}</Typography>
+                <TextField
+                    id="date"
+                    label=""
+                    type="date"
+                    sx={{ width: '100%' }}
+                    value={pickedDate}
+                    onChange={(event) => setPickedDate(event.target.value)}
+                />
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', pb: 2, mt: 5, }}>
@@ -58,7 +69,7 @@ const LogOutfitPage = () => {
                 <Button href="/home" variant="contained" sx={{ textTransform: 'capitalize', width: '90vw' }}>Save</Button>
             </Box>
 
-        </Box>
+        </Box >
     );
 };
 
