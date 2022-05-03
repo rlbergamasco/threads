@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Typography, Button, Box} from '@mui/material';
-import { AddAPhoto } from '@mui/icons-material';
 
 const UploadImage = ({ message, defaultImageURL }) => {
   const [selectedImage, setSelectedImage] = useState(defaultImageURL ? defaultImageURL : null);
