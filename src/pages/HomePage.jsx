@@ -1,4 +1,5 @@
-import { Typography, Box, Button } from '@mui/material';
+import { Typography, Box, Button, Grid } from '@mui/material';
+import { ItemCard } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 import { Add } from '@mui/icons-material';
@@ -74,12 +75,20 @@ const HomePage = () => {
                 </Box>
             }
 
-            <Typography variant="h2" sx={{ pt: 2 }}>Clothing Type Statistics</Typography>
+            <Typography variant="h2" sx={{ pt: 2 }}>Clothing Type Stats</Typography>
 
-            {stats.clothingTypeStats.map(clothingTypeStats =>
+            {stats.clothingTypeStats.map((clothingTypeStats, i) =>
                 <Box sx={{ my: 2 }} key={clothingTypeStats.clothingType}>
-                    <Typography>Most worn {clothingTypeStats.clothingType}: {clothingTypeStats.mostWornInfo.item.name}</Typography>
-                    <Typography>Least worn {clothingTypeStats.clothingType}: {clothingTypeStats.leastWornInfo.item.name}</Typography>
+                    <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 2, md: 3 }}>
+                        <Grid item key={i} xs={6} >
+                            <Typography variant="h2" align="center" sx={{ pb: 1 }}>Most worn {clothingTypeStats.clothingType}</Typography>
+                            <ItemCard textVariant="body1" item={clothingTypeStats.mostWornInfo.item} />
+                        </Grid>
+                        <Grid item key={i * (-1) - 1} xs={6} >
+                            <Typography variant="h2" align="center" sx={{ pb: 1 }}>Lease worn {clothingTypeStats.clothingType}</Typography>
+                            <ItemCard textVariant="body1" item={clothingTypeStats.leastWornInfo.item} />
+                        </Grid>
+                    </Grid>
                 </Box>
             )}
         </Box >

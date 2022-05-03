@@ -2,9 +2,11 @@ import React from 'react';
 import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectOutfits } from "appSlice";
+import PropTypes from 'prop-types';
 
 const ItemCard = (props) => {
   let item = props.item;
+  let textVariant = props.textVariant;
   let id = item.id;
   let name = item.name;
   let outfits = useSelector(selectOutfits);
@@ -40,7 +42,7 @@ const ItemCard = (props) => {
           </div>
         </CardMedia>
         <CardContent sx={{ p: 0, pt: 1, pb: 2 }}>
-          <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }} component="div">
+          <Typography variant={textVariant} gutterBottom sx={{ textAlign: 'center' }} component="div">
             {name}
           </Typography>
         </CardContent>
@@ -48,5 +50,13 @@ const ItemCard = (props) => {
     </Card>
   )
 }
+
+ItemCard.propTypes = {
+  textVariant: PropTypes.string
+};
+
+ItemCard.defaultProps = {
+  textVariant: 'h2'
+};
 
 export { ItemCard };
