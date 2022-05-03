@@ -31,6 +31,8 @@ const FindItemList = ({ items, handleAddItem }) => {
               }
             }
           }
+        } else {
+          imageURL = item.imageURL
         }
 
         return (
